@@ -1,0 +1,8 @@
+{{- $icp := site.Params.icp -}}
+{{- if and $icp $icp.number -}}
+<div class="footer">
+  <span>
+    <a href="{{ $icp.link | default "https://beian.miit.gov.cn/" }}" rel="noopener noreferrer" target="_blank">{{ $icp.number }}</a>
+  </span>
+</div>
+{{- end -}}
