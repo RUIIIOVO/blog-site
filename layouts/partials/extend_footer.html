@@ -1,5 +1,7 @@
 {{- $icp := site.Params.icp -}}
-{{- if and $icp $icp.number -}}
+{{- $baseURL := lower site.BaseURL -}}
+{{- $showICP := and $icp $icp.number (in $baseURL "rqbaby.cloud") -}}
+{{- if $showICP -}}
 <div class="footer">
   <span>
     <a href="{{ $icp.link | default "https://beian.miit.gov.cn/" }}" rel="noopener noreferrer" target="_blank">{{ $icp.number }}</a>

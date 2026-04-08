@@ -36,10 +36,6 @@ category = "categories"
 env = "production"
 description = "个人博客模板"
 author = "Rui"
-  [params.icp]
-  number = "浙ICP备2026020496号-1"
-  link = "https://beian.miit.gov.cn/"
-
 defaultTheme = "auto"
 ShowReadingTime = true
 ShowCodeCopyButtons = true
@@ -50,6 +46,10 @@ TocOpen = true
 comments = true
 disableSpecial1stPost = true
 mainSections = ["posts"]
+
+  [params.icp]
+  number = "浙ICP备2026020496号-1"
+  link = "https://beian.miit.gov.cn/"
 
   [params.assets]
   disableHLJS = true
