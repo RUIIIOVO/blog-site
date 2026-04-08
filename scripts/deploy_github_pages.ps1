@@ -168,6 +168,10 @@ Push-Location $resolvedOutputDir
 try {
     & git init
     & git checkout -B $PagesBranch
+    # Keep build artifacts byte-identical to what Hugo hashed for SRI.
+    # If autocrlf rewrites line endings on commit, CSS/JS integrity hashes break.
+    & git config core.autocrlf false
+    & git config core.eol lf
     & git config user.name $GitUserName
     & git config user.email $GitUserEmail
     & git add -A

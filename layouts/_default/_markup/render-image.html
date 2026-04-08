@@ -1,0 +1,11 @@
+{{- $dest := .Destination -}}
+{{- $isRemote := or (hasPrefix $dest "http://") (hasPrefix $dest "https://") -}}
+{{- $isProtocolRelative := hasPrefix $dest "//" -}}
+{{- $isDataUri := hasPrefix $dest "data:" -}}
+{{- $final := $dest -}}
+
+{{- if and (not $isRemote) (not $isProtocolRelative) (not $isDataUri) (hasPrefix $dest "/uploads/") -}}
+  {{- $final = (strings.TrimPrefix "/" $dest) | relURL -}}
+{{- end -}}
+
+<img loading="lazy" src="{{ $final | safeURL }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }}>
