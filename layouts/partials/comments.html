@@ -1,0 +1,34 @@
+{{- $repo := or .Site.Params.giscus.repo (getenv "GISCUS_REPO") -}}
+{{- $repoID := or .Site.Params.giscus.repoID (getenv "GISCUS_REPO_ID") -}}
+{{- $category := or .Site.Params.giscus.category (getenv "GISCUS_CATEGORY") -}}
+{{- $categoryID := or .Site.Params.giscus.categoryID (getenv "GISCUS_CATEGORY_ID") -}}
+{{- $mapping := or .Site.Params.giscus.mapping (getenv "GISCUS_MAPPING") -}}
+{{- $strict := or .Site.Params.giscus.strict (getenv "GISCUS_STRICT") -}}
+{{- $reactionsEnabled := or .Site.Params.giscus.reactionsEnabled (getenv "GISCUS_REACTIONS_ENABLED") -}}
+{{- $emitMetadata := or .Site.Params.giscus.emitMetadata (getenv "GISCUS_EMIT_METADATA") -}}
+{{- $inputPosition := or .Site.Params.giscus.inputPosition (getenv "GISCUS_INPUT_POSITION") -}}
+{{- $lang := or .Site.Params.giscus.lang (getenv "GISCUS_LANG") -}}
+{{- $loading := or .Site.Params.giscus.loading (getenv "GISCUS_LOADING") -}}
+{{- $enabledByParam := .Site.Params.giscus.enabled -}}
+{{- $enabledByEnv := getenv "GISCUS_ENABLED" -}}
+{{- $enabled := or $enabledByParam (eq (lower $enabledByEnv) "true") -}}
+{{- if and .Site.Params.comments $enabled $repo $repoID $categoryID -}}
+<div class="comments">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="{{ $repo }}"
+    data-repo-id="{{ $repoID }}"
+    data-category="{{ $category }}"
+    data-category-id="{{ $categoryID }}"
+    data-mapping="{{ default "pathname" $mapping }}"
+    data-strict="{{ default "0" $strict }}"
+    data-reactions-enabled="{{ default "1" $reactionsEnabled }}"
+    data-emit-metadata="{{ default "0" $emitMetadata }}"
+    data-input-position="{{ default "top" $inputPosition }}"
+    data-lang="{{ default "zh-CN" $lang }}"
+    data-loading="{{ default "lazy" $loading }}"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+{{- end -}}

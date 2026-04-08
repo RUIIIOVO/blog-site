@@ -1,0 +1,18 @@
+{{- $provider := lower (or .Site.Params.analytics.provider (getenv "ANALYTICS_PROVIDER")) -}}
+{{- $scriptURL := or .Site.Params.analytics.scriptURL (getenv "ANALYTICS_SCRIPT_URL") -}}
+{{- $websiteID := or .Site.Params.analytics.websiteID (getenv "ANALYTICS_WEBSITE_ID") -}}
+{{- $domain := or .Site.Params.analytics.domain (getenv "ANALYTICS_DOMAIN") -}}
+{{- $enabledByParam := .Site.Params.analytics.enabled -}}
+{{- $enabledByEnv := getenv "ANALYTICS_ENABLED" -}}
+{{- $enabled := or $enabledByParam (eq (lower $enabledByEnv) "true") -}}
+{{- if and $enabled $scriptURL -}}
+  {{- if eq $provider "plausible" -}}
+    {{- if $domain -}}
+<script defer data-domain="{{ $domain }}" src="{{ $scriptURL }}"></script>
+    {{- end -}}
+  {{- else -}}
+    {{- if $websiteID -}}
+<script defer src="{{ $scriptURL }}" data-website-id="{{ $websiteID }}"></script>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

@@ -1,0 +1,102 @@
+name: sync-build-deploy
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 19 * * *"
+
+concurrency:
+  group: rqbaby-blog-deploy
+  cancel-in-progress: true
+
+jobs:
+  sync-build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install sync dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Sync from WebDAV
+        env:
+          WEBDAV_BASE_URL: ${{ secrets.WEBDAV_BASE_URL }}
+          WEBDAV_USERNAME: ${{ secrets.WEBDAV_USERNAME }}
+          WEBDAV_PASSWORD: ${{ secrets.WEBDAV_PASSWORD }}
+          WEBDAV_POSTS_PATH: ${{ secrets.WEBDAV_POSTS_PATH }}
+          WEBDAV_ASSETS_PATH: ${{ secrets.WEBDAV_ASSETS_PATH }}
+        run: python scripts/sync_webdav.py
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.125.7"
+          extended: true
+
+      - name: Build site
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
+          TZ: ${{ secrets.TZ }}
+          GISCUS_ENABLED: ${{ secrets.GISCUS_ENABLED }}
+          GISCUS_REPO: ${{ secrets.GISCUS_REPO }}
+          GISCUS_REPO_ID: ${{ secrets.GISCUS_REPO_ID }}
+          GISCUS_CATEGORY: ${{ secrets.GISCUS_CATEGORY }}
+          GISCUS_CATEGORY_ID: ${{ secrets.GISCUS_CATEGORY_ID }}
+          GISCUS_MAPPING: ${{ secrets.GISCUS_MAPPING }}
+          GISCUS_STRICT: ${{ secrets.GISCUS_STRICT }}
+          GISCUS_REACTIONS_ENABLED: ${{ secrets.GISCUS_REACTIONS_ENABLED }}
+          GISCUS_EMIT_METADATA: ${{ secrets.GISCUS_EMIT_METADATA }}
+          GISCUS_INPUT_POSITION: ${{ secrets.GISCUS_INPUT_POSITION }}
+          GISCUS_LANG: ${{ secrets.GISCUS_LANG }}
+          GISCUS_LOADING: ${{ secrets.GISCUS_LOADING }}
+          ANALYTICS_ENABLED: ${{ secrets.ANALYTICS_ENABLED }}
+          ANALYTICS_PROVIDER: ${{ secrets.ANALYTICS_PROVIDER }}
+          ANALYTICS_SCRIPT_URL: ${{ secrets.ANALYTICS_SCRIPT_URL }}
+          ANALYTICS_WEBSITE_ID: ${{ secrets.ANALYTICS_WEBSITE_ID }}
+          ANALYTICS_DOMAIN: ${{ secrets.ANALYTICS_DOMAIN }}
+        run: |
+          set -euo pipefail
+          if [ -n "${SITE_URL:-}" ]; then
+            hugo --minify --baseURL "$SITE_URL"
+          else
+            hugo --minify
+          fi
+
+      - name: Prepare SSH
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          PORT="${DEPLOY_PORT:-22}"
+          ssh-keyscan -p "$PORT" "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+
+      - name: Deploy via rsync + symlink switch
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_TARGET_BASE: ${{ secrets.DEPLOY_TARGET_BASE }}
+        run: |
+          set -euo pipefail
+          PORT="${DEPLOY_PORT:-22}"
+          BASE="$DEPLOY_TARGET_BASE"
+          TARGET="$DEPLOY_USER@$DEPLOY_HOST"
+          TS="$(date -u +%Y%m%d%H%M%S)"
+          RELEASE_DIR="$BASE/releases/$TS"
+
+          ssh -p "$PORT" "$TARGET" "mkdir -p '$BASE/releases'"
+          rsync -az --delete -e "ssh -p $PORT" public/ "$TARGET:$RELEASE_DIR/"
+          ssh -p "$PORT" "$TARGET" "ln -sfn '$RELEASE_DIR' '$BASE/current'"

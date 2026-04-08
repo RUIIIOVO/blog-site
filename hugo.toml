@@ -1,0 +1,105 @@
+baseURL = "https://your-domain.com/"
+languageCode = "zh-cn"
+defaultContentLanguage = "zh"
+title = "Rui blog"
+theme = "PaperMod"
+timezone = "Asia/Shanghai"
+hasCJKLanguage = true
+enableRobotsTXT = true
+
+[pagination]
+pagerSize = 10
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+
+[markup]
+  [markup.highlight]
+  noClasses = false
+  style = "github-dark"
+
+  [markup.tableOfContents]
+  startLevel = 2
+  endLevel = 4
+  ordered = false
+
+  [markup.goldmark.renderer]
+  unsafe = true
+
+[params]
+env = "production"
+description = "your-domain.com 博客"
+defaultTheme = "auto"
+ShowReadingTime = true
+ShowCodeCopyButtons = true
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowToc = true
+TocOpen = true
+comments = true
+disableSpecial1stPost = true
+mainSections = ["posts"]
+
+  [params.assets]
+  disableHLJS = true
+
+  [params.giscus]
+  enabled = true
+  repo = ""
+  repoID = ""
+  category = "Announcements"
+  categoryID = ""
+  mapping = "pathname"
+  strict = "0"
+  reactionsEnabled = "1"
+  emitMetadata = "0"
+  inputPosition = "top"
+  lang = "zh-CN"
+  loading = "lazy"
+
+  [params.analytics]
+  enabled = true
+  provider = "umami"
+  scriptURL = ""
+  websiteID = ""
+  domain = ""
+
+  [params.social]
+  facebook_admin = ""
+
+  [params.author]
+  name = ""
+  email = ""
+
+[menu]
+  [[menu.main]]
+  identifier = "posts"
+  name = "文章"
+  url = "/posts/"
+  weight = 10
+
+  [[menu.main]]
+  identifier = "archives"
+  name = "归档"
+  url = "/archives/"
+  weight = 20
+
+  [[menu.main]]
+  identifier = "tags"
+  name = "标签"
+  url = "/tags/"
+  weight = 30
+
+  [[menu.main]]
+  identifier = "search"
+  name = "搜索"
+  url = "/search/"
+  weight = 40
+
+[security]
+  [security.funcs]
+    getenv = ["^HUGO_", "^CI$", "^ANALYTICS_", "^GISCUS_"]

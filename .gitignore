@@ -1,0 +1,13 @@
+/public/
+/resources/
+/.hugo_build.lock
+/.venv/
+/.sync/
+*.log
+.env
+.env.*
+!.env.example
+/your-domain.com_nginx/
+/ubuntu@/
+**/__pycache__/
+*.pyc
