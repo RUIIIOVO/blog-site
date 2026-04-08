@@ -67,6 +67,56 @@ function Apply-EnvFallback {
     }
 }
 
+function Resolve-PrivateKeyPath {
+    param([Parameter(Mandatory = $true)][string]$PreferredPath)
+
+    $candidates = @()
+    if (-not [string]::IsNullOrWhiteSpace($PreferredPath)) {
+        $candidates += $PreferredPath
+    }
+
+    $candidates += @(
+        "$env:USERPROFILE/.ssh/id_ed25519_blog",
+        "$env:USERPROFILE/.ssh/id_ed25519",
+        "$env:USERPROFILE/.ssh/id_rsa"
+    )
+
+    foreach ($path in ($candidates | Select-Object -Unique)) {
+        if ([string]::IsNullOrWhiteSpace($path)) {
+            continue
+        }
+
+        if ($path.EndsWith(".pub")) {
+            continue
+        }
+
+        if (Test-Path -Path $path -PathType Leaf) {
+            return (Resolve-Path -Path $path).Path
+        }
+    }
+
+    return ""
+}
+
+function Repair-WindowsSshKeyAcl {
+    param([Parameter(Mandatory = $true)][string]$Path)
+
+    $isWindowsHost = $env:OS -eq "Windows_NT"
+    if (-not $isWindowsHost) {
+        return
+    }
+
+    try {
+        $account = (& whoami).Trim()
+        & icacls $Path /inheritance:r | Out-Null
+        & icacls $Path /grant:r "$account:(R)" | Out-Null
+        & icacls $Path /remove:g "BUILTIN\Users" "NT AUTHORITY\Authenticated Users" "Everyone" 2>$null | Out-Null
+    }
+    catch {
+        Write-Host ("[warn] Failed to repair key ACL: {0}" -f $_.Exception.Message)
+    }
+}
+
 $loadedEnvCount = Import-DotEnv -Path $EnvFile
 if ($loadedEnvCount -gt 0) {
     Write-Host ("[env] Loaded {0} variables from {1}" -f $loadedEnvCount, $EnvFile)
@@ -95,11 +145,20 @@ Require-Command "hugo"
 Require-Command "ssh"
 Require-Command "scp"
 
-$sshArgs = @("-p", $DeployPort)
-$scpArgs = @("-P", $DeployPort)
-if (Test-Path $KeyPath) {
-    $sshArgs += @("-o", "IdentitiesOnly=yes", "-i", $KeyPath)
-    $scpArgs += @("-o", "IdentitiesOnly=yes", "-i", $KeyPath)
+$resolvedKeyPath = Resolve-PrivateKeyPath -PreferredPath $KeyPath
+
+$sshArgs = @("-p", $DeployPort, "-o", "StrictHostKeyChecking=accept-new")
+$scpArgs = @("-P", $DeployPort, "-o", "StrictHostKeyChecking=accept-new")
+if (-not [string]::IsNullOrWhiteSpace($resolvedKeyPath)) {
+    Repair-WindowsSshKeyAcl -Path $resolvedKeyPath
+    $sshArgs += @("-o", "IdentitiesOnly=yes", "-i", $resolvedKeyPath)
+    $scpArgs += @("-o", "IdentitiesOnly=yes", "-i", $resolvedKeyPath)
+    Write-Host ("[ssh] auth mode: key ({0})" -f $resolvedKeyPath)
+}
+else {
+    $sshArgs += @("-o", "PubkeyAuthentication=no", "-o", "PreferredAuthentications=password,keyboard-interactive")
+    $scpArgs += @("-o", "PubkeyAuthentication=no", "-o", "PreferredAuthentications=password,keyboard-interactive")
+    Write-Host "[ssh] auth mode: password"
 }
 
 Write-Host "[1/4] Build site"
