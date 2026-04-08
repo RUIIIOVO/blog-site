@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>React on Rui blog</title><link>https://RUIIIOVO.github.io/blog-site/tags/react/</link><description>Recent content in React on Rui blog</description><generator>Hugo -- 0.160.0</generator><language>zh-cn</language><lastBuildDate>Wed, 08 Apr 2026 10:42:56 +0800</lastBuildDate><atom:link href="https://RUIIIOVO.github.io/blog-site/tags/react/index.xml" rel="self" type="application/rss+xml"/><item><title>React</title><link>https://RUIIIOVO.github.io/blog-site/posts/react/</link><pubDate>Wed, 08 Apr 2026 10:42:56 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/react/</guid><description>&lt;p&gt;文档：[https://17.reactjs.org/docs/getting-started.html]&lt;/p&gt;
+&lt;h2 id="核心要点"&gt;核心要点&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;你想做的事&lt;/th&gt;
+&lt;th&gt;React 里常用&lt;/th&gt;
+&lt;th&gt;Vue 里常用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;页面加载后执行一次&lt;/td&gt;
+&lt;td&gt;useEffect(&amp;hellip;, [])&lt;/td&gt;
+&lt;td&gt;onMounted&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;页面销毁前清理&lt;/td&gt;
+&lt;td&gt;useEffect 返回清理函数&lt;/td&gt;
+&lt;td&gt;onUnmounted&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;监听某个值变化&lt;/td&gt;
+&lt;td&gt;useEffect(&amp;hellip;, [value])&lt;/td&gt;
+&lt;td&gt;watch&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;自动追踪依赖执行副作用&lt;/td&gt;
+&lt;td&gt;useEffect（手动写依赖）&lt;/td&gt;
+&lt;td&gt;watchEffect&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;根据状态计算新值&lt;/td&gt;
+&lt;td&gt;useMemo&lt;/td&gt;
+&lt;td&gt;computed&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="代码整理"&gt;代码整理：&lt;/h2&gt;
+&lt;p&gt;hello world
+注意需要使用==type=&amp;ldquo;text/jsx&amp;rdquo;==&lt;/p&gt;</description></item><item><title>技术栈</title><link>https://RUIIIOVO.github.io/blog-site/posts/%E6%8A%80%E6%9C%AF%E6%A0%88/</link><pubDate>Wed, 08 Apr 2026 10:42:56 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/%E6%8A%80%E6%9C%AF%E6%A0%88/</guid><description>&lt;p&gt;前端开发&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;精通 HTML、CSS、JavaScript，熟悉页面结构与布局，掌握 ES6+ 新特性&lt;/li&gt;
+&lt;li&gt;熟练使用 Flex、Grid、媒体查询，能够实现高性能响应式页面开发&lt;/li&gt;
+&lt;li&gt;熟练掌握 Vue.js 技术栈（Vuex、Vue Router、Axios），具备 React / React Native 跨端开发能力&lt;/li&gt;
+&lt;li&gt;熟悉 微信小程序开发，掌握 UniApp 跨平台框架&lt;/li&gt;
+&lt;li&gt;熟练使用 Element Plus、ECharts、Ant Design、Vant 等主流组件库
+后端开发&lt;/li&gt;
+&lt;li&gt;熟练掌握 Java 基础语法，熟悉 Spring Boot、MyBatis-Plus 框架，具备后端接口开发与工程化能力&lt;/li&gt;
+&lt;li&gt;熟悉 Node.js（Express），能够进行全栈开发&lt;/li&gt;
+&lt;li&gt;熟练掌握 Python 基础语法，熟悉 Django、Flask 及常用爬虫库&lt;/li&gt;
+&lt;li&gt;具备 自研加密算法工程化落地、性能优化（多线程、JVM 调优、流式读取）的实践经验
+移动端开发&lt;/li&gt;
+&lt;li&gt;熟悉 Android 原生开发，具备代码重构与性能优化经验&lt;/li&gt;
+&lt;li&gt;掌握 跨端开发（React Native / UniApp），支持移动端与桌面端适配
+数据库与存储&lt;/li&gt;
+&lt;li&gt;熟悉 MySQL、MongoDB、OpenGauss 等数据库，具备数据库建模与优化能力&lt;/li&gt;
+&lt;li&gt;理解 数据安全与加密策略，掌握 国密算法（SM2/SM3/SM4）
+运维与部署&lt;/li&gt;
+&lt;li&gt;熟悉 Linux 基础命令，具备软件部署与运维能力&lt;/li&gt;
+&lt;li&gt;熟悉 Docker、Jenkins，具备 CI/CD 自动化部署 实践经验&lt;/li&gt;
+&lt;li&gt;能独立编写 Shell/PowerShell 脚本，支持一键化构建与上线
+协作与工具&lt;/li&gt;
+&lt;li&gt;熟练使用 Git，能够配合 GitHub/GitLab/Gitee 进行多人协作开发&lt;/li&gt;
+&lt;li&gt;熟悉 敏捷开发流程，具备跨团队协作与项目推进能力&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>快捷键</title><link>https://RUIIIOVO.github.io/blog-site/posts/%E5%BF%AB%E6%8D%B7%E9%94%AE/</link><pubDate>Wed, 08 Apr 2026 10:42:56 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid><description>&lt;p&gt;webstorm
+代码格式化：
+mac：win+alt+L&lt;br&gt;
+windows: ctrl+alt+L
+展开代码块：
+Ctrl + NumPad +
+折叠代码块：
+Ctrl + NumPad-&lt;/p&gt;
+&lt;p&gt;vscode
+格式化：
+windows: shift + alt +F
+react 快速生成模板：
+rfc (快速创建一个组件fun)
+rcc （快速创建一个组件extends）类组件
+rconst 快速创建一个 constuctor
+rcep 快速创建一个组件（使用extends方式）
+rcredux 快速创建一个 redux格式的类模板&lt;/p&gt;</description></item><item><title>React全家桶技术栈</title><link>https://RUIIIOVO.github.io/blog-site/posts/react%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%8A%80%E6%9C%AF%E6%A0%88/</link><pubDate>Wed, 08 Apr 2026 10:42:53 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/react%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%8A%80%E6%9C%AF%E6%A0%88/</guid><description>&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;层级&lt;/th&gt;
+&lt;th&gt;技术选型&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;语言&lt;/td&gt;
+&lt;td&gt;TypeScript&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;前端（Web）&lt;/td&gt;
+&lt;td&gt;Next.js + Tailwind + shadcn/ui&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;移动端（App）&lt;/td&gt;
+&lt;td&gt;React Native + Expo + NativeWind&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;小程序&lt;/td&gt;
+&lt;td&gt;Taro（React 语法）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;数据库&lt;/td&gt;
+&lt;td&gt;Supabase（数据库 + Auth + Realtime + Edge Functions）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AI 层&lt;/td&gt;
+&lt;td&gt;OpenAI SDK + LangChain + pgvector&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;状态管理&lt;/td&gt;
+&lt;td&gt;Zustand / React Query&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;部署&lt;/td&gt;
+&lt;td&gt;Vercel（Web） + Expo EAS（App） + 微信开发者工具（小程序）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Web：Next.js+Supabase
+App: React Native+Next.js+Supabase
+小程序：Taro+Next.js+Supabase&lt;/p&gt;</description></item><item><title>React Native运行IOS</title><link>https://RUIIIOVO.github.io/blog-site/posts/react-native%E8%BF%90%E8%A1%8Cios/</link><pubDate>Wed, 08 Apr 2026 10:42:51 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/react-native%E8%BF%90%E8%A1%8Cios/</guid><description>&lt;ol&gt;
+&lt;li&gt;关闭代理&lt;/li&gt;
+&lt;li&gt;yarn install&lt;/li&gt;
+&lt;li&gt;yarn pod&lt;/li&gt;
+&lt;li&gt;检查xcode workspace 三处arm64 twwapp中的三处、以及prods&lt;/li&gt;
+&lt;li&gt;&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020250122100454.png" alt="Pasted image 20250122100454"&gt;
+&lt;/li&gt;
+&lt;li&gt;运行，查看报错，选择wenling&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020250122100554.png" alt="Pasted image 20250122100554"&gt;
+&lt;/li&gt;
+&lt;li&gt;再次运行，fix代码里的语法错误&lt;/li&gt;
+&lt;li&gt;再次运行，xcode执行成功后关闭终端、simulator，在webstorm重新运行&lt;/li&gt;
+&lt;/ol&gt;</description></item></channel></rss>

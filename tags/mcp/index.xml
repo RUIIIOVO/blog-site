@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>MCP on Rui blog</title><link>https://RUIIIOVO.github.io/blog-site/tags/mcp/</link><description>Recent content in MCP on Rui blog</description><generator>Hugo -- 0.160.0</generator><language>zh-cn</language><lastBuildDate>Wed, 08 Apr 2026 10:42:56 +0800</lastBuildDate><atom:link href="https://RUIIIOVO.github.io/blog-site/tags/mcp/index.xml" rel="self" type="application/rss+xml"/><item><title>MCP配置</title><link>https://RUIIIOVO.github.io/blog-site/posts/mcp%E9%85%8D%E7%BD%AE/</link><pubDate>Wed, 08 Apr 2026 10:42:56 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/mcp%E9%85%8D%E7%BD%AE/</guid><description>&lt;p&gt;&lt;a href="https://alekschen.github.io/post/2504-cursor-figma-mcp/"&gt;https://alekschen.github.io/post/2504-cursor-figma-mcp/&lt;/a&gt;
+figma mcp 配置：
+全局下载，启动本地端口：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pnpx figma-developer-mcp --figma-api-key&lt;span class="o"&gt;=&lt;/span&gt;&amp;lt;YOUR_FIGMA_API_KEY&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020251022115557.png" alt="Pasted image 20251022115557"&gt;
+cursor中配置：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;mcpServers&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;Figma&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;url&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;http://localhost:3333/sse&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;mastergo&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;{
+  &amp;#34;mcpServers&amp;#34;: {
+    &amp;#34;mastergo-magic-mcp&amp;#34;: {
+      &amp;#34;command&amp;#34;: &amp;#34;npx&amp;#34;,
+      &amp;#34;args&amp;#34;: [
+        &amp;#34;-y&amp;#34;,
+        &amp;#34;@mastergo/magic-mcp&amp;#34;,
+        &amp;#34;--token=&amp;lt;YOUR_MASTERGO_TOKEN&amp;gt;&amp;#34;,
+        &amp;#34;--url=https://mastergo.com&amp;#34;
+      ],
+      &amp;#34;env&amp;#34;: {
+        &amp;#34;NPM_CONFIG_REGISTRY&amp;#34;: &amp;#34;https://registry.npmjs.org/&amp;#34;
+      }
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;mcp-feedback-enhanced：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;{
+  &amp;#34;mcpServers&amp;#34;: {
+    &amp;#34;mcp-feedback-enhanced&amp;#34;: {
+      &amp;#34;command&amp;#34;: &amp;#34;uvx&amp;#34;,
+      &amp;#34;args&amp;#34;: [
+        &amp;#34;mcp-feedback-enhanced@latest&amp;#34;
+      ]
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;context7：&lt;/p&gt;</description></item><item><title>DeepSeek安装</title><link>https://RUIIIOVO.github.io/blog-site/posts/deepseek%E5%AE%89%E8%A3%85/</link><pubDate>Wed, 08 Apr 2026 10:42:53 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/deepseek%E5%AE%89%E8%A3%85/</guid><description>&lt;p&gt;性能：
+&lt;a href="https://blog.csdn.net/han2434/article/details/145472982"&gt;https://blog.csdn.net/han2434/article/details/145472982&lt;/a&gt;
+教程：
+&lt;a href="https://blog.csdn.net/m0_56896669/article/details/145413005"&gt;https://blog.csdn.net/m0_56896669/article/details/145413005&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Ollama D盘安装</title><link>https://RUIIIOVO.github.io/blog-site/posts/ollama-d%E7%9B%98%E5%AE%89%E8%A3%85/</link><pubDate>Wed, 08 Apr 2026 10:42:53 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/ollama-d%E7%9B%98%E5%AE%89%E8%A3%85/</guid><description>&lt;p&gt;官网：[https://ollama.com/download]
+教程：[https://www.cnblogs.com/LaiYun/p/18696931]&lt;/p&gt;</description></item></channel></rss>

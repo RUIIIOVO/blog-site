@@ -1,0 +1,198 @@
+<!doctype html><html lang=zh dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>OpenClaw 安装教程（windows+Linux） | Rui blog</title><meta name=keywords content="Linux,Ubuntu,Windows"><meta name=description content="官方文档：https://docs.openclaw.ai/start/getting-started
+需要先安装node22 使用nvm安装
+windows使用下面的命令会自动安装node22，linux则需要自行手动安装，并安装git
+安装命令
+windows："><meta name=author content="Rui"><link rel=canonical href=https://RUIIIOVO.github.io/blog-site/posts/openclaw-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8Bwindows+linux/><link crossorigin=anonymous href=/blog-site/assets/css/stylesheet.4941fa8d77a40a6dd81a72a0a7f79a86d174c40081cbfdd00f328e27606149c6.css integrity="sha256-SUH6jXekCm3YGnKgp/eahtF0xACBy/3QDzKOJ2BhScY=" rel="preload stylesheet" as=style><link rel=icon href=https://RUIIIOVO.github.io/blog-site/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://RUIIIOVO.github.io/blog-site/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://RUIIIOVO.github.io/blog-site/favicon-32x32.png><link rel=apple-touch-icon href=https://RUIIIOVO.github.io/blog-site/apple-touch-icon.png><link rel=mask-icon href=https://RUIIIOVO.github.io/blog-site/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh href=https://RUIIIOVO.github.io/blog-site/posts/openclaw-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8Bwindows+linux/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="OpenClaw 安装教程（windows+Linux）"><meta property="og:description" content="官方文档：https://docs.openclaw.ai/start/getting-started
+需要先安装node22 使用nvm安装
+windows使用下面的命令会自动安装node22，linux则需要自行手动安装，并安装git
+安装命令
+windows："><meta property="og:type" content="article"><meta property="og:url" content="https://RUIIIOVO.github.io/blog-site/posts/openclaw-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8Bwindows+linux/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-04-08T10:42:50+08:00"><meta property="article:modified_time" content="2026-04-08T10:42:50+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="OpenClaw 安装教程（windows+Linux）"><meta name=twitter:description content="官方文档：https://docs.openclaw.ai/start/getting-started
+需要先安装node22 使用nvm安装
+windows使用下面的命令会自动安装node22，linux则需要自行手动安装，并安装git
+安装命令
+windows："><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://RUIIIOVO.github.io/blog-site/posts/"},{"@type":"ListItem","position":2,"name":"OpenClaw 安装教程（windows+Linux）","item":"https://RUIIIOVO.github.io/blog-site/posts/openclaw-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8Bwindows+linux/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenClaw 安装教程（windows+Linux）","name":"OpenClaw 安装教程（windows\u002bLinux）","description":"官方文档：https://docs.openclaw.ai/start/getting-started 需要先安装node22 使用nvm安装 windows使用下面的命令会自动安装node22，linux则需要自行手动安装，并安装git 安装命令 windows：\n","keywords":["Linux","Ubuntu","Windows"],"articleBody":"官方文档：https://docs.openclaw.ai/start/getting-started 需要先安装node22 使用nvm安装 windows使用下面的命令会自动安装node22，linux则需要自行手动安装，并安装git 安装命令 windows：\niwr -useb https://openclaw.ai/install.ps1 | iex linux/mac：\ncurl -fsSL https://openclaw.ai/install.sh | bash 运行引导程序（并安装服务）：\nopenclaw onboard --install-daemon 安装过程可参考 https://developer.aliyun.com/article/1709615 这篇文章，其中有些命令是旧版本的，例如clawdbot status，正确的是openclaw status 选择quickstart qwen模型，其他的则跳过，最后一步选择TUI，选择后会自动在后台运行openclaw，类似nohup\n常用命令：\n查看状态\ropenclaw status\r启动网关\ropenclaw gateway\r重启网关（修改openclaw.json后执行）\ropenclaw gateway restart\r查看仪表盘网址\ropenclaw dashboard\r检查修复\ropenclaw doctor --fix\r引导配置\ropenclaw onboard windows使用powershell执行即可，执行完成后，输入 openclaw dashboard 查看网址，复制Dashboard URL查看即可，若访问的是没有token的url，直接访问 127.0.0.1:18789 则会出现 disconnected (1008): device identity required\nlinux本机部署后，默认是在服务器内网环境的，可以进行端口映射，实现外网访问\n修改openclaw.json，添加controlUi 并将gateway下的bind由loopback 改为lan \"controlUi\": {\r\"allowInsecureAuth\": true\r},\r\"bind\": \"lan\", 完整gateway：\n\"gateway\": {\r\"controlUi\": {\r\"allowInsecureAuth\": true\r},\r\"auth\": {\r\"mode\": \"token\",\r\"token\": \"你的token\"\r},\r\"mode\": \"local\",\r\"port\": 18789,\r\"bind\": \"lan\",\r\"tailscale\": {\r\"mode\": \"off\",\r\"resetOnExit\": false\r}\r}, 修改后需要重启网关，执行：openclaw gateway restart\n腾讯云、服务器内部开放tcp端口（18789端口） ufw 方式开放端口： sudo apt install ufw\rsudo ufw status\rsudo ufw enable\rsudo ufw allow 18789/tcp 访问 服务器IP:18789/?token=XXXX （token通过openclaw dashboard 查看） 完整openclaw.json：\nubuntu@VM-0-7-ubuntu:~$ cat ~/.openclaw/openclaw.json\r{\r\"meta\": {\r\"lastTouchedVersion\": \"2026.2.1\",\r\"lastTouchedAt\": \"2026-02-04T01:38:02.479Z\"\r},\r\"wizard\": {\r\"lastRunAt\": \"2026-02-04T01:38:02.475Z\",\r\"lastRunVersion\": \"2026.2.1\",\r\"lastRunCommand\": \"onboard\",\r\"lastRunMode\": \"local\"\r},\r\"commands\": {\r\"native\": \"auto\",\r\"nativeSkills\": \"auto\"\r},\r\"gateway\": {\r\"controlUi\": {\r\"allowInsecureAuth\": true\r},\r\"auth\": {\r\"mode\": \"token\",\r\"token\": \"你的token\"\r},\r\"mode\": \"local\",\r\"port\": 18789,\r\"bind\": \"lan\",\r\"tailscale\": {\r\"mode\": \"off\",\r\"resetOnExit\": false\r}\r},\r\"agents\": {\r\"defaults\": {\r\"maxConcurrent\": 4,\r\"subagents\": {\r\"maxConcurrent\": 8\r},\r\"workspace\": \"/home/ubuntu/.openclaw/workspace\",\r\"models\": {\r\"qwen-portal/coder-model\": {\r\"alias\": \"qwen\"\r},\r\"qwen-portal/vision-model\": {}\r},\r\"model\": {\r\"primary\": \"qwen-portal/vision-model\"\r}\r}\r},\r\"messages\": {\r\"ackReactionScope\": \"group-mentions\"\r},\r\"plugins\": {\r\"entries\": {\r\"qwen-portal-auth\": {\r\"enabled\": true\r}\r}\r},\r\"models\": {\r\"providers\": {\r\"qwen-portal\": {\r\"baseUrl\": \"https://portal.qwen.ai/v1\",\r\"apiKey\": \"qwen-oauth\",\r\"api\": \"openai-completions\",\r\"models\": [\r{\r\"id\": \"coder-model\",\r\"name\": \"Qwen Coder\",\r\"reasoning\": false,\r\"input\": [\r\"text\"\r],\r\"cost\": {\r\"input\": 0,\r\"output\": 0,\r\"cacheRead\": 0,\r\"cacheWrite\": 0\r},\r\"contextWindow\": 128000,\r\"maxTokens\": 8192\r},\r{\r\"id\": \"vision-model\",\r\"name\": \"Qwen Vision\",\r\"reasoning\": false,\r\"input\": [\r\"text\",\r\"image\"\r],\r\"cost\": {\r\"input\": 0,\r\"output\": 0,\r\"cacheRead\": 0,\r\"cacheWrite\": 0\r},\r\"contextWindow\": 128000,\r\"maxTokens\": 8192\r}\r]\r}\r}\r},\r\"auth\": {\r\"profiles\": {\r\"qwen-portal:default\": {\r\"provider\": \"qwen-portal\",\r\"mode\": \"oauth\"\r}\r}\r}\r}\rubuntu@VM-0-7-ubuntu:~$ 在飞书中配置机器人，可参考： https://developer.aliyun.com/article/1709615 这篇文章 同样其中的命令需要由clawdbot更换为openclaw，如下：\nopenclaw plugins install @m1heng-clawd/feishu\ropenclaw config set channels.feishu.appId \"飞书 app id\"\ropenclaw config set channels.feishu.appSecret \"飞书 app secret\"\ropenclaw config set channels.feishu.enabled true\r# 推荐使用 websocket\ropenclaw config set channels.feishu.connectionMode websocket\ropenclaw config set channels.feishu.dmPolicy pairing\ropenclaw config set channels.feishu.groupPolicy allowlist\ropenclaw config set channels.feishu.requireMention true\ropenclaw gateway restart 注意：若只是个人使用，使用飞书个人版创建即可，若需要分享给好友，则需要在飞书创建企业后再创建机器人，飞书个人版无法将机器人分享给其他人\n","wordCount":"1117","inLanguage":"zh","datePublished":"2026-04-08T10:42:50+08:00","dateModified":"2026-04-08T10:42:50+08:00","author":{"@type":"Person","name":"Rui"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://RUIIIOVO.github.io/blog-site/posts/openclaw-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8Bwindows+linux/"},"publisher":{"@type":"Organization","name":"Rui blog","logo":{"@type":"ImageObject","url":"https://RUIIIOVO.github.io/blog-site/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://RUIIIOVO.github.io/blog-site/ accesskey=h title="Rui blog (Alt + H)">Rui blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://RUIIIOVO.github.io/blog-site/posts/ title=文章><span>文章</span></a></li><li><a href=https://RUIIIOVO.github.io/blog-site/archives/ title=归档><span>归档</span></a></li><li><a href=https://RUIIIOVO.github.io/blog-site/tags/ title=标签><span>标签</span></a></li><li><a href=https://RUIIIOVO.github.io/blog-site/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://RUIIIOVO.github.io/blog-site/>主页</a>&nbsp;»&nbsp;<a href=https://RUIIIOVO.github.io/blog-site/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">OpenClaw 安装教程（windows+Linux）</h1><div class=post-meta><span title='2026-04-08 10:42:50 +0800 CST'>四月 8, 2026</span>&nbsp;·&nbsp;3 分钟&nbsp;·&nbsp;Rui</div></header><div class=post-content><p>官方文档：<a href=https://docs.openclaw.ai/start/getting-started>https://docs.openclaw.ai/start/getting-started</a>
+需要先安装node22 使用nvm安装
+windows使用下面的命令会自动安装node22，linux则需要自行手动安装，并安装git
+安装命令
+windows：</p><pre tabindex=0><code>iwr -useb https://openclaw.ai/install.ps1 | iex
+</code></pre><p>linux/mac：</p><pre tabindex=0><code>curl -fsSL https://openclaw.ai/install.sh | bash
+</code></pre><p>运行引导程序（并安装服务）：</p><pre tabindex=0><code>openclaw onboard --install-daemon
+</code></pre><p>安装过程可参考 <a href=https://developer.aliyun.com/article/1709615>https://developer.aliyun.com/article/1709615</a> 这篇文章，其中有些命令是旧版本的，例如clawdbot status，正确的是openclaw status
+选择quickstart qwen模型，其他的则跳过，最后一步选择TUI，选择后会自动在后台运行openclaw，类似nohup</p><p>常用命令：</p><pre tabindex=0><code>查看状态
+openclaw status
+启动网关
+openclaw gateway
+重启网关（修改openclaw.json后执行）
+openclaw gateway restart
+查看仪表盘网址
+openclaw dashboard
+检查修复
+openclaw doctor --fix
+引导配置
+openclaw onboard
+</code></pre><p>windows使用powershell执行即可，执行完成后，输入 <code>openclaw dashboard</code> 查看网址，复制Dashboard URL查看即可，若访问的是没有token的url，直接访问 127.0.0.1:18789 则会出现 <code>disconnected (1008): device identity required</code></p><p>linux本机部署后，默认是在服务器内网环境的，可以进行端口映射，实现外网访问</p><ol><li>修改openclaw.json，添加controlUi 并将gateway下的bind由loopback 改为lan</li></ol><pre tabindex=0><code>    &#34;controlUi&#34;: {
+      &#34;allowInsecureAuth&#34;: true
+    },
+    &#34;bind&#34;: &#34;lan&#34;,
+</code></pre><p>完整gateway：</p><pre tabindex=0><code>  &#34;gateway&#34;: {
+    &#34;controlUi&#34;: {
+      &#34;allowInsecureAuth&#34;: true
+    },
+    &#34;auth&#34;: {
+      &#34;mode&#34;: &#34;token&#34;,
+      &#34;token&#34;: &#34;你的token&#34;
+    },
+    &#34;mode&#34;: &#34;local&#34;,
+    &#34;port&#34;: 18789,
+    &#34;bind&#34;: &#34;lan&#34;,
+    &#34;tailscale&#34;: {
+      &#34;mode&#34;: &#34;off&#34;,
+      &#34;resetOnExit&#34;: false
+    }
+  },
+</code></pre><p>修改后需要重启网关，执行：<code>openclaw gateway restart</code></p><ol start=2><li>腾讯云、服务器内部开放tcp端口（18789端口）
+ufw 方式开放端口：</li></ol><pre tabindex=0><code>sudo apt install ufw
+sudo ufw status
+sudo ufw enable
+sudo ufw allow 18789/tcp
+</code></pre><ol start=3><li>访问 服务器IP:18789/?token=XXXX （token通过<code>openclaw dashboard</code> 查看）</li></ol><p>完整openclaw.json：</p><pre tabindex=0><code>ubuntu@VM-0-7-ubuntu:~$ cat  ~/.openclaw/openclaw.json
+{
+  &#34;meta&#34;: {
+    &#34;lastTouchedVersion&#34;: &#34;2026.2.1&#34;,
+    &#34;lastTouchedAt&#34;: &#34;2026-02-04T01:38:02.479Z&#34;
+  },
+  &#34;wizard&#34;: {
+    &#34;lastRunAt&#34;: &#34;2026-02-04T01:38:02.475Z&#34;,
+    &#34;lastRunVersion&#34;: &#34;2026.2.1&#34;,
+    &#34;lastRunCommand&#34;: &#34;onboard&#34;,
+    &#34;lastRunMode&#34;: &#34;local&#34;
+  },
+  &#34;commands&#34;: {
+    &#34;native&#34;: &#34;auto&#34;,
+    &#34;nativeSkills&#34;: &#34;auto&#34;
+  },
+  &#34;gateway&#34;: {
+    &#34;controlUi&#34;: {
+      &#34;allowInsecureAuth&#34;: true
+    },
+    &#34;auth&#34;: {
+      &#34;mode&#34;: &#34;token&#34;,
+      &#34;token&#34;: &#34;你的token&#34;
+    },
+    &#34;mode&#34;: &#34;local&#34;,
+    &#34;port&#34;: 18789,
+    &#34;bind&#34;: &#34;lan&#34;,
+    &#34;tailscale&#34;: {
+      &#34;mode&#34;: &#34;off&#34;,
+      &#34;resetOnExit&#34;: false
+    }
+  },
+  &#34;agents&#34;: {
+    &#34;defaults&#34;: {
+      &#34;maxConcurrent&#34;: 4,
+      &#34;subagents&#34;: {
+        &#34;maxConcurrent&#34;: 8
+      },
+      &#34;workspace&#34;: &#34;/home/ubuntu/.openclaw/workspace&#34;,
+      &#34;models&#34;: {
+        &#34;qwen-portal/coder-model&#34;: {
+          &#34;alias&#34;: &#34;qwen&#34;
+        },
+        &#34;qwen-portal/vision-model&#34;: {}
+      },
+      &#34;model&#34;: {
+        &#34;primary&#34;: &#34;qwen-portal/vision-model&#34;
+      }
+    }
+  },
+  &#34;messages&#34;: {
+    &#34;ackReactionScope&#34;: &#34;group-mentions&#34;
+  },
+  &#34;plugins&#34;: {
+    &#34;entries&#34;: {
+      &#34;qwen-portal-auth&#34;: {
+        &#34;enabled&#34;: true
+      }
+    }
+  },
+  &#34;models&#34;: {
+    &#34;providers&#34;: {
+      &#34;qwen-portal&#34;: {
+        &#34;baseUrl&#34;: &#34;https://portal.qwen.ai/v1&#34;,
+        &#34;apiKey&#34;: &#34;qwen-oauth&#34;,
+        &#34;api&#34;: &#34;openai-completions&#34;,
+        &#34;models&#34;: [
+          {
+            &#34;id&#34;: &#34;coder-model&#34;,
+            &#34;name&#34;: &#34;Qwen Coder&#34;,
+            &#34;reasoning&#34;: false,
+            &#34;input&#34;: [
+              &#34;text&#34;
+            ],
+            &#34;cost&#34;: {
+              &#34;input&#34;: 0,
+              &#34;output&#34;: 0,
+              &#34;cacheRead&#34;: 0,
+              &#34;cacheWrite&#34;: 0
+            },
+            &#34;contextWindow&#34;: 128000,
+            &#34;maxTokens&#34;: 8192
+          },
+          {
+            &#34;id&#34;: &#34;vision-model&#34;,
+            &#34;name&#34;: &#34;Qwen Vision&#34;,
+            &#34;reasoning&#34;: false,
+            &#34;input&#34;: [
+              &#34;text&#34;,
+              &#34;image&#34;
+            ],
+            &#34;cost&#34;: {
+              &#34;input&#34;: 0,
+              &#34;output&#34;: 0,
+              &#34;cacheRead&#34;: 0,
+              &#34;cacheWrite&#34;: 0
+            },
+            &#34;contextWindow&#34;: 128000,
+            &#34;maxTokens&#34;: 8192
+          }
+        ]
+      }
+    }
+  },
+  &#34;auth&#34;: {
+    &#34;profiles&#34;: {
+      &#34;qwen-portal:default&#34;: {
+        &#34;provider&#34;: &#34;qwen-portal&#34;,
+        &#34;mode&#34;: &#34;oauth&#34;
+      }
+    }
+  }
+}
+ubuntu@VM-0-7-ubuntu:~$ 
+</code></pre><p>在飞书中配置机器人，可参考： <a href=https://developer.aliyun.com/article/1709615>https://developer.aliyun.com/article/1709615</a> 这篇文章
+同样其中的命令需要由clawdbot更换为openclaw，如下：</p><pre tabindex=0><code>openclaw plugins install @m1heng-clawd/feishu
+
+openclaw config set channels.feishu.appId &#34;飞书 app id&#34;
+
+openclaw config set channels.feishu.appSecret &#34;飞书 app secret&#34;
+
+openclaw config set channels.feishu.enabled true
+
+# 推荐使用 websocket
+openclaw config set channels.feishu.connectionMode websocket
+
+openclaw config set channels.feishu.dmPolicy pairing
+
+openclaw config set channels.feishu.groupPolicy allowlist
+
+openclaw config set channels.feishu.requireMention true
+
+openclaw gateway restart
+</code></pre><p>注意：若只是个人使用，使用飞书个人版创建即可，若需要分享给好友，则需要在飞书创建企业后再创建机器人，飞书个人版无法将机器人分享给其他人</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://RUIIIOVO.github.io/blog-site/tags/linux/>Linux</a></li><li><a href=https://RUIIIOVO.github.io/blog-site/tags/ubuntu/>Ubuntu</a></li><li><a href=https://RUIIIOVO.github.io/blog-site/tags/windows/>Windows</a></li></ul><nav class=paginav><a class=prev href=https://RUIIIOVO.github.io/blog-site/posts/ios-%E5%8E%9F%E7%94%9F-ikev2-%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8Bubuntu-+-strongswan/><span class=title>« 上一页</span><br><span>iOS 原生 IKEv2 配置教程（Ubuntu + strongSwan）</span>
+</a><a class=next href=https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%80%8E%E4%B9%88%E5%88%87%E6%8D%A2%E5%88%B0root%E7%94%A8%E6%88%B7%E5%88%87%E6%8D%A2%E5%88%B0root%E8%B4%A6%E5%8F%B7%E6%96%B9%E6%B3%95/><span class=title>下一页 »</span><br><span>ubuntu怎么切换到root用户,切换到root账号方法</span></a></nav></footer><div class=comments><script src=https://giscus.app/client.js data-repo=RUIIIOVO/blog-site-giscus data-repo-id=R_kgDOR82AbA data-category=Q&amp;A data-category-id=DIC_kwDOR82AbM4C6W9k data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=preferred_color_scheme data-lang=zh-CN data-loading=lazy crossorigin=anonymous async></script></div></article></main><footer class=footer><span>&copy; 2026 <a href=https://RUIIIOVO.github.io/blog-site/>Rui blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="复制";function s(){t.innerHTML="已复制！",setTimeout(()=>{t.innerHTML="复制"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>MacOS on Rui blog</title><link>https://RUIIIOVO.github.io/blog-site/tags/macos/</link><description>Recent content in MacOS on Rui blog</description><generator>Hugo -- 0.160.0</generator><language>zh-cn</language><lastBuildDate>Wed, 08 Apr 2026 10:42:56 +0800</lastBuildDate><atom:link href="https://RUIIIOVO.github.io/blog-site/tags/macos/index.xml" rel="self" type="application/rss+xml"/><item><title>快捷键</title><link>https://RUIIIOVO.github.io/blog-site/posts/%E5%BF%AB%E6%8D%B7%E9%94%AE/</link><pubDate>Wed, 08 Apr 2026 10:42:56 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid><description>&lt;p&gt;webstorm
+代码格式化：
+mac：win+alt+L&lt;br&gt;
+windows: ctrl+alt+L
+展开代码块：
+Ctrl + NumPad +
+折叠代码块：
+Ctrl + NumPad-&lt;/p&gt;
+&lt;p&gt;vscode
+格式化：
+windows: shift + alt +F
+react 快速生成模板：
+rfc (快速创建一个组件fun)
+rcc （快速创建一个组件extends）类组件
+rconst 快速创建一个 constuctor
+rcep 快速创建一个组件（使用extends方式）
+rcredux 快速创建一个 redux格式的类模板&lt;/p&gt;</description></item><item><title>Chocolatey安装</title><link>https://RUIIIOVO.github.io/blog-site/posts/chocolatey%E5%AE%89%E8%A3%85/</link><pubDate>Wed, 08 Apr 2026 10:42:52 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/chocolatey%E5%AE%89%E8%A3%85/</guid><description>&lt;p&gt;更改安装路径&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;$env:ChocolateyInstall = &amp;#39;D:\Application\Chocolatey&amp;#39;
+[Environment]::SetEnvironmentVariable(&amp;#39;ChocolateyInstall&amp;#39;, $env:ChocolateyInstall, &amp;#39;Machine&amp;#39;)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;安装&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Set-ExecutionPolicy Bypass -Scope Process -Force
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
+iex ((New-Object System.Net.WebClient).DownloadString(&amp;#39;https://community.chocolatey.org/install.ps1&amp;#39;))
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;更改默认下载路径&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;choco config set installLocation D:\Application
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;安装jdk1.8&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;choco install jdk8 --install-directory=&amp;#34;D:\Application\Java\jdk8\&amp;#39;&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;网址：[https://community.chocolatey.org/packages?q=java8]&lt;/p&gt;</description></item><item><title>mac Navicat破解下载</title><link>https://RUIIIOVO.github.io/blog-site/posts/mac-navicat%E7%A0%B4%E8%A7%A3%E4%B8%8B%E8%BD%BD/</link><pubDate>Wed, 08 Apr 2026 10:42:52 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/mac-navicat%E7%A0%B4%E8%A7%A3%E4%B8%8B%E8%BD%BD/</guid><description>&lt;p&gt;&lt;a href="https://macwk.com.cn/soft/navicat-premium-17#step-history"&gt;https://macwk.com.cn/soft/navicat-premium-17#step-history&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,89 @@
+<!doctype html><html lang=zh dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>ubuntu数据库备份脚本 | Rui blog</title><meta name=keywords content="数据库,Ubuntu,运维"><meta name=description content='
+创建备份脚本：
+
+创建一个名为mysql_backup.sh的脚本文件，并添加以下内容：
+   #!/bin/bash
+
+   # 数据库配置信息
+   DB_USER="root"
+   DB_PASS="your_password"
+   DB_NAME="testdb"
+   BACKUP_DIR="/home/backup"
+
+   # 备份文件名
+   BACKUP_FILE="$BACKUP_DIR/${DB_NAME}_$(date +%Y%m%d%H%M%S).sql.gz"
+
+   # 执行备份命令
+   mysqldump -u $DB_USER -p$DB_PASS $DB_NAME | gzip > $BACKUP_FILE
+
+   # 删除30天前的备份文件
+   find $BACKUP_DIR -type f -name "*.gz" -mtime +30 -exec rm {} \;
+注意：将your_password替换为实际的数据库密码。'><meta name=author content="Rui"><link rel=canonical href=https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/><link crossorigin=anonymous href=/blog-site/assets/css/stylesheet.4941fa8d77a40a6dd81a72a0a7f79a86d174c40081cbfdd00f328e27606149c6.css integrity="sha256-SUH6jXekCm3YGnKgp/eahtF0xACBy/3QDzKOJ2BhScY=" rel="preload stylesheet" as=style><link rel=icon href=https://RUIIIOVO.github.io/blog-site/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://RUIIIOVO.github.io/blog-site/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://RUIIIOVO.github.io/blog-site/favicon-32x32.png><link rel=apple-touch-icon href=https://RUIIIOVO.github.io/blog-site/apple-touch-icon.png><link rel=mask-icon href=https://RUIIIOVO.github.io/blog-site/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh href=https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="ubuntu数据库备份脚本"><meta property="og:description" content='
+创建备份脚本：
+
+创建一个名为mysql_backup.sh的脚本文件，并添加以下内容：
+   #!/bin/bash
+
+   # 数据库配置信息
+   DB_USER="root"
+   DB_PASS="your_password"
+   DB_NAME="testdb"
+   BACKUP_DIR="/home/backup"
+
+   # 备份文件名
+   BACKUP_FILE="$BACKUP_DIR/${DB_NAME}_$(date +%Y%m%d%H%M%S).sql.gz"
+
+   # 执行备份命令
+   mysqldump -u $DB_USER -p$DB_PASS $DB_NAME | gzip > $BACKUP_FILE
+
+   # 删除30天前的备份文件
+   find $BACKUP_DIR -type f -name "*.gz" -mtime +30 -exec rm {} \;
+注意：将your_password替换为实际的数据库密码。'><meta property="og:type" content="article"><meta property="og:url" content="https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-04-08T10:42:52+08:00"><meta property="article:modified_time" content="2026-04-08T10:42:52+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="ubuntu数据库备份脚本"><meta name=twitter:description content='
+创建备份脚本：
+
+创建一个名为mysql_backup.sh的脚本文件，并添加以下内容：
+   #!/bin/bash
+
+   # 数据库配置信息
+   DB_USER="root"
+   DB_PASS="your_password"
+   DB_NAME="testdb"
+   BACKUP_DIR="/home/backup"
+
+   # 备份文件名
+   BACKUP_FILE="$BACKUP_DIR/${DB_NAME}_$(date +%Y%m%d%H%M%S).sql.gz"
+
+   # 执行备份命令
+   mysqldump -u $DB_USER -p$DB_PASS $DB_NAME | gzip > $BACKUP_FILE
+
+   # 删除30天前的备份文件
+   find $BACKUP_DIR -type f -name "*.gz" -mtime +30 -exec rm {} \;
+注意：将your_password替换为实际的数据库密码。'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://RUIIIOVO.github.io/blog-site/posts/"},{"@type":"ListItem","position":2,"name":"ubuntu数据库备份脚本","item":"https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"ubuntu数据库备份脚本","name":"ubuntu数据库备份脚本","description":" 创建备份脚本： 创建一个名为mysql_backup.sh的脚本文件，并添加以下内容：\n#!/bin/bash # 数据库配置信息 DB_USER=\u0026#34;root\u0026#34; DB_PASS=\u0026#34;your_password\u0026#34; DB_NAME=\u0026#34;testdb\u0026#34; BACKUP_DIR=\u0026#34;/home/backup\u0026#34; # 备份文件名 BACKUP_FILE=\u0026#34;$BACKUP_DIR/${DB_NAME}_$(date +%Y%m%d%H%M%S).sql.gz\u0026#34; # 执行备份命令 mysqldump -u $DB_USER -p$DB_PASS $DB_NAME | gzip \u0026gt; $BACKUP_FILE # 删除30天前的备份文件 find $BACKUP_DIR -type f -name \u0026#34;*.gz\u0026#34; -mtime +30 -exec rm {} \\; 注意：将your_password替换为实际的数据库密码。\n","keywords":["数据库","Ubuntu","运维"],"articleBody":" 创建备份脚本： 创建一个名为mysql_backup.sh的脚本文件，并添加以下内容：\n#!/bin/bash # 数据库配置信息 DB_USER=\"root\" DB_PASS=\"your_password\" DB_NAME=\"testdb\" BACKUP_DIR=\"/home/backup\" # 备份文件名 BACKUP_FILE=\"$BACKUP_DIR/${DB_NAME}_$(date +%Y%m%d%H%M%S).sql.gz\" # 执行备份命令 mysqldump -u $DB_USER -p$DB_PASS $DB_NAME | gzip \u003e $BACKUP_FILE # 删除30天前的备份文件 find $BACKUP_DIR -type f -name \"*.gz\" -mtime +30 -exec rm {} \\; 注意：将your_password替换为实际的数据库密码。\n赋予脚本执行权限： chmod +x mysql_backup.sh 设置定时任务： 使用crontab命令设置定时任务，例如每天凌晨1点执行备份：\ncrontab -e 添加以下行：\n0 1 * * * /path/to/mysql_backup.sh 注意！ BACKUP_DIR=\"/home/backup\" 这个路径的backup文件夹需要手动创建\n五、备份策略的制定\n制定合理的备份策略对于保障数据安全至关重要。以下是一些建议：\n定期备份：根据数据重要性和更新频率，确定备份周期（如每日、每周）。 多重备份：在不同位置存储多个备份副本，以防单点故障。 备份验证：定期验证备份文件的完整性和可恢复性。 备份清理：根据备份策略，定期清理过期备份文件，释放存储空间。 六、备份文件的存储与恢复\n存储策略：\n本地存储：将备份文件存放在服务器本地磁盘，适用于数据量较小的情况。 远程存储：将备份文件传输到远程服务器或云存储服务，提高数据安全性。 恢复操作：\n当需要恢复数据库时，可以使用以下命令：\ngunzip \u003c 备份文件路径/文件名.sql.gz | mysql -u 用户名 -p 数据库名 例如，恢复名为testdb的数据库：\ngunzip \u003c /home/backup/testdb_backup.sql.gz | mysql -u root -p testdb ","wordCount":"535","inLanguage":"zh","datePublished":"2026-04-08T10:42:52+08:00","dateModified":"2026-04-08T10:42:52+08:00","author":{"@type":"Person","name":"Rui"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/"},"publisher":{"@type":"Organization","name":"Rui blog","logo":{"@type":"ImageObject","url":"https://RUIIIOVO.github.io/blog-site/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://RUIIIOVO.github.io/blog-site/ accesskey=h title="Rui blog (Alt + H)">Rui blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://RUIIIOVO.github.io/blog-site/posts/ title=文章><span>文章</span></a></li><li><a href=https://RUIIIOVO.github.io/blog-site/archives/ title=归档><span>归档</span></a></li><li><a href=https://RUIIIOVO.github.io/blog-site/tags/ title=标签><span>标签</span></a></li><li><a href=https://RUIIIOVO.github.io/blog-site/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://RUIIIOVO.github.io/blog-site/>主页</a>&nbsp;»&nbsp;<a href=https://RUIIIOVO.github.io/blog-site/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">ubuntu数据库备份脚本</h1><div class=post-meta><span title='2026-04-08 10:42:52 +0800 CST'>四月 8, 2026</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;Rui</div></header><div class=post-content><ol><li><strong>创建备份脚本</strong>：</li></ol><p>创建一个名为<code>mysql_backup.sh</code>的脚本文件，并添加以下内容：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>   <span class=c1>#!/bin/bash</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>   <span class=c1># 数据库配置信息</span>
+</span></span><span class=line><span class=cl>   <span class=nv>DB_USER</span><span class=o>=</span><span class=s2>&#34;root&#34;</span>
+</span></span><span class=line><span class=cl>   <span class=nv>DB_PASS</span><span class=o>=</span><span class=s2>&#34;your_password&#34;</span>
+</span></span><span class=line><span class=cl>   <span class=nv>DB_NAME</span><span class=o>=</span><span class=s2>&#34;testdb&#34;</span>
+</span></span><span class=line><span class=cl>   <span class=nv>BACKUP_DIR</span><span class=o>=</span><span class=s2>&#34;/home/backup&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>   <span class=c1># 备份文件名</span>
+</span></span><span class=line><span class=cl>   <span class=nv>BACKUP_FILE</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$BACKUP_DIR</span><span class=s2>/</span><span class=si>${</span><span class=nv>DB_NAME</span><span class=si>}</span><span class=s2>_</span><span class=k>$(</span>date +%Y%m%d%H%M%S<span class=k>)</span><span class=s2>.sql.gz&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>   <span class=c1># 执行备份命令</span>
+</span></span><span class=line><span class=cl>   mysqldump -u <span class=nv>$DB_USER</span> -p<span class=nv>$DB_PASS</span> <span class=nv>$DB_NAME</span> <span class=p>|</span> gzip &gt; <span class=nv>$BACKUP_FILE</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>   <span class=c1># 删除30天前的备份文件</span>
+</span></span><span class=line><span class=cl>   find <span class=nv>$BACKUP_DIR</span> -type f -name <span class=s2>&#34;*.gz&#34;</span> -mtime +30 -exec rm <span class=o>{}</span> <span class=se>\;</span>
+</span></span></code></pre></div><p>注意：将<code>your_password</code>替换为实际的数据库密码。</p><ol><li><strong>赋予脚本执行权限</strong>：</li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>   chmod +x mysql_backup.sh
+</span></span></code></pre></div><ol><li><strong>设置定时任务</strong>：</li></ol><p>使用<code>crontab</code>命令设置定时任务，例如每天凌晨1点执行备份：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>   crontab -e
+</span></span></code></pre></div><p>添加以下行：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>   <span class=m>0</span> <span class=m>1</span> * * * /path/to/mysql_backup.sh
+</span></span></code></pre></div><p>注意！ BACKUP_DIR="/home/backup" 这个路径的backup文件夹需要手动创建</p><p><strong>五、备份策略的制定</strong></p><p>制定合理的备份策略对于保障数据安全至关重要。以下是一些建议：</p><ol><li><strong>定期备份</strong>：根据数据重要性和更新频率，确定备份周期（如每日、每周）。</li><li><strong>多重备份</strong>：在不同位置存储多个备份副本，以防单点故障。</li><li><strong>备份验证</strong>：定期验证备份文件的完整性和可恢复性。</li><li><strong>备份清理</strong>：根据备份策略，定期清理过期备份文件，释放存储空间。</li></ol><p><strong>六、备份文件的存储与恢复</strong></p><ol><li><p><strong>存储策略</strong>：</p><ul><li><strong>本地存储</strong>：将备份文件存放在服务器本地磁盘，适用于数据量较小的情况。</li><li><strong>远程存储</strong>：将备份文件传输到远程服务器或云存储服务，提高数据安全性。</li></ul></li><li><p><strong>恢复操作</strong>：</p></li></ol><p>当需要恢复数据库时，可以使用以下命令：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>   gunzip &lt; 备份文件路径/文件名.sql.gz <span class=p>|</span> mysql -u 用户名 -p 数据库名
+</span></span></code></pre></div><p>例如，恢复名为<code>testdb</code>的数据库：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>   gunzip &lt; /home/backup/testdb_backup.sql.gz <span class=p>|</span> mysql -u root -p testdb
+</span></span></code></pre></div></div><footer class=post-footer><ul class=post-tags><li><a href=https://RUIIIOVO.github.io/blog-site/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/>数据库</a></li><li><a href=https://RUIIIOVO.github.io/blog-site/tags/ubuntu/>Ubuntu</a></li><li><a href=https://RUIIIOVO.github.io/blog-site/tags/%E8%BF%90%E7%BB%B4/>运维</a></li></ul><nav class=paginav><a class=prev href=https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%89%8B%E5%8A%A8%E5%AF%BC%E5%85%A5sql%E6%96%87%E4%BB%B6/><span class=title>« 上一页</span><br><span>ubuntu手动导入sql文件</span>
+</a><a class=next href=https://RUIIIOVO.github.io/blog-site/posts/%E5%BC%80%E5%90%AFpowershell%E6%89%A7%E8%A1%8C%E6%9D%83%E9%99%90/><span class=title>下一页 »</span><br><span>开启PowerShell执行权限</span></a></nav></footer><div class=comments><script src=https://giscus.app/client.js data-repo=RUIIIOVO/blog-site-giscus data-repo-id=R_kgDOR82AbA data-category=Q&amp;A data-category-id=DIC_kwDOR82AbM4C6W9k data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=preferred_color_scheme data-lang=zh-CN data-loading=lazy crossorigin=anonymous async></script></div></article></main><footer class=footer><span>&copy; 2026 <a href=https://RUIIIOVO.github.io/blog-site/>Rui blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="复制";function s(){t.innerHTML="已复制！",setTimeout(()=>{t.innerHTML="复制"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

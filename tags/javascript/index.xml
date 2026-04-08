@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>JavaScript on Rui blog</title><link>https://RUIIIOVO.github.io/blog-site/tags/javascript/</link><description>Recent content in JavaScript on Rui blog</description><generator>Hugo -- 0.160.0</generator><language>zh-cn</language><lastBuildDate>Wed, 08 Apr 2026 10:42:56 +0800</lastBuildDate><atom:link href="https://RUIIIOVO.github.io/blog-site/tags/javascript/index.xml" rel="self" type="application/rss+xml"/><item><title>nvm使用</title><link>https://RUIIIOVO.github.io/blog-site/posts/nvm%E4%BD%BF%E7%94%A8/</link><pubDate>Wed, 08 Apr 2026 10:42:56 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/nvm%E4%BD%BF%E7%94%A8/</guid><description>&lt;p&gt;nvm list available， 查看网络可以安装的版本 &lt;a href="https://nodejs.org/en/download/releases"&gt;https://nodejs.org/en/download/releases&lt;/a&gt;
+nvm install 14.14.0
+nvm use 14.14.0
+node -v
+npm -v&lt;/p&gt;</description></item><item><title>技术栈</title><link>https://RUIIIOVO.github.io/blog-site/posts/%E6%8A%80%E6%9C%AF%E6%A0%88/</link><pubDate>Wed, 08 Apr 2026 10:42:56 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/%E6%8A%80%E6%9C%AF%E6%A0%88/</guid><description>&lt;p&gt;前端开发&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;精通 HTML、CSS、JavaScript，熟悉页面结构与布局，掌握 ES6+ 新特性&lt;/li&gt;
+&lt;li&gt;熟练使用 Flex、Grid、媒体查询，能够实现高性能响应式页面开发&lt;/li&gt;
+&lt;li&gt;熟练掌握 Vue.js 技术栈（Vuex、Vue Router、Axios），具备 React / React Native 跨端开发能力&lt;/li&gt;
+&lt;li&gt;熟悉 微信小程序开发，掌握 UniApp 跨平台框架&lt;/li&gt;
+&lt;li&gt;熟练使用 Element Plus、ECharts、Ant Design、Vant 等主流组件库
+后端开发&lt;/li&gt;
+&lt;li&gt;熟练掌握 Java 基础语法，熟悉 Spring Boot、MyBatis-Plus 框架，具备后端接口开发与工程化能力&lt;/li&gt;
+&lt;li&gt;熟悉 Node.js（Express），能够进行全栈开发&lt;/li&gt;
+&lt;li&gt;熟练掌握 Python 基础语法，熟悉 Django、Flask 及常用爬虫库&lt;/li&gt;
+&lt;li&gt;具备 自研加密算法工程化落地、性能优化（多线程、JVM 调优、流式读取）的实践经验
+移动端开发&lt;/li&gt;
+&lt;li&gt;熟悉 Android 原生开发，具备代码重构与性能优化经验&lt;/li&gt;
+&lt;li&gt;掌握 跨端开发（React Native / UniApp），支持移动端与桌面端适配
+数据库与存储&lt;/li&gt;
+&lt;li&gt;熟悉 MySQL、MongoDB、OpenGauss 等数据库，具备数据库建模与优化能力&lt;/li&gt;
+&lt;li&gt;理解 数据安全与加密策略，掌握 国密算法（SM2/SM3/SM4）
+运维与部署&lt;/li&gt;
+&lt;li&gt;熟悉 Linux 基础命令，具备软件部署与运维能力&lt;/li&gt;
+&lt;li&gt;熟悉 Docker、Jenkins，具备 CI/CD 自动化部署 实践经验&lt;/li&gt;
+&lt;li&gt;能独立编写 Shell/PowerShell 脚本，支持一键化构建与上线
+协作与工具&lt;/li&gt;
+&lt;li&gt;熟练使用 Git，能够配合 GitHub/GitLab/Gitee 进行多人协作开发&lt;/li&gt;
+&lt;li&gt;熟悉 敏捷开发流程，具备跨团队协作与项目推进能力&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>ELK 安装</title><link>https://RUIIIOVO.github.io/blog-site/posts/elk-%E5%AE%89%E8%A3%85/</link><pubDate>Wed, 08 Apr 2026 10:42:55 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/elk-%E5%AE%89%E8%A3%85/</guid><description>&lt;p&gt;&lt;a href="https://www.elastic.co/cn/downloads/past-releases/"&gt;https://www.elastic.co/cn/downloads/past-releases/&lt;/a&gt;
+下载Elasticsearch 9.2.4 Kibana 9.2.4 Logstash 9.2.4 分别下载windows版本zip并解压&lt;/p&gt;
+&lt;p&gt;安装Elasticsearch插件 中文分词器：
+&lt;a href="https://github.com/infinilabs/analysis-ik/releases"&gt;https://github.com/infinilabs/analysis-ik/releases&lt;/a&gt;
+在Elasticsearch 安装目录bin下面执行命令：&lt;/p&gt;</description></item><item><title>Git提交规范</title><link>https://RUIIIOVO.github.io/blog-site/posts/git%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/</link><pubDate>Wed, 08 Apr 2026 10:42:55 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/git%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/</guid><description>&lt;ul&gt;
+&lt;li&gt;feat: 新功能、新特性&lt;/li&gt;
+&lt;li&gt;fix: 修改 bug&lt;/li&gt;
+&lt;li&gt;perf: 更改代码，以提高性能&lt;/li&gt;
+&lt;li&gt;refactor: 代码重构（重构，在不影响代码内部行为、功能下的代码修改）&lt;/li&gt;
+&lt;li&gt;docs: 文档修改&lt;/li&gt;
+&lt;li&gt;style: 代码格式修改, 注意不是 css 修改（例如分号修改）&lt;/li&gt;
+&lt;li&gt;test: 测试用例新增、修改&lt;/li&gt;
+&lt;li&gt;build: 影响项目构建或依赖项修改&lt;/li&gt;
+&lt;li&gt;revert: 恢复上一次提交&lt;/li&gt;
+&lt;li&gt;ci: 持续集成相关文件修改&lt;/li&gt;
+&lt;li&gt;chore: 其他修改（不在上述类型中的修改）&lt;/li&gt;
+&lt;li&gt;release: 发布新版本&lt;/li&gt;
+&lt;li&gt;workflow: 工作流相关文件修改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;scope: commit 影响的范围, 比如: route, component, utils, build&amp;hellip;&lt;/li&gt;
+&lt;li&gt;subject: commit 的概述&lt;/li&gt;
+&lt;li&gt;body: commit 具体修改内容, 可以分为多行.&lt;/li&gt;
+&lt;li&gt;footer: 一些备注, 通常是 BREAKING CHANGE 或修复的 bug 的链接.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>查询项目node版本</title><link>https://RUIIIOVO.github.io/blog-site/posts/%E6%9F%A5%E8%AF%A2%E9%A1%B9%E7%9B%AEnode%E7%89%88%E6%9C%AC/</link><pubDate>Wed, 08 Apr 2026 10:42:54 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/%E6%9F%A5%E8%AF%A2%E9%A1%B9%E7%9B%AEnode%E7%89%88%E6%9C%AC/</guid><description>&lt;p&gt;package.json中查看&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;@types/node&amp;rdquo;: {
+&amp;ldquo;version&amp;rdquo;: &amp;ldquo;12.12.7&amp;rdquo;,
+&amp;ldquo;resolved&amp;rdquo;: &amp;ldquo;&lt;a href="https://registry.npm.taobao.org/@types/node/download/@types/node-12.12.7.tgz?cache=0&amp;amp;other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-12.12.7.tgz%22"&gt;https://registry.npm.taobao.org/@types/node/download/@types/node-12.12.7.tgz?cache=0&amp;amp;other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-12.12.7.tgz&amp;quot;&lt;/a&gt;,
+&amp;ldquo;integrity&amp;rdquo;: &amp;ldquo;sha1-AeTqck2eO9UNkMEf1ZgLoxfY+hE=&amp;rdquo;,
+&amp;ldquo;dev&amp;rdquo;: true
+},&lt;/p&gt;</description></item><item><title>Docker部署流程</title><link>https://RUIIIOVO.github.io/blog-site/posts/docker%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/</link><pubDate>Wed, 08 Apr 2026 10:42:53 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/docker%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/</guid><description>&lt;h1 id="一整体流程总览先建立全局认知"&gt;一、整体流程总览（先建立全局认知）&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;源码 ↓ Dockerfile（定义环境） ↓ docker build（生成不可变镜像） ↓ docker tag（版本化） ↓ docker push / docker save（传输） ↓ 服务器 docker pull / load ↓ docker run / docker compose&lt;/code&gt;&lt;/p&gt;</description></item><item><title>FigmaMCP提示词</title><link>https://RUIIIOVO.github.io/blog-site/posts/figmamcp%E6%8F%90%E7%A4%BA%E8%AF%8D/</link><pubDate>Wed, 08 Apr 2026 10:42:53 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/figmamcp%E6%8F%90%E7%A4%BA%E8%AF%8D/</guid><description>&lt;p&gt;你是一名资深全栈工程师，请基于我提供的 Figma 设计链接生成响应式小程序页面，并使用Figma mcp工具查看UI设计稿。&lt;br&gt;
+要求：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;严格还原间距和颜色&lt;/li&gt;
+&lt;li&gt;对移动设备做适配处理&lt;/li&gt;
+&lt;li&gt;其中若涉及图标、背景图等信息，告知我代码中对应图标的名称，我会手动下载保存在腾讯云cos上&lt;/li&gt;
+&lt;li&gt;若涉及新功能开发，你是一名优秀的经验丰富的全栈工程师，需要完成sql表创建、后端编写以及前端编写工作&lt;/li&gt;
+&lt;li&gt;若需要顶部导航栏，则使用小程序原生的顶部导航栏，页面的宽高需要考虑padding的距离，必要时使用calc设置宽高&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;设计链接：
+&lt;a href="https://www.figma.com/design/xXcKJz1amnqrNGR32JSWoI/Untitled?node-id=30-299&amp;amp;t=g9zYjchPWTYzvXoA-0"&gt;https://www.figma.com/design/xXcKJz1amnqrNGR32JSWoI/Untitled?node-id=30-299&amp;amp;t=g9zYjchPWTYzvXoA-0&lt;/a&gt;&lt;/p&gt;</description></item><item><title>electron镜像源配置</title><link>https://RUIIIOVO.github.io/blog-site/posts/electron%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE/</link><pubDate>Wed, 08 Apr 2026 10:42:52 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/electron%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE/</guid><description>&lt;p&gt;.npmrc 中手动加入：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;electron_mirror=https://cdn.npmmirror.com/binaries/electron/
+electron_builder_binaries_mirror=https://npmmirror.com/mirrors/electron-builder-binaries/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;教程：https://blog.csdn.net/qq_36835255/article/details/145202441&lt;/p&gt;</description></item><item><title>Ubuntu nvm下载</title><link>https://RUIIIOVO.github.io/blog-site/posts/ubuntu-nvm%E4%B8%8B%E8%BD%BD/</link><pubDate>Wed, 08 Apr 2026 10:42:52 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/ubuntu-nvm%E4%B8%8B%E8%BD%BD/</guid><description>&lt;p&gt;安装：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;# 安装 curl
+sudo apt install curl
+# 安装 git
+sudo apt install git
+# 安装 nvm
+bash -c &amp;#34;$(curl -fsSL https://gitee.com/RubyMetric/nvm-cn/raw/main/install.sh)&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;重开终端，或重新打开 ssh 窗口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令行&lt;/th&gt;
+&lt;th&gt;作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;nvm ls&lt;/td&gt;
+&lt;td&gt;已安装的列表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nvm ls-remote&lt;/td&gt;
+&lt;td&gt;所有可安装版本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nvm install v12.20.1&lt;/td&gt;
+&lt;td&gt;安装某个版本Node&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nvm use 12.20.1&lt;/td&gt;
+&lt;td&gt;切换Node版本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;node -v&lt;/td&gt;
+&lt;td&gt;node.js 版本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nvm-update&lt;/td&gt;
+&lt;td&gt;更新nvm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;卸载：&lt;/p&gt;</description></item><item><title>npm pnpm yarn镜像源配置</title><link>https://RUIIIOVO.github.io/blog-site/posts/npm-pnpm-yarn%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE/</link><pubDate>Wed, 08 Apr 2026 10:42:51 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/npm-pnpm-yarn%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE/</guid><description>&lt;pre tabindex="0"&gt;&lt;code&gt;npm get registry
+# 国内 淘宝 镜像源
+npm config set registry https://registry.npmmirror.com/
+# 官方镜像源
+npm config set registry https://registry.npmjs.org/
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex="0"&gt;&lt;code&gt;pnpm get registry
+# 国内 淘宝 镜像源
+pnpm config set registry https://registry.npmmirror.com/
+# 官方镜像源
+pnpm config set registry https://registry.npmjs.org/
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex="0"&gt;&lt;code&gt;npm install -g yarn@1.22.19
+yarn config get registry
+# 国内 淘宝 镜像源
+yarn config set registry https://registry.npmmirror.com/
+# 官方镜像源
+yarn config set registry https://registry.yarnpkg.com/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;清除缓存&lt;/p&gt;</description></item><item><title>React Native运行IOS</title><link>https://RUIIIOVO.github.io/blog-site/posts/react-native%E8%BF%90%E8%A1%8Cios/</link><pubDate>Wed, 08 Apr 2026 10:42:51 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/react-native%E8%BF%90%E8%A1%8Cios/</guid><description>&lt;ol&gt;
+&lt;li&gt;关闭代理&lt;/li&gt;
+&lt;li&gt;yarn install&lt;/li&gt;
+&lt;li&gt;yarn pod&lt;/li&gt;
+&lt;li&gt;检查xcode workspace 三处arm64 twwapp中的三处、以及prods&lt;/li&gt;
+&lt;li&gt;&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020250122100454.png" alt="Pasted image 20250122100454"&gt;
+&lt;/li&gt;
+&lt;li&gt;运行，查看报错，选择wenling&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020250122100554.png" alt="Pasted image 20250122100554"&gt;
+&lt;/li&gt;
+&lt;li&gt;再次运行，fix代码里的语法错误&lt;/li&gt;
+&lt;li&gt;再次运行，xcode执行成功后关闭终端、simulator，在webstorm重新运行&lt;/li&gt;
+&lt;/ol&gt;</description></item></channel></rss>

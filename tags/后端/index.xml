@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>后端 on Rui blog</title><link>https://RUIIIOVO.github.io/blog-site/tags/%E5%90%8E%E7%AB%AF/</link><description>Recent content in 后端 on Rui blog</description><generator>Hugo -- 0.160.0</generator><language>zh-cn</language><lastBuildDate>Wed, 08 Apr 2026 10:42:53 +0800</lastBuildDate><atom:link href="https://RUIIIOVO.github.io/blog-site/tags/%E5%90%8E%E7%AB%AF/index.xml" rel="self" type="application/rss+xml"/><item><title>FigmaMCP提示词</title><link>https://RUIIIOVO.github.io/blog-site/posts/figmamcp%E6%8F%90%E7%A4%BA%E8%AF%8D/</link><pubDate>Wed, 08 Apr 2026 10:42:53 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/figmamcp%E6%8F%90%E7%A4%BA%E8%AF%8D/</guid><description>&lt;p&gt;你是一名资深全栈工程师，请基于我提供的 Figma 设计链接生成响应式小程序页面，并使用Figma mcp工具查看UI设计稿。&lt;br&gt;
+要求：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;严格还原间距和颜色&lt;/li&gt;
+&lt;li&gt;对移动设备做适配处理&lt;/li&gt;
+&lt;li&gt;其中若涉及图标、背景图等信息，告知我代码中对应图标的名称，我会手动下载保存在腾讯云cos上&lt;/li&gt;
+&lt;li&gt;若涉及新功能开发，你是一名优秀的经验丰富的全栈工程师，需要完成sql表创建、后端编写以及前端编写工作&lt;/li&gt;
+&lt;li&gt;若需要顶部导航栏，则使用小程序原生的顶部导航栏，页面的宽高需要考虑padding的距离，必要时使用calc设置宽高&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;设计链接：
+&lt;a href="https://www.figma.com/design/xXcKJz1amnqrNGR32JSWoI/Untitled?node-id=30-299&amp;amp;t=g9zYjchPWTYzvXoA-0"&gt;https://www.figma.com/design/xXcKJz1amnqrNGR32JSWoI/Untitled?node-id=30-299&amp;amp;t=g9zYjchPWTYzvXoA-0&lt;/a&gt;&lt;/p&gt;</description></item><item><title>springboot打包</title><link>https://RUIIIOVO.github.io/blog-site/posts/springboot%E6%89%93%E5%8C%85/</link><pubDate>Wed, 08 Apr 2026 10:42:52 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/springboot%E6%89%93%E5%8C%85/</guid><description>&lt;p&gt;&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020250630142524.png" alt="Pasted image 20250630142524"&gt;
+&lt;/p&gt;</description></item></channel></rss>

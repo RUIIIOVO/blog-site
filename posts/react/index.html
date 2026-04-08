@@ -1,0 +1,559 @@
+<!doctype html><html lang=zh dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>React | Rui blog</title><meta name=keywords content="React,前端"><meta name=description content="文档：[https://17.reactjs.org/docs/getting-started.html]
+核心要点
+
+  
+      
+          你想做的事
+          React 里常用
+          Vue 里常用
+      
+  
+  
+      
+          页面加载后执行一次
+          useEffect(&mldr;, [])
+          onMounted
+      
+      
+          页面销毁前清理
+          useEffect 返回清理函数
+          onUnmounted
+      
+      
+          监听某个值变化
+          useEffect(&mldr;, [value])
+          watch
+      
+      
+          自动追踪依赖执行副作用
+          useEffect（手动写依赖）
+          watchEffect
+      
+      
+          根据状态计算新值
+          useMemo
+          computed
+      
+  
+
+代码整理：
+hello world
+注意需要使用==type=&ldquo;text/jsx&rdquo;=="><meta name=author content="Rui"><link rel=canonical href=https://RUIIIOVO.github.io/blog-site/posts/react/><link crossorigin=anonymous href=/blog-site/assets/css/stylesheet.4941fa8d77a40a6dd81a72a0a7f79a86d174c40081cbfdd00f328e27606149c6.css integrity="sha256-SUH6jXekCm3YGnKgp/eahtF0xACBy/3QDzKOJ2BhScY=" rel="preload stylesheet" as=style><link rel=icon href=https://RUIIIOVO.github.io/blog-site/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://RUIIIOVO.github.io/blog-site/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://RUIIIOVO.github.io/blog-site/favicon-32x32.png><link rel=apple-touch-icon href=https://RUIIIOVO.github.io/blog-site/apple-touch-icon.png><link rel=mask-icon href=https://RUIIIOVO.github.io/blog-site/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh href=https://RUIIIOVO.github.io/blog-site/posts/react/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="React"><meta property="og:description" content="文档：[https://17.reactjs.org/docs/getting-started.html]
+核心要点
+
+  
+      
+          你想做的事
+          React 里常用
+          Vue 里常用
+      
+  
+  
+      
+          页面加载后执行一次
+          useEffect(&mldr;, [])
+          onMounted
+      
+      
+          页面销毁前清理
+          useEffect 返回清理函数
+          onUnmounted
+      
+      
+          监听某个值变化
+          useEffect(&mldr;, [value])
+          watch
+      
+      
+          自动追踪依赖执行副作用
+          useEffect（手动写依赖）
+          watchEffect
+      
+      
+          根据状态计算新值
+          useMemo
+          computed
+      
+  
+
+代码整理：
+hello world
+注意需要使用==type=&ldquo;text/jsx&rdquo;=="><meta property="og:type" content="article"><meta property="og:url" content="https://RUIIIOVO.github.io/blog-site/posts/react/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-04-08T10:42:56+08:00"><meta property="article:modified_time" content="2026-04-08T10:42:56+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="React"><meta name=twitter:description content="文档：[https://17.reactjs.org/docs/getting-started.html]
+核心要点
+
+  
+      
+          你想做的事
+          React 里常用
+          Vue 里常用
+      
+  
+  
+      
+          页面加载后执行一次
+          useEffect(&mldr;, [])
+          onMounted
+      
+      
+          页面销毁前清理
+          useEffect 返回清理函数
+          onUnmounted
+      
+      
+          监听某个值变化
+          useEffect(&mldr;, [value])
+          watch
+      
+      
+          自动追踪依赖执行副作用
+          useEffect（手动写依赖）
+          watchEffect
+      
+      
+          根据状态计算新值
+          useMemo
+          computed
+      
+  
+
+代码整理：
+hello world
+注意需要使用==type=&ldquo;text/jsx&rdquo;=="><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://RUIIIOVO.github.io/blog-site/posts/"},{"@type":"ListItem","position":2,"name":"React","item":"https://RUIIIOVO.github.io/blog-site/posts/react/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"React","name":"React","description":"文档：[https://17.reactjs.org/docs/getting-started.html]\n核心要点 你想做的事 React 里常用 Vue 里常用 页面加载后执行一次 useEffect(\u0026hellip;, []) onMounted 页面销毁前清理 useEffect 返回清理函数 onUnmounted 监听某个值变化 useEffect(\u0026hellip;, [value]) watch 自动追踪依赖执行副作用 useEffect（手动写依赖） watchEffect 根据状态计算新值 useMemo computed 代码整理： hello world 注意需要使用==type=\u0026ldquo;text/jsx\u0026rdquo;==\n","keywords":["React","前端"],"articleBody":"文档：[https://17.reactjs.org/docs/getting-started.html]\n核心要点 你想做的事 React 里常用 Vue 里常用 页面加载后执行一次 useEffect(…, []) onMounted 页面销毁前清理 useEffect 返回清理函数 onUnmounted 监听某个值变化 useEffect(…, [value]) watch 自动追踪依赖执行副作用 useEffect（手动写依赖） watchEffect 根据状态计算新值 useMemo computed 代码整理： hello world 注意需要使用==type=“text/jsx”==\n\u003c!DOCTYPE html\u003e \u003chtml lang=\"en\"\u003e \u003chead\u003e \u003cmeta charset=\"UTF-8\"\u003e \u003ctitle\u003eTitle\u003c/title\u003e \u003cscript src=\"https://unpkg.com/react@18/umd/react.development.js\"\u003e\u003c/script\u003e \u003cscript src=\"https://unpkg.com/react-dom@18/umd/react-dom.development.js\"\u003e\u003c/script\u003e \u003cscript src=\"https://unpkg.com/@babel/standalone/babel.min.js\"\u003e\u003c/script\u003e \u003c/head\u003e \u003cbody\u003e \u003cdiv id=\"root\"\u003e\u003c/div\u003e \u003c/body\u003e \u003cscript type=\"text/jsx\"\u003e const element = \u003ch1\u003eHello, world\u003c/h1\u003e; ReactDOM.render(element, document.getElementById('root')); \u003c/script\u003e \u003c/html\u003e 时钟：\n\u003c!DOCTYPE html\u003e \u003chtml lang=\"en\"\u003e \u003chead\u003e \u003cmeta charset=\"UTF-8\"\u003e \u003ctitle\u003eTitle\u003c/title\u003e \u003cscript src=\"https://unpkg.com/react@17/umd/react.development.js\"\u003e\u003c/script\u003e \u003cscript src=\"https://unpkg.com/react-dom@17/umd/react-dom.development.js\"\u003e\u003c/script\u003e \u003cstyle\u003e \u003c/style\u003e \u003cbody\u003e \u003cdiv id=\"root\"\u003e\u003c/div\u003e \u003c/body\u003e \u003cscript type=\"text/jsx\"\u003e function tick() { const element = ( \u003cdiv\u003e \u003ch1\u003eHello, world!\u003c/h1\u003e \u003ch2\u003eIt is {new Date().toLocaleTimeString()}.\u003c/h2\u003e \u003c/div\u003e ); ReactDOM.render(element, document.getElementById('root')); } setInterval(tick, 1000); \u003c/script\u003e \u003c/html\u003e jsx:\n\u003cscript type=\"text/jsx\"\u003e const name = 'lkr'; const element = \u003ch1\u003eHello,{name}\u003c/h1\u003e ReactDOM.render( element, document.getElementById('root') ); \u003c/script\u003e 使用函数调用\n\u003cscript type=\"text/jsx\"\u003e function formatName(user){ return user.firstName+' '+user.lastName; } const user = { firstName:'liao', lastName:'kongrui' } const element = ( \u003cdiv\u003e \u003ch1\u003eHello,{formatName(user)}\u003c/h1\u003e \u003c/div\u003e ) ReactDOM.render( element, document.getElementById('root') ) \u003c/script\u003e \u003cscript type=\"text/jsx\"\u003e const user = { firstName: 'liao', lastName: 'kongrui' } function formatName(user) { return user.firstName + ' ' + user.lastName; } function getGreeting(user) { if (user) { return (\u003ch1\u003ehello,{formatName(user)}\u003c/h1\u003e); } else { return (\u003ch1\u003ehello,stronger\u003c/h1\u003e) } } const element = ( \u003cdiv\u003e \u003ch1\u003e{getGreeting(user)}\u003c/h1\u003e \u003ch1\u003e{getGreeting()}\u003c/h1\u003e \u003c/div\u003e ) ReactDOM.render( element, document.getElementById('root') ) \u003c/script\u003e 组件思想\n\u003cscript type=\"text/jsx\"\u003e function Welcome(prop) { return \u003ch1\u003eWelcome,{prop.name}\u003c/h1\u003e } const element = \u003cWelcome name=\"rui\"/\u003e ReactDOM.render( element, document.getElementById('root') ) \u003c/script\u003e App封装思想\n\u003cscript type=\"text/jsx\"\u003e function Welcome(prop) { return \u003ch1\u003eWelcome,{prop.name}\u003c/h1\u003e } function App() { return ( \u003cdiv\u003e \u003cWelcome name=\"rui\"/\u003e \u003cWelcome name=\"xiaoliao\"/\u003e \u003cWelcome name=\"zhangsan\"/\u003e \u003c/div\u003e ) } ReactDOM.render( \u003cApp/\u003e, document.getElementById('root') ) \u003c/script\u003e 组件信息传递\n\u003c!DOCTYPE html\u003e \u003chtml lang=\"en\"\u003e \u003chead\u003e \u003cmeta charset=\"UTF-8\"\u003e \u003ctitle\u003eTitle\u003c/title\u003e \u003cscript src=\"https://unpkg.com/react@17/umd/react.development.js\"\u003e\u003c/script\u003e \u003cscript src=\"https://unpkg.com/react-dom@17/umd/react-dom.development.js\"\u003e\u003c/script\u003e \u003cscript src=\"https://unpkg.com/@babel/standalone/babel.min.js\"\u003e\u003c/script\u003e \u003cstyle\u003e \u003c/style\u003e \u003cbody\u003e \u003cdiv id=\"root\"\u003e\u003c/div\u003e \u003c/body\u003e \u003cscript type=\"text/jsx\"\u003e function Comment(props) { return ( \u003cdiv className=\"Comment\"\u003e \u003cdiv className=\"UserInfo\"\u003e \u003cAuthor author={props.author}/\u003e \u003c/div\u003e text: {props.text} \u003c/div\u003e \u003cdiv\u003e date: {formatDate(props.date)} \u003c/div\u003e \u003c/div\u003e ) } function Author(props) { return ( \u003cdiv className=\"UserInfo\"\u003e \u003cAvatar author={props.author}/\u003e \u003cdiv className=\"UserInfo-name\"\u003e {props.author.name} \u003c/div\u003e \u003c/div\u003e ); } function Avatar(props) { return ( \u003cimg className=\"Avatar\" src={props.author.avatarUrl} alt={props.author.name} /\u003e ); } const comment = { author: { name: 'rui', avatarUrl: 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png' }, text: '百度一下吧', date: new Date(), } function formatDate(date) { return date.toLocaleDateString() } function App() { return ( \u003cdiv\u003e \u003cComment author={comment.author} text={comment.text} date={comment.date}/\u003e \u003c/div\u003e ) } ReactDOM.render( \u003cApp/\u003e, document.getElementById('root') ) \u003c/script\u003e \u003c/html\u003e 定时器改造\n\u003cscript type=\"text/jsx\"\u003e class Clock extends React.Component { // data constructor(props) { super(props); // 初始化state，包含一个date属性，值为当前日期时间 this.state = {date: new Date()} } // mounted componentDidMount() { // 设置定时器，每1000毫秒（即1秒）执行一次tick方法 this.timeID = setInterval(() =\u003e this.tick(), 1000) } // 组件卸载前执行的方法，用于清除定时器 // beforeDestroy componentWillUnmount() { clearInterval(this.timeID) } //methods tick() { // 调用setState方法，更新date属性为当前日期时间 this.setState({ date: new Date() }) } render() { return ( \u003cdiv\u003e \u003ch1\u003eHello, world!\u003c/h1\u003e \u003ch2\u003eIt is {this.state.date.toLocaleTimeString()}.\u003c/h2\u003e \u003c/div\u003e ) } } ReactDOM.render( \u003cClock/\u003e, document.getElementById('root') ); \u003c/script\u003e todoList\n\u003c!DOCTYPE html\u003e \u003chtml lang=\"en\"\u003e \u003chead\u003e \u003cmeta charset=\"UTF-8\"\u003e \u003ctitle\u003eTitle\u003c/title\u003e \u003cscript src=\"https://unpkg.com/react@18/umd/react.development.js\"\u003e\u003c/script\u003e \u003cscript src=\"https://unpkg.com/react-dom@18/umd/react-dom.development.js\"\u003e\u003c/script\u003e \u003cscript src=\"https://unpkg.com/@babel/standalone/babel.min.js\"\u003e\u003c/script\u003e \u003c/head\u003e \u003cbody\u003e \u003cdiv id=\"root\"\u003e\u003c/div\u003e \u003c/body\u003e \u003cscript type=\"text/jsx\"\u003e function TodoList() { const [todos, setTodos] = React.useState([]); const [inputValue, setInputValue] = React.useState(''); // 添加任务 const handleAdd = () =\u003e { if (inputValue.trim() === '') return; setTodos([...todos, { id: Date.now(), text: inputValue, completed: false }]); setInputValue(''); }; // 删除任务 const handleDelete = (id) =\u003e { setTodos(todos.filter(todo =\u003e todo.id !== id)); }; // 切换任务状态 const handleToggle = (id) =\u003e { setTodos(todos.map(todo =\u003e todo.id === id ? {...todo, completed: !todo.completed} : todo )); }; return ( \u003cdiv style={{maxWidth: '500px', margin: '20px auto', padding: '20px'}}\u003e \u003ch1\u003e待办事项\u003c/h1\u003e {/* 输入区域 */} \u003cdiv style={{marginBottom: '20px'}}\u003e \u003cinput type=\"text\" value={inputValue} onChange={(e) =\u003e setInputValue(e.target.value)} onKeyPress={(e) =\u003e e.key === 'Enter' \u0026\u0026 handleAdd()} placeholder=\"请输入待办事项\" style={{padding: '5px', marginRight: '10px'}} /\u003e \u003cbutton onClick={handleAdd}\u003e添加\u003c/button\u003e \u003c/div\u003e {/* 列表区域 */} \u003cul style={{listStyle: 'none', padding: 0}}\u003e {todos.map(todo =\u003e ( \u003cli key={todo.id} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', padding: '10px', backgroundColor: '#f5f5f5', borderRadius: '5px' }}\u003e \u003cinput type=\"checkbox\" checked={todo.completed} onChange={() =\u003e handleToggle(todo.id)} /\u003e \u003cspan style={{ marginLeft: '10px', flex: 1, textDecoration: todo.completed ? 'line-through' : 'none' }}\u003e {todo.text} \u003c/span\u003e \u003cbutton onClick={() =\u003e handleDelete(todo.id)}\u003e删除\u003c/button\u003e \u003c/li\u003e ))} \u003c/ul\u003e \u003c/div\u003e ); } const root = ReactDOM.createRoot(document.getElementById('root')); root.render(\u003cTodoList /\u003e); \u003c/script\u003e \u003c/html\u003e ","wordCount":"1083","inLanguage":"zh","datePublished":"2026-04-08T10:42:56+08:00","dateModified":"2026-04-08T10:42:56+08:00","author":{"@type":"Person","name":"Rui"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://RUIIIOVO.github.io/blog-site/posts/react/"},"publisher":{"@type":"Organization","name":"Rui blog","logo":{"@type":"ImageObject","url":"https://RUIIIOVO.github.io/blog-site/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://RUIIIOVO.github.io/blog-site/ accesskey=h title="Rui blog (Alt + H)">Rui blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://RUIIIOVO.github.io/blog-site/posts/ title=文章><span>文章</span></a></li><li><a href=https://RUIIIOVO.github.io/blog-site/archives/ title=归档><span>归档</span></a></li><li><a href=https://RUIIIOVO.github.io/blog-site/tags/ title=标签><span>标签</span></a></li><li><a href=https://RUIIIOVO.github.io/blog-site/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://RUIIIOVO.github.io/blog-site/>主页</a>&nbsp;»&nbsp;<a href=https://RUIIIOVO.github.io/blog-site/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">React</h1><div class=post-meta><span title='2026-04-08 10:42:56 +0800 CST'>四月 8, 2026</span>&nbsp;·&nbsp;3 分钟&nbsp;·&nbsp;Rui</div></header><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>目录</span></summary><div class=inner><ul><li><a href=#%e6%a0%b8%e5%bf%83%e8%a6%81%e7%82%b9 aria-label=核心要点>核心要点</a></li><li><a href=#%e4%bb%a3%e7%a0%81%e6%95%b4%e7%90%86 aria-label=代码整理：>代码整理：</a></li></ul></div></details></div><div class=post-content><p>文档：[https://17.reactjs.org/docs/getting-started.html]</p><h2 id=核心要点>核心要点<a hidden class=anchor aria-hidden=true href=#核心要点>#</a></h2><table><thead><tr><th>你想做的事</th><th>React 里常用</th><th>Vue 里常用</th></tr></thead><tbody><tr><td>页面加载后执行一次</td><td>useEffect(&mldr;, [])</td><td>onMounted</td></tr><tr><td>页面销毁前清理</td><td>useEffect 返回清理函数</td><td>onUnmounted</td></tr><tr><td>监听某个值变化</td><td>useEffect(&mldr;, [value])</td><td>watch</td></tr><tr><td>自动追踪依赖执行副作用</td><td>useEffect（手动写依赖）</td><td>watchEffect</td></tr><tr><td>根据状态计算新值</td><td>useMemo</td><td>computed</td></tr></tbody></table><h2 id=代码整理>代码整理：<a hidden class=anchor aria-hidden=true href=#代码整理>#</a></h2><p>hello world
+注意需要使用==type=&ldquo;text/jsx&rdquo;==</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=o>&lt;!</span><span class=nx>DOCTYPE</span> <span class=nx>html</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>html</span> <span class=nx>lang</span><span class=o>=</span><span class=s2>&#34;en&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>head</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>meta</span> <span class=nx>charset</span><span class=o>=</span><span class=s2>&#34;UTF-8&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>title</span><span class=o>&gt;</span><span class=nx>Title</span><span class=o>&lt;</span><span class=err>/title&gt;  </span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>script</span> <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;https://unpkg.com/react@18/umd/react.development.js&#34;</span><span class=o>&gt;&lt;</span><span class=err>/script&gt;  </span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>script</span> <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;https://unpkg.com/react-dom@18/umd/react-dom.development.js&#34;</span><span class=o>&gt;&lt;</span><span class=err>/script&gt;  </span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>script</span> <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;https://unpkg.com/@babel/standalone/babel.min.js&#34;</span><span class=o>&gt;&lt;</span><span class=err>/script&gt;  </span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/head&gt;  </span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>body</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>div</span> <span class=nx>id</span><span class=o>=</span><span class=s2>&#34;root&#34;</span><span class=o>&gt;&lt;</span><span class=err>/div&gt;  </span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/body&gt;  </span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>type</span><span class=o>=</span><span class=s2>&#34;text/jsx&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>element</span> <span class=o>=</span> <span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=nx>Hello</span><span class=p>,</span> <span class=nx>world</span><span class=o>&lt;</span><span class=err>/h1&gt;;  </span>
+</span></span><span class=line><span class=cl>    <span class=nx>ReactDOM</span><span class=p>.</span><span class=nx>render</span><span class=p>(</span><span class=nx>element</span><span class=p>,</span> <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;root&#39;</span><span class=p>));</span>  
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/script&gt;  </span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/html&gt;</span>
+</span></span></code></pre></div><p>时钟：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=o>&lt;!</span><span class=nx>DOCTYPE</span> <span class=nx>html</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>html</span> <span class=nx>lang</span><span class=o>=</span><span class=s2>&#34;en&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>head</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>meta</span> <span class=nx>charset</span><span class=o>=</span><span class=s2>&#34;UTF-8&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>title</span><span class=o>&gt;</span><span class=nx>Title</span><span class=o>&lt;</span><span class=err>/title&gt;  </span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>script</span> <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;https://unpkg.com/react@17/umd/react.development.js&#34;</span><span class=o>&gt;&lt;</span><span class=err>/script&gt;  </span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>script</span> <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;https://unpkg.com/react-dom@17/umd/react-dom.development.js&#34;</span><span class=o>&gt;&lt;</span><span class=err>/script&gt;  </span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>style</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=err>/style&gt;&lt;/head&gt;  </span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>body</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>div</span> <span class=nx>id</span><span class=o>=</span><span class=s2>&#34;root&#34;</span><span class=o>&gt;&lt;</span><span class=err>/div&gt;  </span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/body&gt;  </span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>type</span><span class=o>=</span><span class=s2>&#34;text/jsx&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>    <span class=kd>function</span> <span class=nx>tick</span><span class=p>()</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>element</span> <span class=o>=</span> <span class=p>(</span>  
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>                <span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=nx>Hello</span><span class=p>,</span> <span class=nx>world</span><span class=o>!&lt;</span><span class=err>/h1&gt;  </span>
+</span></span><span class=line><span class=cl>                <span class=o>&lt;</span><span class=nx>h2</span><span class=o>&gt;</span><span class=nx>It</span> <span class=nx>is</span> <span class=p>{</span><span class=k>new</span> <span class=nb>Date</span><span class=p>().</span><span class=nx>toLocaleTimeString</span><span class=p>()}.</span><span class=o>&lt;</span><span class=err>/h2&gt;  </span>
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=err>/div&gt;        );  </span>
+</span></span><span class=line><span class=cl>        <span class=nx>ReactDOM</span><span class=p>.</span><span class=nx>render</span><span class=p>(</span><span class=nx>element</span><span class=p>,</span> <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;root&#39;</span><span class=p>));</span>  
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=nx>setInterval</span><span class=p>(</span><span class=nx>tick</span><span class=p>,</span> <span class=mi>1000</span><span class=p>);</span>  
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/script&gt;  </span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/html&gt;</span>
+</span></span></code></pre></div><p>jsx:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>type</span><span class=o>=</span><span class=s2>&#34;text/jsx&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>name</span> <span class=o>=</span> <span class=s1>&#39;lkr&#39;</span><span class=p>;</span>  
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>element</span> <span class=o>=</span> <span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=nx>Hello</span><span class=p>,{</span><span class=nx>name</span><span class=p>}</span><span class=o>&lt;</span><span class=err>/h1&gt;  </span>
+</span></span><span class=line><span class=cl>    <span class=nx>ReactDOM</span><span class=p>.</span><span class=nx>render</span><span class=p>(</span>  
+</span></span><span class=line><span class=cl>        <span class=nx>element</span><span class=p>,</span>  
+</span></span><span class=line><span class=cl>        <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;root&#39;</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>    <span class=p>);</span>  
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/script&gt;</span>
+</span></span></code></pre></div><p>使用函数调用</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>type</span><span class=o>=</span><span class=s2>&#34;text/jsx&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>    <span class=kd>function</span> <span class=nx>formatName</span><span class=p>(</span><span class=nx>user</span><span class=p>){</span>  
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>user</span><span class=p>.</span><span class=nx>firstName</span><span class=o>+</span><span class=s1>&#39; &#39;</span><span class=o>+</span><span class=nx>user</span><span class=p>.</span><span class=nx>lastName</span><span class=p>;</span>  
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>user</span> <span class=o>=</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>        <span class=nx>firstName</span><span class=o>:</span><span class=s1>&#39;liao&#39;</span><span class=p>,</span>  
+</span></span><span class=line><span class=cl>        <span class=nx>lastName</span><span class=o>:</span><span class=s1>&#39;kongrui&#39;</span>  
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>element</span> <span class=o>=</span> <span class=p>(</span>  
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=nx>Hello</span><span class=p>,{</span><span class=nx>formatName</span><span class=p>(</span><span class=nx>user</span><span class=p>)}</span><span class=o>&lt;</span><span class=err>/h1&gt;  </span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=err>/div&gt;    )  </span>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=nx>ReactDOM</span><span class=p>.</span><span class=nx>render</span><span class=p>(</span>  
+</span></span><span class=line><span class=cl>        <span class=nx>element</span><span class=p>,</span>  
+</span></span><span class=line><span class=cl>        <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;root&#39;</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>    <span class=p>)</span>  
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/script&gt;</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>type</span><span class=o>=</span><span class=s2>&#34;text/jsx&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>user</span> <span class=o>=</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>        <span class=nx>firstName</span><span class=o>:</span> <span class=s1>&#39;liao&#39;</span><span class=p>,</span>  
+</span></span><span class=line><span class=cl>        <span class=nx>lastName</span><span class=o>:</span> <span class=s1>&#39;kongrui&#39;</span>  
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=kd>function</span> <span class=nx>formatName</span><span class=p>(</span><span class=nx>user</span><span class=p>)</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>user</span><span class=p>.</span><span class=nx>firstName</span> <span class=o>+</span> <span class=s1>&#39; &#39;</span> <span class=o>+</span> <span class=nx>user</span><span class=p>.</span><span class=nx>lastName</span><span class=p>;</span>  
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=kd>function</span> <span class=nx>getGreeting</span><span class=p>(</span><span class=nx>user</span><span class=p>)</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>user</span><span class=p>)</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=p>(</span><span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=nx>hello</span><span class=p>,{</span><span class=nx>formatName</span><span class=p>(</span><span class=nx>user</span><span class=p>)}</span><span class=o>&lt;</span><span class=err>/h1&gt;);  </span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=p>(</span><span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=nx>hello</span><span class=p>,</span><span class=nx>stronger</span><span class=o>&lt;</span><span class=err>/h1&gt;)  </span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>  
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>element</span> <span class=o>=</span> <span class=p>(</span>  
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=p>{</span><span class=nx>getGreeting</span><span class=p>(</span><span class=nx>user</span><span class=p>)}</span><span class=o>&lt;</span><span class=err>/h1&gt;  </span>
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=p>{</span><span class=nx>getGreeting</span><span class=p>()}</span><span class=o>&lt;</span><span class=err>/h1&gt;  </span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=err>/div&gt;    )  </span>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=nx>ReactDOM</span><span class=p>.</span><span class=nx>render</span><span class=p>(</span>  
+</span></span><span class=line><span class=cl>        <span class=nx>element</span><span class=p>,</span>  
+</span></span><span class=line><span class=cl>        <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;root&#39;</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>    <span class=p>)</span>  
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/script&gt;</span>
+</span></span></code></pre></div><p>组件思想</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>type</span><span class=o>=</span><span class=s2>&#34;text/jsx&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>    <span class=kd>function</span> <span class=nx>Welcome</span><span class=p>(</span><span class=nx>prop</span><span class=p>)</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=nx>Welcome</span><span class=p>,{</span><span class=nx>prop</span><span class=p>.</span><span class=nx>name</span><span class=p>}</span><span class=o>&lt;</span><span class=err>/h1&gt;  </span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>element</span> <span class=o>=</span> <span class=o>&lt;</span><span class=nx>Welcome</span> <span class=nx>name</span><span class=o>=</span><span class=s2>&#34;rui&#34;</span><span class=o>/&gt;</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=nx>ReactDOM</span><span class=p>.</span><span class=nx>render</span><span class=p>(</span>  
+</span></span><span class=line><span class=cl>        <span class=nx>element</span><span class=p>,</span>  
+</span></span><span class=line><span class=cl>        <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;root&#39;</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>    <span class=p>)</span>  
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/script&gt;</span>
+</span></span></code></pre></div><p>App封装思想</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>type</span><span class=o>=</span><span class=s2>&#34;text/jsx&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>    <span class=kd>function</span> <span class=nx>Welcome</span><span class=p>(</span><span class=nx>prop</span><span class=p>)</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=nx>Welcome</span><span class=p>,{</span><span class=nx>prop</span><span class=p>.</span><span class=nx>name</span><span class=p>}</span><span class=o>&lt;</span><span class=err>/h1&gt;  </span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=kd>function</span> <span class=nx>App</span><span class=p>()</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=p>(</span>  
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>                <span class=o>&lt;</span><span class=nx>Welcome</span> <span class=nx>name</span><span class=o>=</span><span class=s2>&#34;rui&#34;</span><span class=o>/&gt;</span>  
+</span></span><span class=line><span class=cl>                <span class=o>&lt;</span><span class=nx>Welcome</span> <span class=nx>name</span><span class=o>=</span><span class=s2>&#34;xiaoliao&#34;</span><span class=o>/&gt;</span>  
+</span></span><span class=line><span class=cl>                <span class=o>&lt;</span><span class=nx>Welcome</span> <span class=nx>name</span><span class=o>=</span><span class=s2>&#34;zhangsan&#34;</span><span class=o>/&gt;</span>  
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=err>/div&gt;        )  </span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=nx>ReactDOM</span><span class=p>.</span><span class=nx>render</span><span class=p>(</span>  
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=nx>App</span><span class=o>/&gt;</span><span class=p>,</span>  
+</span></span><span class=line><span class=cl>        <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;root&#39;</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>    <span class=p>)</span>  
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/script&gt;</span>
+</span></span></code></pre></div><p>组件信息传递</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=o>&lt;!</span><span class=nx>DOCTYPE</span> <span class=nx>html</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>html</span> <span class=nx>lang</span><span class=o>=</span><span class=s2>&#34;en&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>head</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>meta</span> <span class=nx>charset</span><span class=o>=</span><span class=s2>&#34;UTF-8&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>title</span><span class=o>&gt;</span><span class=nx>Title</span><span class=o>&lt;</span><span class=err>/title&gt;  </span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>script</span> <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;https://unpkg.com/react@17/umd/react.development.js&#34;</span><span class=o>&gt;&lt;</span><span class=err>/script&gt;  </span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>script</span> <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;https://unpkg.com/react-dom@17/umd/react-dom.development.js&#34;</span><span class=o>&gt;&lt;</span><span class=err>/script&gt;  </span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>script</span> <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;https://unpkg.com/@babel/standalone/babel.min.js&#34;</span><span class=o>&gt;&lt;</span><span class=err>/script&gt;  </span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>style</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=err>/style&gt;&lt;/head&gt;  </span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>body</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>div</span> <span class=nx>id</span><span class=o>=</span><span class=s2>&#34;root&#34;</span><span class=o>&gt;&lt;</span><span class=err>/div&gt;  </span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/body&gt;  </span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>type</span><span class=o>=</span><span class=s2>&#34;text/jsx&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>    <span class=kd>function</span> <span class=nx>Comment</span><span class=p>(</span><span class=nx>props</span><span class=p>)</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=p>(</span>  
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>div</span> <span class=nx>className</span><span class=o>=</span><span class=s2>&#34;Comment&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>                <span class=o>&lt;</span><span class=nx>div</span> <span class=nx>className</span><span class=o>=</span><span class=s2>&#34;UserInfo&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>                    <span class=o>&lt;</span><span class=nx>Author</span> <span class=nx>author</span><span class=o>=</span><span class=p>{</span><span class=nx>props</span><span class=p>.</span><span class=nx>author</span><span class=p>}</span><span class=o>/&gt;</span>  
+</span></span><span class=line><span class=cl>                <span class=o>&lt;</span><span class=err>/div&gt;                &lt;div&gt;                    text: {props.text}  </span>
+</span></span><span class=line><span class=cl>                <span class=o>&lt;</span><span class=err>/div&gt;  </span>
+</span></span><span class=line><span class=cl>                <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>                    <span class=nx>date</span><span class=o>:</span> <span class=p>{</span><span class=nx>formatDate</span><span class=p>(</span><span class=nx>props</span><span class=p>.</span><span class=nx>date</span><span class=p>)}</span>  
+</span></span><span class=line><span class=cl>                <span class=o>&lt;</span><span class=err>/div&gt;  </span>
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=err>/div&gt;        )  </span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=kd>function</span> <span class=nx>Author</span><span class=p>(</span><span class=nx>props</span><span class=p>)</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=p>(</span>  
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>div</span> <span class=nx>className</span><span class=o>=</span><span class=s2>&#34;UserInfo&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>                <span class=o>&lt;</span><span class=nx>Avatar</span> <span class=nx>author</span><span class=o>=</span><span class=p>{</span><span class=nx>props</span><span class=p>.</span><span class=nx>author</span><span class=p>}</span><span class=o>/&gt;</span>  
+</span></span><span class=line><span class=cl>                <span class=o>&lt;</span><span class=nx>div</span> <span class=nx>className</span><span class=o>=</span><span class=s2>&#34;UserInfo-name&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>                    <span class=p>{</span><span class=nx>props</span><span class=p>.</span><span class=nx>author</span><span class=p>.</span><span class=nx>name</span><span class=p>}</span>  
+</span></span><span class=line><span class=cl>                <span class=o>&lt;</span><span class=err>/div&gt;  </span>
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=err>/div&gt;        );  </span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=kd>function</span> <span class=nx>Avatar</span><span class=p>(</span><span class=nx>props</span><span class=p>)</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=p>(</span>  
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>img</span> <span class=nx>className</span><span class=o>=</span><span class=s2>&#34;Avatar&#34;</span>  
+</span></span><span class=line><span class=cl>                 <span class=nx>src</span><span class=o>=</span><span class=p>{</span><span class=nx>props</span><span class=p>.</span><span class=nx>author</span><span class=p>.</span><span class=nx>avatarUrl</span><span class=p>}</span>  
+</span></span><span class=line><span class=cl>                 <span class=nx>alt</span><span class=o>=</span><span class=p>{</span><span class=nx>props</span><span class=p>.</span><span class=nx>author</span><span class=p>.</span><span class=nx>name</span><span class=p>}</span>  
+</span></span><span class=line><span class=cl>            <span class=o>/&gt;</span>  
+</span></span><span class=line><span class=cl>        <span class=p>);</span>  
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>      
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>comment</span> <span class=o>=</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>        <span class=nx>author</span><span class=o>:</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>            <span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;rui&#39;</span><span class=p>,</span>  
+</span></span><span class=line><span class=cl>            <span class=nx>avatarUrl</span><span class=o>:</span> <span class=s1>&#39;https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png&#39;</span>  
+</span></span><span class=line><span class=cl>        <span class=p>},</span>  
+</span></span><span class=line><span class=cl>        <span class=nx>text</span><span class=o>:</span> <span class=s1>&#39;百度一下吧&#39;</span><span class=p>,</span>  
+</span></span><span class=line><span class=cl>        <span class=nx>date</span><span class=o>:</span> <span class=k>new</span> <span class=nb>Date</span><span class=p>(),</span>  
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=kd>function</span> <span class=nx>formatDate</span><span class=p>(</span><span class=nx>date</span><span class=p>)</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>date</span><span class=p>.</span><span class=nx>toLocaleDateString</span><span class=p>()</span>  
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=kd>function</span> <span class=nx>App</span><span class=p>()</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=p>(</span>  
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>                <span class=o>&lt;</span><span class=nx>Comment</span> <span class=nx>author</span><span class=o>=</span><span class=p>{</span><span class=nx>comment</span><span class=p>.</span><span class=nx>author</span><span class=p>}</span> <span class=nx>text</span><span class=o>=</span><span class=p>{</span><span class=nx>comment</span><span class=p>.</span><span class=nx>text</span><span class=p>}</span> <span class=nx>date</span><span class=o>=</span><span class=p>{</span><span class=nx>comment</span><span class=p>.</span><span class=nx>date</span><span class=p>}</span><span class=o>/&gt;</span>  
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=err>/div&gt;        )  </span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=nx>ReactDOM</span><span class=p>.</span><span class=nx>render</span><span class=p>(</span>  
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=nx>App</span><span class=o>/&gt;</span><span class=p>,</span>  
+</span></span><span class=line><span class=cl>        <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;root&#39;</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>    <span class=p>)</span>  
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/script&gt;  </span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/html&gt;</span>
+</span></span></code></pre></div><p>定时器改造</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>type</span><span class=o>=</span><span class=s2>&#34;text/jsx&#34;</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>    <span class=kr>class</span> <span class=nx>Clock</span> <span class=kr>extends</span> <span class=nx>React</span><span class=p>.</span><span class=nx>Component</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>        <span class=c1>// data  
+</span></span></span><span class=line><span class=cl>        <span class=nx>constructor</span><span class=p>(</span><span class=nx>props</span><span class=p>)</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>            <span class=kr>super</span><span class=p>(</span><span class=nx>props</span><span class=p>);</span>  
+</span></span><span class=line><span class=cl>            <span class=c1>// 初始化state，包含一个date属性，值为当前日期时间  
+</span></span></span><span class=line><span class=cl>            <span class=k>this</span><span class=p>.</span><span class=nx>state</span> <span class=o>=</span> <span class=p>{</span><span class=nx>date</span><span class=o>:</span> <span class=k>new</span> <span class=nb>Date</span><span class=p>()}</span>  
+</span></span><span class=line><span class=cl>        <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>        <span class=c1>// mounted  
+</span></span></span><span class=line><span class=cl>        <span class=nx>componentDidMount</span><span class=p>()</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>            <span class=c1>// 设置定时器，每1000毫秒（即1秒）执行一次tick方法  
+</span></span></span><span class=line><span class=cl>            <span class=k>this</span><span class=p>.</span><span class=nx>timeID</span> <span class=o>=</span> <span class=nx>setInterval</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=k>this</span><span class=p>.</span><span class=nx>tick</span><span class=p>(),</span> <span class=mi>1000</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>        <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>        <span class=c1>// 组件卸载前执行的方法，用于清除定时器  
+</span></span></span><span class=line><span class=cl>        <span class=c1>// beforeDestroy  
+</span></span></span><span class=line><span class=cl>        <span class=nx>componentWillUnmount</span><span class=p>()</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>            <span class=nx>clearInterval</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>timeID</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>        <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>        <span class=c1>//methods  
+</span></span></span><span class=line><span class=cl>        <span class=nx>tick</span><span class=p>()</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>            <span class=c1>// 调用setState方法，更新date属性为当前日期时间  
+</span></span></span><span class=line><span class=cl>            <span class=k>this</span><span class=p>.</span><span class=nx>setState</span><span class=p>({</span>  
+</span></span><span class=line><span class=cl>                <span class=nx>date</span><span class=o>:</span> <span class=k>new</span> <span class=nb>Date</span><span class=p>()</span>  
+</span></span><span class=line><span class=cl>            <span class=p>})</span>  
+</span></span><span class=line><span class=cl>        <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>        <span class=nx>render</span><span class=p>()</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=p>(</span>  
+</span></span><span class=line><span class=cl>                <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>  
+</span></span><span class=line><span class=cl>                    <span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=nx>Hello</span><span class=p>,</span> <span class=nx>world</span><span class=o>!&lt;</span><span class=err>/h1&gt;  </span>
+</span></span><span class=line><span class=cl>                    <span class=o>&lt;</span><span class=nx>h2</span><span class=o>&gt;</span><span class=nx>It</span> <span class=nx>is</span> <span class=p>{</span><span class=k>this</span><span class=p>.</span><span class=nx>state</span><span class=p>.</span><span class=nx>date</span><span class=p>.</span><span class=nx>toLocaleTimeString</span><span class=p>()}.</span><span class=o>&lt;</span><span class=err>/h2&gt;  </span>
+</span></span><span class=line><span class=cl>                <span class=o>&lt;</span><span class=err>/div&gt;            )  </span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>  
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=nx>ReactDOM</span><span class=p>.</span><span class=nx>render</span><span class=p>(</span>  
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=nx>Clock</span><span class=o>/&gt;</span><span class=p>,</span>  
+</span></span><span class=line><span class=cl>        <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;root&#39;</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>    <span class=p>);</span>  
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=err>/script&gt;</span>
+</span></span></code></pre></div><p>todoList</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl><span class=o>&lt;!</span><span class=nx>DOCTYPE</span> <span class=nx>html</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>html</span> <span class=na>lang</span><span class=o>=</span><span class=s>&#34;en&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>head</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>meta</span> <span class=na>charset</span><span class=o>=</span><span class=s>&#34;UTF-8&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>title</span><span class=p>&gt;</span><span class=nx>Title</span><span class=p>&lt;/</span><span class=nt>title</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://unpkg.com/react@18/umd/react.development.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://unpkg.com/react-dom@18/umd/react-dom.development.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://unpkg.com/@babel/standalone/babel.min.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>head</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;root&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text/jsx&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>TodoList</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=p>[</span><span class=nx>todos</span><span class=p>,</span> <span class=nx>setTodos</span><span class=p>]</span> <span class=o>=</span> <span class=nx>React</span><span class=p>.</span><span class=nx>useState</span><span class=p>([]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=p>[</span><span class=nx>inputValue</span><span class=p>,</span> <span class=nx>setInputValue</span><span class=p>]</span> <span class=o>=</span> <span class=nx>React</span><span class=p>.</span><span class=nx>useState</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 添加任务
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>handleAdd</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=p>(</span><span class=nx>inputValue</span><span class=p>.</span><span class=nx>trim</span><span class=p>()</span> <span class=o>===</span> <span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>setTodos</span><span class=p>([...</span><span class=nx>todos</span><span class=p>,</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>id</span><span class=o>:</span> <span class=nb>Date</span><span class=p>.</span><span class=nx>now</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>text</span><span class=o>:</span> <span class=nx>inputValue</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>completed</span><span class=o>:</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>setInputValue</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 删除任务
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>handleDelete</span> <span class=o>=</span> <span class=p>(</span><span class=nx>id</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>setTodos</span><span class=p>(</span><span class=nx>todos</span><span class=p>.</span><span class=nx>filter</span><span class=p>(</span><span class=nx>todo</span> <span class=p>=&gt;</span> <span class=nx>todo</span><span class=p>.</span><span class=nx>id</span> <span class=o>!==</span> <span class=nx>id</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 切换任务状态
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>handleToggle</span> <span class=o>=</span> <span class=p>(</span><span class=nx>id</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>setTodos</span><span class=p>(</span><span class=nx>todos</span><span class=p>.</span><span class=nx>map</span><span class=p>(</span><span class=nx>todo</span> <span class=p>=&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>todo</span><span class=p>.</span><span class=nx>id</span> <span class=o>===</span> <span class=nx>id</span> <span class=o>?</span> <span class=p>{...</span><span class=nx>todo</span><span class=p>,</span> <span class=nx>completed</span><span class=o>:</span> <span class=o>!</span><span class=nx>todo</span><span class=p>.</span><span class=nx>completed</span><span class=p>}</span> <span class=o>:</span> <span class=nx>todo</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>));</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=p>{{</span><span class=nx>maxWidth</span><span class=o>:</span> <span class=s1>&#39;500px&#39;</span><span class=p>,</span> <span class=nx>margin</span><span class=o>:</span> <span class=s1>&#39;20px auto&#39;</span><span class=p>,</span> <span class=nx>padding</span><span class=o>:</span> <span class=s1>&#39;20px&#39;</span><span class=p>}}&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span><span class=nx>待办事项</span><span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span><span class=cm>/* 输入区域 */</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=p>{{</span><span class=nx>marginBottom</span><span class=o>:</span> <span class=s1>&#39;20px&#39;</span><span class=p>}}&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>input</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=na>type</span><span class=o>=</span><span class=s>&#34;text&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=na>value</span><span class=o>=</span><span class=p>{</span><span class=nx>inputValue</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=na>onChange</span><span class=o>=</span><span class=p>{(</span><span class=nx>e</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>setInputValue</span><span class=p>(</span><span class=nx>e</span><span class=p>.</span><span class=nx>target</span><span class=p>.</span><span class=nx>value</span><span class=p>)}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=na>onKeyPress</span><span class=o>=</span><span class=p>{(</span><span class=nx>e</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>e</span><span class=p>.</span><span class=nx>key</span> <span class=o>===</span> <span class=s1>&#39;Enter&#39;</span> <span class=o>&amp;&amp;</span> <span class=nx>handleAdd</span><span class=p>()}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=na>placeholder</span><span class=o>=</span><span class=s>&#34;请输入待办事项&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=na>style</span><span class=o>=</span><span class=p>{{</span><span class=nx>padding</span><span class=o>:</span> <span class=s1>&#39;5px&#39;</span><span class=p>,</span> <span class=nx>marginRight</span><span class=o>:</span> <span class=s1>&#39;10px&#39;</span><span class=p>}}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>button</span> <span class=na>onClick</span><span class=o>=</span><span class=p>{</span><span class=nx>handleAdd</span><span class=p>}&gt;</span><span class=nx>添加</span><span class=p>&lt;/</span><span class=nt>button</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span><span class=cm>/* 列表区域 */</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>ul</span> <span class=na>style</span><span class=o>=</span><span class=p>{{</span><span class=nx>listStyle</span><span class=o>:</span> <span class=s1>&#39;none&#39;</span><span class=p>,</span> <span class=nx>padding</span><span class=o>:</span> <span class=mi>0</span><span class=p>}}&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span><span class=nx>todos</span><span class=p>.</span><span class=nx>map</span><span class=p>(</span><span class=nx>todo</span> <span class=p>=&gt;</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>li</span> <span class=na>key</span><span class=o>=</span><span class=p>{</span><span class=nx>todo</span><span class=p>.</span><span class=nx>id</span><span class=p>}</span> <span class=na>style</span><span class=o>=</span><span class=p>{{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>display</span><span class=o>:</span> <span class=s1>&#39;flex&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>alignItems</span><span class=o>:</span> <span class=s1>&#39;center&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>marginBottom</span><span class=o>:</span> <span class=s1>&#39;10px&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>padding</span><span class=o>:</span> <span class=s1>&#39;10px&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>backgroundColor</span><span class=o>:</span> <span class=s1>&#39;#f5f5f5&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>borderRadius</span><span class=o>:</span> <span class=s1>&#39;5px&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}}&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>input</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=na>type</span><span class=o>=</span><span class=s>&#34;checkbox&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=na>checked</span><span class=o>=</span><span class=p>{</span><span class=nx>todo</span><span class=p>.</span><span class=nx>completed</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=na>onChange</span><span class=o>=</span><span class=p>{()</span> <span class=p>=&gt;</span> <span class=nx>handleToggle</span><span class=p>(</span><span class=nx>todo</span><span class=p>.</span><span class=nx>id</span><span class=p>)}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>span</span> <span class=na>style</span><span class=o>=</span><span class=p>{{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>marginLeft</span><span class=o>:</span> <span class=s1>&#39;10px&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>flex</span><span class=o>:</span> <span class=mi>1</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>textDecoration</span><span class=o>:</span> <span class=nx>todo</span><span class=p>.</span><span class=nx>completed</span> <span class=o>?</span> <span class=s1>&#39;line-through&#39;</span> <span class=o>:</span> <span class=s1>&#39;none&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}}&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span><span class=nx>todo</span><span class=p>.</span><span class=nx>text</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>span</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>button</span> <span class=na>onClick</span><span class=o>=</span><span class=p>{()</span> <span class=p>=&gt;</span> <span class=nx>handleDelete</span><span class=p>(</span><span class=nx>todo</span><span class=p>.</span><span class=nx>id</span><span class=p>)}&gt;</span><span class=nx>删除</span><span class=p>&lt;/</span><span class=nt>button</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>))}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>ul</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>root</span> <span class=o>=</span> <span class=nx>ReactDOM</span><span class=p>.</span><span class=nx>createRoot</span><span class=p>(</span><span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;root&#39;</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>root</span><span class=p>.</span><span class=nx>render</span><span class=p>(&lt;</span><span class=nt>TodoList</span> <span class=p>/&gt;);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
+</span></span></code></pre></div></div><footer class=post-footer><ul class=post-tags><li><a href=https://RUIIIOVO.github.io/blog-site/tags/react/>React</a></li><li><a href=https://RUIIIOVO.github.io/blog-site/tags/%E5%89%8D%E7%AB%AF/>前端</a></li></ul><nav class=paginav><a class=prev href=https://RUIIIOVO.github.io/blog-site/posts/nvm%E4%BD%BF%E7%94%A8/><span class=title>« 上一页</span><br><span>nvm使用</span>
+</a><a class=next href=https://RUIIIOVO.github.io/blog-site/posts/%E6%8A%80%E6%9C%AF%E6%A0%88/><span class=title>下一页 »</span><br><span>技术栈</span></a></nav></footer><div class=comments><script src=https://giscus.app/client.js data-repo=RUIIIOVO/blog-site-giscus data-repo-id=R_kgDOR82AbA data-category=Q&amp;A data-category-id=DIC_kwDOR82AbM4C6W9k data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=preferred_color_scheme data-lang=zh-CN data-loading=lazy crossorigin=anonymous async></script></div></article></main><footer class=footer><span>&copy; 2026 <a href=https://RUIIIOVO.github.io/blog-site/>Rui blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="复制";function s(){t.innerHTML="已复制！",setTimeout(()=>{t.innerHTML="复制"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

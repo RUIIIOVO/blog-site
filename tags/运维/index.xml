@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>运维 on Rui blog</title><link>https://RUIIIOVO.github.io/blog-site/tags/%E8%BF%90%E7%BB%B4/</link><description>Recent content in 运维 on Rui blog</description><generator>Hugo -- 0.160.0</generator><language>zh-cn</language><lastBuildDate>Wed, 08 Apr 2026 10:42:55 +0800</lastBuildDate><atom:link href="https://RUIIIOVO.github.io/blog-site/tags/%E8%BF%90%E7%BB%B4/index.xml" rel="self" type="application/rss+xml"/><item><title>nacos安装</title><link>https://RUIIIOVO.github.io/blog-site/posts/nacos%E5%AE%89%E8%A3%85/</link><pubDate>Wed, 08 Apr 2026 10:42:55 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/nacos%E5%AE%89%E8%A3%85/</guid><description>&lt;p&gt;官方文档：
+&lt;a href="https://nacos.io/docs/latest/quickstart/quick-start/?spm=5238cd80.72a042d5.0.0.5bc0cd36gYSNAV"&gt;https://nacos.io/docs/latest/quickstart/quick-start/?spm=5238cd80.72a042d5.0.0.5bc0cd36gYSNAV&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;bin目录下 启动命令：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;startup.cmd -m standalone
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;启动报错指南：
+&lt;a href="https://blog.csdn.net/qq_45063782/article/details/119751892"&gt;https://blog.csdn.net/qq_45063782/article/details/119751892&lt;/a&gt;
+&lt;a href="https://blog.csdn.net/weixin_45396074/article/details/135177158"&gt;https://blog.csdn.net/weixin_45396074/article/details/135177158&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;需要在本地mysql手动创建nacos数据库
+修改配置：
+secret.key 不得少于32位，不然会报错，直接把官方的注释解开即可&lt;/p&gt;</description></item><item><title>MinIO 安装</title><link>https://RUIIIOVO.github.io/blog-site/posts/minio-%E5%AE%89%E8%A3%85/</link><pubDate>Wed, 08 Apr 2026 10:42:54 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/minio-%E5%AE%89%E8%A3%85/</guid><description>&lt;p&gt;下载MinIO在Windows下的安装包，下载地址：https://dl.min.io/server/minio/release/windows-amd64/minio.exe&lt;/p&gt;</description></item><item><title>ufw 开放端口</title><link>https://RUIIIOVO.github.io/blog-site/posts/ufw-%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3/</link><pubDate>Wed, 08 Apr 2026 10:42:54 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/ufw-%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3/</guid><description>&lt;p&gt;安装&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sudo apt install ufw
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;查看状态&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sudo ufw status
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;开启ufw&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sudo ufw enable
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;开放单个端口&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sudo ufw allow 18789/tcp
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;开放多个端口&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sudo ufw allow 80,443,8080,8085,9001,9090,15672/tcp
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;禁止端口22&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sudo ufw delete allow 22
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>安卓apk版本修改</title><link>https://RUIIIOVO.github.io/blog-site/posts/%E5%AE%89%E5%8D%93apk%E7%89%88%E6%9C%AC%E4%BF%AE%E6%94%B9/</link><pubDate>Wed, 08 Apr 2026 10:42:54 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/%E5%AE%89%E5%8D%93apk%E7%89%88%E6%9C%AC%E4%BF%AE%E6%94%B9/</guid><description>&lt;p&gt;config.gradle versionName&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;ext {
+// 应用兼容最低SDK版本
+minSdk = 21
+targetSdk = 30
+buildToolsVersion = &amp;#39;35.0.0&amp;#39;
+compileSdkVersion = 35
+// compileSdkVersion = 32
+versionCode = 115
+versionName = &amp;#39;1.1&amp;#39;
+frescoVersion = &amp;#39;2.6.0&amp;#39;
+materialVersion = &amp;#39;1.4.0&amp;#39;
+liboSrcRoot = &amp;#39;/Users/js/libreoffice_android&amp;#39;
+liboWorkdir = &amp;#39;/Users/js/libreoffice_android/workdir&amp;#39;
+liboInstdir = &amp;#39;/Users/js/libreoffice_android/instdir&amp;#39;
+liboEtcFolder = &amp;#39;program&amp;#39;
+liboUreMiscFolder = &amp;#39;program&amp;#39;
+liboSharedResFolder = &amp;#39;program/resource&amp;#39;
+liboUREJavaFolder = &amp;#39;program/classes&amp;#39;
+liboShareJavaFolder = &amp;#39;program/classes&amp;#39;
+liboExampleDocument = &amp;#39;/Users/js/libreoffice_android/android/default-document/example.odt&amp;#39;
+liboVersionMajor = &amp;#39;5&amp;#39;
+liboVersionMinor = &amp;#39;3&amp;#39;
+liboGitFullCommit = &amp;#39;228a4ff4fe70ca5b7306b2c8312b9a1d3f618118&amp;#39;
+liboNdkGdbserver = &amp;#39;/Users/js/Library/Android/sdk/ndk/21.4.7075529/prebuilt/android-arm/gdbserver/gdbserver&amp;#39;
+liboAndroidAppAbi = &amp;#39;armeabi-v7a&amp;#39;
+// Dependencies Libraries
+dependencies = [&amp;#34;fresco&amp;#34; : &amp;#34;com.facebook.fresco:fresco:&amp;#34; + frescoVersion,
+&amp;#34;fresco-gif&amp;#34; : &amp;#34;com.facebook.fresco:animated-gif:&amp;#34; + frescoVersion,
+&amp;#34;fresco-okhttp3&amp;#34;: &amp;#34;com.facebook.fresco:imagepipeline-okhttp3:&amp;#34; + frescoVersion,
+&amp;#34;fresco-webpsupport&amp;#34; : &amp;#34;com.facebook.fresco:webpsupport:&amp;#34; + frescoVersion,
+&amp;#34;material&amp;#34;: &amp;#34;com.google.android.material:material:&amp;#34; + materialVersion
+]
+}
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>暴露本地IP 内网穿透</title><link>https://RUIIIOVO.github.io/blog-site/posts/%E6%9A%B4%E9%9C%B2%E6%9C%AC%E5%9C%B0ip-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link><pubDate>Wed, 08 Apr 2026 10:42:53 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/%E6%9A%B4%E9%9C%B2%E6%9C%AC%E5%9C%B0ip-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid><description>&lt;p&gt;&lt;a href="https://blog.csdn.net/lucky541788/article/details/84871108"&gt;https://blog.csdn.net/lucky541788/article/details/84871108&lt;/a&gt;&lt;/p&gt;</description></item><item><title>ubuntu数据库备份脚本</title><link>https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</link><pubDate>Wed, 08 Apr 2026 10:42:52 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</guid><description>&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;创建备份脚本&lt;/strong&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;创建一个名为&lt;code&gt;mysql_backup.sh&lt;/code&gt;的脚本文件，并添加以下内容：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;#!/bin/bash&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 数据库配置信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nv"&gt;DB_USER&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;root&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nv"&gt;DB_PASS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;your_password&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nv"&gt;DB_NAME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;testdb&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nv"&gt;BACKUP_DIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;/home/backup&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 备份文件名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nv"&gt;BACKUP_FILE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;&lt;span class="nv"&gt;$BACKUP_DIR&lt;/span&gt;&lt;span class="s2"&gt;/&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;DB_NAME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;_&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date +%Y%m%d%H%M%S&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;.sql.gz&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 执行备份命令&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; mysqldump -u &lt;span class="nv"&gt;$DB_USER&lt;/span&gt; -p&lt;span class="nv"&gt;$DB_PASS&lt;/span&gt; &lt;span class="nv"&gt;$DB_NAME&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; gzip &amp;gt; &lt;span class="nv"&gt;$BACKUP_FILE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 删除30天前的备份文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; find &lt;span class="nv"&gt;$BACKUP_DIR&lt;/span&gt; -type f -name &lt;span class="s2"&gt;&amp;#34;*.gz&amp;#34;&lt;/span&gt; -mtime +30 -exec rm &lt;span class="o"&gt;{}&lt;/span&gt; &lt;span class="se"&gt;\;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意：将&lt;code&gt;your_password&lt;/code&gt;替换为实际的数据库密码。&lt;/p&gt;</description></item><item><title>welcome</title><link>https://RUIIIOVO.github.io/blog-site/posts/welcome/</link><pubDate>Tue, 07 Apr 2026 17:25:21 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/welcome/</guid><description>&lt;hr&gt;
+&lt;h2 id="slug-welcome"&gt;title: &amp;ldquo;欢迎使用 rqbaby.blog&amp;rdquo;
+date: 2026-04-07T17:30:00+08:00
+draft: false
+tags: [&amp;ldquo;开始&amp;rdquo;, &amp;ldquo;Hugo&amp;rdquo;, &amp;ldquo;PaperMod&amp;rdquo;]
+categories: [&amp;ldquo;公告&amp;rdquo;]
+summary: &amp;ldquo;站点已完成 Hugo + PaperMod 初始化，并接入 WebDAV 自动同步方案。&amp;rdquo;
+cover:
+image: &amp;quot;&amp;quot;
+slug: &amp;ldquo;welcome&amp;rdquo;&lt;/h2&gt;
+&lt;p&gt;这是博客的第一篇文章。&lt;/p&gt;</description></item></channel></rss>

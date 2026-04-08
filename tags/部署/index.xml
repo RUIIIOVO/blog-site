@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>部署 on Rui blog</title><link>https://RUIIIOVO.github.io/blog-site/tags/%E9%83%A8%E7%BD%B2/</link><description>Recent content in 部署 on Rui blog</description><generator>Hugo -- 0.160.0</generator><language>zh-cn</language><lastBuildDate>Wed, 08 Apr 2026 10:42:55 +0800</lastBuildDate><atom:link href="https://RUIIIOVO.github.io/blog-site/tags/%E9%83%A8%E7%BD%B2/index.xml" rel="self" type="application/rss+xml"/><item><title>nohup部署</title><link>https://RUIIIOVO.github.io/blog-site/posts/nohup%E9%83%A8%E7%BD%B2/</link><pubDate>Wed, 08 Apr 2026 10:42:55 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/nohup%E9%83%A8%E7%BD%B2/</guid><description>&lt;p&gt;启动命令：
+nohup java -jar lb-permission-encrypt-sdk-0.0.1-SNAPSHOT.jar &amp;gt; /home/laibu/datasafe/log/output.log 2&amp;gt;&amp;amp;1 &amp;amp;&lt;/p&gt;
+&lt;p&gt;启动命令（混淆版）：
+nohup java -javaagent:lb-permission-encrypt-sdk-0.0.1-SNAPSHOT-encrypted.jar -jar lb-permission-encrypt-sdk-0.0.1-SNAPSHOT-encrypted.jar &amp;gt; /dev/null 2&amp;gt;&amp;amp;1 &amp;amp;&lt;/p&gt;
+&lt;p&gt;设置启动参数：&lt;/p&gt;
+&lt;p&gt;nohup java -Xms1200m -Xmx2000m -Xmn600m -XX:+UseG1GC -XX:MaxGCPauseMillis=150 -XX:G1HeapRegionSize=16m -XX:MaxDirectMemorySize=256m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/logs/heapdump/ -Xss256k -XX:+UseStringDeduplication -javaagent:lb-permission-encrypt-sdk-0.0.1-SNAPSHOT-encrypted.jar -jar lb-permission-encrypt-sdk-0.0.1-SNAPSHOT-encrypted.jar &amp;gt; /dev/null 2&amp;gt;&amp;amp;1 &amp;amp;&lt;/p&gt;
+&lt;p&gt;nohup java -Xms1500m -Xmx2g -Xmn1g -XX:+UseG1GC -XX:MaxGCPauseMillis=150 -XX:G1HeapRegionSize=16m -XX:MaxDirectMemorySize=256m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/logs/heapdump/ -Xss256k -javaagent:lb-permission-encrypt-sdk-0.0.1-SNAPSHOT-encrypted.jar -jar lb-permission-encrypt-sdk-0.0.1-SNAPSHOT-encrypted.jar &amp;gt; /dev/null 2&amp;gt;&amp;amp;1 &amp;amp;&lt;/p&gt;</description></item><item><title>Git配置代理</title><link>https://RUIIIOVO.github.io/blog-site/posts/git%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/</link><pubDate>Wed, 08 Apr 2026 10:42:54 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/git%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/</guid><description>&lt;pre tabindex="0"&gt;&lt;code&gt;# 设置全局代理
+git config --global https.proxy http://127.0.0.1:7890
+git config --global https.proxy https://127.0.0.1:7890
+git config --global http.proxy socks5://127.0.0.1:7890
+git config --global https.proxy socks5://127.0.0.1:7890
+# 取消全局代理
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>React全家桶技术栈</title><link>https://RUIIIOVO.github.io/blog-site/posts/react%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%8A%80%E6%9C%AF%E6%A0%88/</link><pubDate>Wed, 08 Apr 2026 10:42:53 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/react%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%8A%80%E6%9C%AF%E6%A0%88/</guid><description>&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;层级&lt;/th&gt;
+&lt;th&gt;技术选型&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;语言&lt;/td&gt;
+&lt;td&gt;TypeScript&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;前端（Web）&lt;/td&gt;
+&lt;td&gt;Next.js + Tailwind + shadcn/ui&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;移动端（App）&lt;/td&gt;
+&lt;td&gt;React Native + Expo + NativeWind&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;小程序&lt;/td&gt;
+&lt;td&gt;Taro（React 语法）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;数据库&lt;/td&gt;
+&lt;td&gt;Supabase（数据库 + Auth + Realtime + Edge Functions）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AI 层&lt;/td&gt;
+&lt;td&gt;OpenAI SDK + LangChain + pgvector&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;状态管理&lt;/td&gt;
+&lt;td&gt;Zustand / React Query&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;部署&lt;/td&gt;
+&lt;td&gt;Vercel（Web） + Expo EAS（App） + 微信开发者工具（小程序）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Web：Next.js+Supabase
+App: React Native+Next.js+Supabase
+小程序：Taro+Next.js+Supabase&lt;/p&gt;</description></item><item><title>腾讯应用宝空包apk签名</title><link>https://RUIIIOVO.github.io/blog-site/posts/%E8%85%BE%E8%AE%AF%E5%BA%94%E7%94%A8%E5%AE%9D%E7%A9%BA%E5%8C%85apk%E7%AD%BE%E5%90%8D/</link><pubDate>Wed, 08 Apr 2026 10:42:53 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/%E8%85%BE%E8%AE%AF%E5%BA%94%E7%94%A8%E5%AE%9D%E7%A9%BA%E5%8C%85apk%E7%AD%BE%E5%90%8D/</guid><description>&lt;p&gt;腾讯应用宝要求上传空包时，本质上就是一件事：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;用应用正式发布时使用的同一套签名证书，对平台提供的空包 APK 重新签名。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id="使用哪套签名"&gt;使用哪套签名&lt;/h2&gt;
+&lt;p&gt;如果你平时在 Android Studio 里打正式包，就继续使用那套签名。&lt;/p&gt;</description></item><item><title>iOS 原生 IKEv2 配置教程（Ubuntu + strongSwan）</title><link>https://RUIIIOVO.github.io/blog-site/posts/ios-%E5%8E%9F%E7%94%9F-ikev2-%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8Bubuntu-+-strongswan/</link><pubDate>Wed, 08 Apr 2026 10:42:50 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/ios-%E5%8E%9F%E7%94%9F-ikev2-%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8Bubuntu-+-strongswan/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
+&lt;p&gt;这篇文章记录如何在 Ubuntu 服务器上部署一套可供 iPhone 原生使用的 &lt;code&gt;IKEv2/IPsec&lt;/code&gt; 服务。&lt;/p&gt;
+&lt;p&gt;适用场景：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;希望使用 iPhone 系统自带 IKEv2 功能&lt;/li&gt;
+&lt;li&gt;不想安装第三方客户端&lt;/li&gt;
+&lt;li&gt;服务器系统为 Ubuntu 24.04 或相近版本&lt;/li&gt;
+&lt;li&gt;服务端使用 &lt;code&gt;strongSwan&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文使用脱敏示例，发布时请将下列占位符替换为你自己的信息：&lt;/p&gt;</description></item></channel></rss>

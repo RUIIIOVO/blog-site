@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Docker on Rui blog</title><link>https://RUIIIOVO.github.io/blog-site/tags/docker/</link><description>Recent content in Docker on Rui blog</description><generator>Hugo -- 0.160.0</generator><language>zh-cn</language><lastBuildDate>Wed, 08 Apr 2026 10:42:53 +0800</lastBuildDate><atom:link href="https://RUIIIOVO.github.io/blog-site/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker部署流程</title><link>https://RUIIIOVO.github.io/blog-site/posts/docker%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/</link><pubDate>Wed, 08 Apr 2026 10:42:53 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/docker%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/</guid><description>&lt;h1 id="一整体流程总览先建立全局认知"&gt;一、整体流程总览（先建立全局认知）&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;源码 ↓ Dockerfile（定义环境） ↓ docker build（生成不可变镜像） ↓ docker tag（版本化） ↓ docker push / docker save（传输） ↓ 服务器 docker pull / load ↓ docker run / docker compose&lt;/code&gt;&lt;/p&gt;</description></item><item><title>3X-UI 配置</title><link>https://RUIIIOVO.github.io/blog-site/posts/3x-ui-%E9%85%8D%E7%BD%AE/</link><pubDate>Wed, 08 Apr 2026 10:33:58 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/3x-ui-%E9%85%8D%E7%BD%AE/</guid><description>&lt;p&gt;前提：购买一台境外服务器，最好是美国节点，便于访问ai网站（如Gemini、Claude）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;切换root账户 进行安装&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;su root
+bash &amp;lt;(curl -Ls https://raw.githubusercontent.com/MHSanaei/3x-ui/master/install.sh)
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="2"&gt;
+&lt;li&gt;出现下面的提示时，输入y确定&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Would you like to customize the Panel Port settings? (If not, a random port will be applied) [y/n]: y
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="3"&gt;
+&lt;li&gt;根据提示设置3X-UI的面板端口&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Please set up the panel port: 54321
+Your Panel Port is: 54321
+Port set successfully: 54321
+Username and password updated successfully
+Base URI path set successfully
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="4"&gt;
+&lt;li&gt;选择2模式，然后一路按回车就完事了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Choose SSL certificate setup method:
+1. Let&amp;#39;s Encrypt for Domain (90-day validity, auto-renews)
+2. Let&amp;#39;s Encrypt for IP Address (6-day validity, auto-renews)
+Note: Both options require port 80 open. IP certs use shortlived profile.
+Choose an option (default 2 for IP): 2
+Using Let&amp;#39;s Encrypt for IP certificate (shortlived profile)...
+Do you have an IPv6 address to include? (leave empty to skip): 
+Setting up Let&amp;#39;s Encrypt IP certificate (shortlived profile)...
+Note: IP certificates are valid for ~6 days and will auto-renew.
+Port 80 must be open and accessible from the internet.
+Installing acme.sh for SSL certificate management...
+acme.sh installed successfully
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="5"&gt;
+&lt;li&gt;
+&lt;p&gt;重置管理员账号密码，root账户下，输入 &lt;code&gt;x-ui&lt;/code&gt; 进入控制终端，输入6，如下
+&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020260226100243.png" alt="Pasted image 20260226100243"&gt;
+&lt;/p&gt;</description></item></channel></rss>

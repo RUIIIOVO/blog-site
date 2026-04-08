@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>SpringBoot on Rui blog</title><link>https://RUIIIOVO.github.io/blog-site/tags/springboot/</link><description>Recent content in SpringBoot on Rui blog</description><generator>Hugo -- 0.160.0</generator><language>zh-cn</language><lastBuildDate>Wed, 08 Apr 2026 10:42:56 +0800</lastBuildDate><atom:link href="https://RUIIIOVO.github.io/blog-site/tags/springboot/index.xml" rel="self" type="application/rss+xml"/><item><title>技术栈</title><link>https://RUIIIOVO.github.io/blog-site/posts/%E6%8A%80%E6%9C%AF%E6%A0%88/</link><pubDate>Wed, 08 Apr 2026 10:42:56 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/%E6%8A%80%E6%9C%AF%E6%A0%88/</guid><description>&lt;p&gt;前端开发&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;精通 HTML、CSS、JavaScript，熟悉页面结构与布局，掌握 ES6+ 新特性&lt;/li&gt;
+&lt;li&gt;熟练使用 Flex、Grid、媒体查询，能够实现高性能响应式页面开发&lt;/li&gt;
+&lt;li&gt;熟练掌握 Vue.js 技术栈（Vuex、Vue Router、Axios），具备 React / React Native 跨端开发能力&lt;/li&gt;
+&lt;li&gt;熟悉 微信小程序开发，掌握 UniApp 跨平台框架&lt;/li&gt;
+&lt;li&gt;熟练使用 Element Plus、ECharts、Ant Design、Vant 等主流组件库
+后端开发&lt;/li&gt;
+&lt;li&gt;熟练掌握 Java 基础语法，熟悉 Spring Boot、MyBatis-Plus 框架，具备后端接口开发与工程化能力&lt;/li&gt;
+&lt;li&gt;熟悉 Node.js（Express），能够进行全栈开发&lt;/li&gt;
+&lt;li&gt;熟练掌握 Python 基础语法，熟悉 Django、Flask 及常用爬虫库&lt;/li&gt;
+&lt;li&gt;具备 自研加密算法工程化落地、性能优化（多线程、JVM 调优、流式读取）的实践经验
+移动端开发&lt;/li&gt;
+&lt;li&gt;熟悉 Android 原生开发，具备代码重构与性能优化经验&lt;/li&gt;
+&lt;li&gt;掌握 跨端开发（React Native / UniApp），支持移动端与桌面端适配
+数据库与存储&lt;/li&gt;
+&lt;li&gt;熟悉 MySQL、MongoDB、OpenGauss 等数据库，具备数据库建模与优化能力&lt;/li&gt;
+&lt;li&gt;理解 数据安全与加密策略，掌握 国密算法（SM2/SM3/SM4）
+运维与部署&lt;/li&gt;
+&lt;li&gt;熟悉 Linux 基础命令，具备软件部署与运维能力&lt;/li&gt;
+&lt;li&gt;熟悉 Docker、Jenkins，具备 CI/CD 自动化部署 实践经验&lt;/li&gt;
+&lt;li&gt;能独立编写 Shell/PowerShell 脚本，支持一键化构建与上线
+协作与工具&lt;/li&gt;
+&lt;li&gt;熟练使用 Git，能够配合 GitHub/GitLab/Gitee 进行多人协作开发&lt;/li&gt;
+&lt;li&gt;熟悉 敏捷开发流程，具备跨团队协作与项目推进能力&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>springboot打包</title><link>https://RUIIIOVO.github.io/blog-site/posts/springboot%E6%89%93%E5%8C%85/</link><pubDate>Wed, 08 Apr 2026 10:42:52 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/springboot%E6%89%93%E5%8C%85/</guid><description>&lt;p&gt;&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020250630142524.png" alt="Pasted image 20250630142524"&gt;
+&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Git on Rui blog</title><link>https://RUIIIOVO.github.io/blog-site/tags/git/</link><description>Recent content in Git on Rui blog</description><generator>Hugo -- 0.160.0</generator><language>zh-cn</language><lastBuildDate>Wed, 08 Apr 2026 10:42:56 +0800</lastBuildDate><atom:link href="https://RUIIIOVO.github.io/blog-site/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Git</title><link>https://RUIIIOVO.github.io/blog-site/posts/git/</link><pubDate>Wed, 08 Apr 2026 10:42:56 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/git/</guid><description>&lt;p&gt;&lt;a href="https://blog.csdn.net/Javachichi/article/details/140660754"&gt;https://blog.csdn.net/Javachichi/article/details/140660754&lt;/a&gt;
+git初始化配置&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;git config --global user.name 你的用户名
+git config --global user.email 你的邮箱地址
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;查看配置&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;git config --list
+#如果信息太多，可以输入 q 退出
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;初始化&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;git init
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex="0"&gt;&lt;code&gt;添加文件
+# .的意思是当前目录下所有变化都暂存
+git add .
+git commit -m &amp;#39;提交的内容说明&amp;#39;
+查看提交日志
+git log
+一行输出
+git log --oneline
+&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
+&lt;li&gt;开发分支（dev）上的代码达到上线的标准后，要合并到 master 分支&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;git checkout dev
+git pull
+git checkout master
+git merge dev
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="2"&gt;
+&lt;li&gt;当master代码改动了，需要更新开发分支（dev）上的代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;git checkout master
+git pull
+git checkout dev
+git merge master
+git push -u origin dev
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020250104235012.png" alt="Pasted image 20250104235012"&gt;
+查看提交状态&lt;/p&gt;</description></item><item><title>MCP配置</title><link>https://RUIIIOVO.github.io/blog-site/posts/mcp%E9%85%8D%E7%BD%AE/</link><pubDate>Wed, 08 Apr 2026 10:42:56 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/mcp%E9%85%8D%E7%BD%AE/</guid><description>&lt;p&gt;&lt;a href="https://alekschen.github.io/post/2504-cursor-figma-mcp/"&gt;https://alekschen.github.io/post/2504-cursor-figma-mcp/&lt;/a&gt;
+figma mcp 配置：
+全局下载，启动本地端口：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pnpx figma-developer-mcp --figma-api-key&lt;span class="o"&gt;=&lt;/span&gt;&amp;lt;YOUR_FIGMA_API_KEY&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020251022115557.png" alt="Pasted image 20251022115557"&gt;
+cursor中配置：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;mcpServers&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;Figma&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;url&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;http://localhost:3333/sse&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;mastergo&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;{
+  &amp;#34;mcpServers&amp;#34;: {
+    &amp;#34;mastergo-magic-mcp&amp;#34;: {
+      &amp;#34;command&amp;#34;: &amp;#34;npx&amp;#34;,
+      &amp;#34;args&amp;#34;: [
+        &amp;#34;-y&amp;#34;,
+        &amp;#34;@mastergo/magic-mcp&amp;#34;,
+        &amp;#34;--token=&amp;lt;YOUR_MASTERGO_TOKEN&amp;gt;&amp;#34;,
+        &amp;#34;--url=https://mastergo.com&amp;#34;
+      ],
+      &amp;#34;env&amp;#34;: {
+        &amp;#34;NPM_CONFIG_REGISTRY&amp;#34;: &amp;#34;https://registry.npmjs.org/&amp;#34;
+      }
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;mcp-feedback-enhanced：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;{
+  &amp;#34;mcpServers&amp;#34;: {
+    &amp;#34;mcp-feedback-enhanced&amp;#34;: {
+      &amp;#34;command&amp;#34;: &amp;#34;uvx&amp;#34;,
+      &amp;#34;args&amp;#34;: [
+        &amp;#34;mcp-feedback-enhanced@latest&amp;#34;
+      ]
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;context7：&lt;/p&gt;</description></item><item><title>ELK 安装</title><link>https://RUIIIOVO.github.io/blog-site/posts/elk-%E5%AE%89%E8%A3%85/</link><pubDate>Wed, 08 Apr 2026 10:42:55 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/elk-%E5%AE%89%E8%A3%85/</guid><description>&lt;p&gt;&lt;a href="https://www.elastic.co/cn/downloads/past-releases/"&gt;https://www.elastic.co/cn/downloads/past-releases/&lt;/a&gt;
+下载Elasticsearch 9.2.4 Kibana 9.2.4 Logstash 9.2.4 分别下载windows版本zip并解压&lt;/p&gt;
+&lt;p&gt;安装Elasticsearch插件 中文分词器：
+&lt;a href="https://github.com/infinilabs/analysis-ik/releases"&gt;https://github.com/infinilabs/analysis-ik/releases&lt;/a&gt;
+在Elasticsearch 安装目录bin下面执行命令：&lt;/p&gt;</description></item><item><title>Jenv使用</title><link>https://RUIIIOVO.github.io/blog-site/posts/jenv%E4%BD%BF%E7%94%A8/</link><pubDate>Wed, 08 Apr 2026 10:42:55 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/jenv%E4%BD%BF%E7%94%A8/</guid><description>&lt;p&gt;文档：
+&lt;a href="https://github.com/FelixSelter/JEnv-for-Windows"&gt;https://github.com/FelixSelter/JEnv-for-Windows&lt;/a&gt;
+教程
+&lt;a href="https://blog.csdn.net/xhy18634297976/article/details/127454312"&gt;https://blog.csdn.net/xhy18634297976/article/details/127454312&lt;/a&gt;
+安装：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;下载JEnv.zip到D盘解压
+&lt;a href="https://github.com/FelixSelter/JEnv-for-Windows/releases/tag/v2.2.1"&gt;https://github.com/FelixSelter/JEnv-for-Windows/releases/tag/v2.2.1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修改环境变量，path中添加 D:\App\JEnv，并放在最上方&lt;/li&gt;
+&lt;li&gt;执行C:\JEnv\src\jenv.ps1 使用poweshell执行&lt;/li&gt;
+&lt;li&gt;安装jdk，使用下面的命令进行配置&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;jenv add jdk17 &amp;#34;D:\App\Java\jdk-17&amp;#34;
+jenv add jdk8 &amp;#34;D:\Application\Java\jre1.8&amp;#34;
+jenv add jdk21 &amp;#34;D:\App\Java\jdk-21&amp;#34;
+jenv list
+全局切换：
+jenv change jdk17
+java -version
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;报错：&lt;/p&gt;</description></item><item><title>Git配置代理</title><link>https://RUIIIOVO.github.io/blog-site/posts/git%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/</link><pubDate>Wed, 08 Apr 2026 10:42:54 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/git%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/</guid><description>&lt;pre tabindex="0"&gt;&lt;code&gt;# 设置全局代理
+git config --global https.proxy http://127.0.0.1:7890
+git config --global https.proxy https://127.0.0.1:7890
+git config --global http.proxy socks5://127.0.0.1:7890
+git config --global https.proxy socks5://127.0.0.1:7890
+# 取消全局代理
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>安卓apk版本修改</title><link>https://RUIIIOVO.github.io/blog-site/posts/%E5%AE%89%E5%8D%93apk%E7%89%88%E6%9C%AC%E4%BF%AE%E6%94%B9/</link><pubDate>Wed, 08 Apr 2026 10:42:54 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/%E5%AE%89%E5%8D%93apk%E7%89%88%E6%9C%AC%E4%BF%AE%E6%94%B9/</guid><description>&lt;p&gt;config.gradle versionName&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;ext {
+// 应用兼容最低SDK版本
+minSdk = 21
+targetSdk = 30
+buildToolsVersion = &amp;#39;35.0.0&amp;#39;
+compileSdkVersion = 35
+// compileSdkVersion = 32
+versionCode = 115
+versionName = &amp;#39;1.1&amp;#39;
+frescoVersion = &amp;#39;2.6.0&amp;#39;
+materialVersion = &amp;#39;1.4.0&amp;#39;
+liboSrcRoot = &amp;#39;/Users/js/libreoffice_android&amp;#39;
+liboWorkdir = &amp;#39;/Users/js/libreoffice_android/workdir&amp;#39;
+liboInstdir = &amp;#39;/Users/js/libreoffice_android/instdir&amp;#39;
+liboEtcFolder = &amp;#39;program&amp;#39;
+liboUreMiscFolder = &amp;#39;program&amp;#39;
+liboSharedResFolder = &amp;#39;program/resource&amp;#39;
+liboUREJavaFolder = &amp;#39;program/classes&amp;#39;
+liboShareJavaFolder = &amp;#39;program/classes&amp;#39;
+liboExampleDocument = &amp;#39;/Users/js/libreoffice_android/android/default-document/example.odt&amp;#39;
+liboVersionMajor = &amp;#39;5&amp;#39;
+liboVersionMinor = &amp;#39;3&amp;#39;
+liboGitFullCommit = &amp;#39;228a4ff4fe70ca5b7306b2c8312b9a1d3f618118&amp;#39;
+liboNdkGdbserver = &amp;#39;/Users/js/Library/Android/sdk/ndk/21.4.7075529/prebuilt/android-arm/gdbserver/gdbserver&amp;#39;
+liboAndroidAppAbi = &amp;#39;armeabi-v7a&amp;#39;
+// Dependencies Libraries
+dependencies = [&amp;#34;fresco&amp;#34; : &amp;#34;com.facebook.fresco:fresco:&amp;#34; + frescoVersion,
+&amp;#34;fresco-gif&amp;#34; : &amp;#34;com.facebook.fresco:animated-gif:&amp;#34; + frescoVersion,
+&amp;#34;fresco-okhttp3&amp;#34;: &amp;#34;com.facebook.fresco:imagepipeline-okhttp3:&amp;#34; + frescoVersion,
+&amp;#34;fresco-webpsupport&amp;#34; : &amp;#34;com.facebook.fresco:webpsupport:&amp;#34; + frescoVersion,
+&amp;#34;material&amp;#34;: &amp;#34;com.google.android.material:material:&amp;#34; + materialVersion
+]
+}
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Ubuntu nvm下载</title><link>https://RUIIIOVO.github.io/blog-site/posts/ubuntu-nvm%E4%B8%8B%E8%BD%BD/</link><pubDate>Wed, 08 Apr 2026 10:42:52 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/ubuntu-nvm%E4%B8%8B%E8%BD%BD/</guid><description>&lt;p&gt;安装：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;# 安装 curl
+sudo apt install curl
+# 安装 git
+sudo apt install git
+# 安装 nvm
+bash -c &amp;#34;$(curl -fsSL https://gitee.com/RubyMetric/nvm-cn/raw/main/install.sh)&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;重开终端，或重新打开 ssh 窗口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令行&lt;/th&gt;
+&lt;th&gt;作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;nvm ls&lt;/td&gt;
+&lt;td&gt;已安装的列表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nvm ls-remote&lt;/td&gt;
+&lt;td&gt;所有可安装版本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nvm install v12.20.1&lt;/td&gt;
+&lt;td&gt;安装某个版本Node&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nvm use 12.20.1&lt;/td&gt;
+&lt;td&gt;切换Node版本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;node -v&lt;/td&gt;
+&lt;td&gt;node.js 版本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nvm-update&lt;/td&gt;
+&lt;td&gt;更新nvm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;卸载：&lt;/p&gt;</description></item><item><title>linux git 配置永久密码</title><link>https://RUIIIOVO.github.io/blog-site/posts/linux-git-%E9%85%8D%E7%BD%AE%E6%B0%B8%E4%B9%85%E5%AF%86%E7%A0%81/</link><pubDate>Wed, 08 Apr 2026 10:42:51 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/linux-git-%E9%85%8D%E7%BD%AE%E6%B0%B8%E4%B9%85%E5%AF%86%E7%A0%81/</guid><description>&lt;p&gt;git config &amp;ndash;global credential.helper store   配置永久保存密码
+&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020250723142608.png" alt="Pasted image 20250723142608"&gt;
+&lt;/p&gt;</description></item><item><title>3X-UI 配置</title><link>https://RUIIIOVO.github.io/blog-site/posts/3x-ui-%E9%85%8D%E7%BD%AE/</link><pubDate>Wed, 08 Apr 2026 10:33:58 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/3x-ui-%E9%85%8D%E7%BD%AE/</guid><description>&lt;p&gt;前提：购买一台境外服务器，最好是美国节点，便于访问ai网站（如Gemini、Claude）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;切换root账户 进行安装&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;su root
+bash &amp;lt;(curl -Ls https://raw.githubusercontent.com/MHSanaei/3x-ui/master/install.sh)
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="2"&gt;
+&lt;li&gt;出现下面的提示时，输入y确定&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Would you like to customize the Panel Port settings? (If not, a random port will be applied) [y/n]: y
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="3"&gt;
+&lt;li&gt;根据提示设置3X-UI的面板端口&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Please set up the panel port: 54321
+Your Panel Port is: 54321
+Port set successfully: 54321
+Username and password updated successfully
+Base URI path set successfully
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="4"&gt;
+&lt;li&gt;选择2模式，然后一路按回车就完事了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Choose SSL certificate setup method:
+1. Let&amp;#39;s Encrypt for Domain (90-day validity, auto-renews)
+2. Let&amp;#39;s Encrypt for IP Address (6-day validity, auto-renews)
+Note: Both options require port 80 open. IP certs use shortlived profile.
+Choose an option (default 2 for IP): 2
+Using Let&amp;#39;s Encrypt for IP certificate (shortlived profile)...
+Do you have an IPv6 address to include? (leave empty to skip): 
+Setting up Let&amp;#39;s Encrypt IP certificate (shortlived profile)...
+Note: IP certificates are valid for ~6 days and will auto-renew.
+Port 80 must be open and accessible from the internet.
+Installing acme.sh for SSL certificate management...
+acme.sh installed successfully
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="5"&gt;
+&lt;li&gt;
+&lt;p&gt;重置管理员账号密码，root账户下，输入 &lt;code&gt;x-ui&lt;/code&gt; 进入控制终端，输入6，如下
+&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020260226100243.png" alt="Pasted image 20260226100243"&gt;
+&lt;/p&gt;</description></item></channel></rss>

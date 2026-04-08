@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>前端 on Rui blog</title><link>https://RUIIIOVO.github.io/blog-site/tags/%E5%89%8D%E7%AB%AF/</link><description>Recent content in 前端 on Rui blog</description><generator>Hugo -- 0.160.0</generator><language>zh-cn</language><lastBuildDate>Wed, 08 Apr 2026 10:42:56 +0800</lastBuildDate><atom:link href="https://RUIIIOVO.github.io/blog-site/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml"/><item><title>MCP配置</title><link>https://RUIIIOVO.github.io/blog-site/posts/mcp%E9%85%8D%E7%BD%AE/</link><pubDate>Wed, 08 Apr 2026 10:42:56 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/mcp%E9%85%8D%E7%BD%AE/</guid><description>&lt;p&gt;&lt;a href="https://alekschen.github.io/post/2504-cursor-figma-mcp/"&gt;https://alekschen.github.io/post/2504-cursor-figma-mcp/&lt;/a&gt;
+figma mcp 配置：
+全局下载，启动本地端口：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pnpx figma-developer-mcp --figma-api-key&lt;span class="o"&gt;=&lt;/span&gt;&amp;lt;YOUR_FIGMA_API_KEY&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020251022115557.png" alt="Pasted image 20251022115557"&gt;
+cursor中配置：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;mcpServers&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;Figma&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;url&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;http://localhost:3333/sse&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;mastergo&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;{
+  &amp;#34;mcpServers&amp;#34;: {
+    &amp;#34;mastergo-magic-mcp&amp;#34;: {
+      &amp;#34;command&amp;#34;: &amp;#34;npx&amp;#34;,
+      &amp;#34;args&amp;#34;: [
+        &amp;#34;-y&amp;#34;,
+        &amp;#34;@mastergo/magic-mcp&amp;#34;,
+        &amp;#34;--token=&amp;lt;YOUR_MASTERGO_TOKEN&amp;gt;&amp;#34;,
+        &amp;#34;--url=https://mastergo.com&amp;#34;
+      ],
+      &amp;#34;env&amp;#34;: {
+        &amp;#34;NPM_CONFIG_REGISTRY&amp;#34;: &amp;#34;https://registry.npmjs.org/&amp;#34;
+      }
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;mcp-feedback-enhanced：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;{
+  &amp;#34;mcpServers&amp;#34;: {
+    &amp;#34;mcp-feedback-enhanced&amp;#34;: {
+      &amp;#34;command&amp;#34;: &amp;#34;uvx&amp;#34;,
+      &amp;#34;args&amp;#34;: [
+        &amp;#34;mcp-feedback-enhanced@latest&amp;#34;
+      ]
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;context7：&lt;/p&gt;</description></item><item><title>React</title><link>https://RUIIIOVO.github.io/blog-site/posts/react/</link><pubDate>Wed, 08 Apr 2026 10:42:56 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/react/</guid><description>&lt;p&gt;文档：[https://17.reactjs.org/docs/getting-started.html]&lt;/p&gt;
+&lt;h2 id="核心要点"&gt;核心要点&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;你想做的事&lt;/th&gt;
+&lt;th&gt;React 里常用&lt;/th&gt;
+&lt;th&gt;Vue 里常用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;页面加载后执行一次&lt;/td&gt;
+&lt;td&gt;useEffect(&amp;hellip;, [])&lt;/td&gt;
+&lt;td&gt;onMounted&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;页面销毁前清理&lt;/td&gt;
+&lt;td&gt;useEffect 返回清理函数&lt;/td&gt;
+&lt;td&gt;onUnmounted&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;监听某个值变化&lt;/td&gt;
+&lt;td&gt;useEffect(&amp;hellip;, [value])&lt;/td&gt;
+&lt;td&gt;watch&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;自动追踪依赖执行副作用&lt;/td&gt;
+&lt;td&gt;useEffect（手动写依赖）&lt;/td&gt;
+&lt;td&gt;watchEffect&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;根据状态计算新值&lt;/td&gt;
+&lt;td&gt;useMemo&lt;/td&gt;
+&lt;td&gt;computed&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="代码整理"&gt;代码整理：&lt;/h2&gt;
+&lt;p&gt;hello world
+注意需要使用==type=&amp;ldquo;text/jsx&amp;rdquo;==&lt;/p&gt;</description></item><item><title>CSS省略号</title><link>https://RUIIIOVO.github.io/blog-site/posts/css%E7%9C%81%E7%95%A5%E5%8F%B7/</link><pubDate>Wed, 08 Apr 2026 10:42:55 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/css%E7%9C%81%E7%95%A5%E5%8F%B7/</guid><description>&lt;p&gt;单行文本&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;多行文本&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3;/* 设置为想要的行数 */
+overflow: hidden;
+text-overflow: ellipsis;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;nvue&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 1; /* 显示的行数 */
+lines: 1; /* NVUE下要用这个属性，来让文字超出隐藏变省略号 */
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Git提交规范</title><link>https://RUIIIOVO.github.io/blog-site/posts/git%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/</link><pubDate>Wed, 08 Apr 2026 10:42:55 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/git%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/</guid><description>&lt;ul&gt;
+&lt;li&gt;feat: 新功能、新特性&lt;/li&gt;
+&lt;li&gt;fix: 修改 bug&lt;/li&gt;
+&lt;li&gt;perf: 更改代码，以提高性能&lt;/li&gt;
+&lt;li&gt;refactor: 代码重构（重构，在不影响代码内部行为、功能下的代码修改）&lt;/li&gt;
+&lt;li&gt;docs: 文档修改&lt;/li&gt;
+&lt;li&gt;style: 代码格式修改, 注意不是 css 修改（例如分号修改）&lt;/li&gt;
+&lt;li&gt;test: 测试用例新增、修改&lt;/li&gt;
+&lt;li&gt;build: 影响项目构建或依赖项修改&lt;/li&gt;
+&lt;li&gt;revert: 恢复上一次提交&lt;/li&gt;
+&lt;li&gt;ci: 持续集成相关文件修改&lt;/li&gt;
+&lt;li&gt;chore: 其他修改（不在上述类型中的修改）&lt;/li&gt;
+&lt;li&gt;release: 发布新版本&lt;/li&gt;
+&lt;li&gt;workflow: 工作流相关文件修改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;scope: commit 影响的范围, 比如: route, component, utils, build&amp;hellip;&lt;/li&gt;
+&lt;li&gt;subject: commit 的概述&lt;/li&gt;
+&lt;li&gt;body: commit 具体修改内容, 可以分为多行.&lt;/li&gt;
+&lt;li&gt;footer: 一些备注, 通常是 BREAKING CHANGE 或修复的 bug 的链接.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>nacos安装</title><link>https://RUIIIOVO.github.io/blog-site/posts/nacos%E5%AE%89%E8%A3%85/</link><pubDate>Wed, 08 Apr 2026 10:42:55 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/nacos%E5%AE%89%E8%A3%85/</guid><description>&lt;p&gt;官方文档：
+&lt;a href="https://nacos.io/docs/latest/quickstart/quick-start/?spm=5238cd80.72a042d5.0.0.5bc0cd36gYSNAV"&gt;https://nacos.io/docs/latest/quickstart/quick-start/?spm=5238cd80.72a042d5.0.0.5bc0cd36gYSNAV&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;bin目录下 启动命令：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;startup.cmd -m standalone
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;启动报错指南：
+&lt;a href="https://blog.csdn.net/qq_45063782/article/details/119751892"&gt;https://blog.csdn.net/qq_45063782/article/details/119751892&lt;/a&gt;
+&lt;a href="https://blog.csdn.net/weixin_45396074/article/details/135177158"&gt;https://blog.csdn.net/weixin_45396074/article/details/135177158&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;需要在本地mysql手动创建nacos数据库
+修改配置：
+secret.key 不得少于32位，不然会报错，直接把官方的注释解开即可&lt;/p&gt;</description></item><item><title>FigmaMCP提示词</title><link>https://RUIIIOVO.github.io/blog-site/posts/figmamcp%E6%8F%90%E7%A4%BA%E8%AF%8D/</link><pubDate>Wed, 08 Apr 2026 10:42:53 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/figmamcp%E6%8F%90%E7%A4%BA%E8%AF%8D/</guid><description>&lt;p&gt;你是一名资深全栈工程师，请基于我提供的 Figma 设计链接生成响应式小程序页面，并使用Figma mcp工具查看UI设计稿。&lt;br&gt;
+要求：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;严格还原间距和颜色&lt;/li&gt;
+&lt;li&gt;对移动设备做适配处理&lt;/li&gt;
+&lt;li&gt;其中若涉及图标、背景图等信息，告知我代码中对应图标的名称，我会手动下载保存在腾讯云cos上&lt;/li&gt;
+&lt;li&gt;若涉及新功能开发，你是一名优秀的经验丰富的全栈工程师，需要完成sql表创建、后端编写以及前端编写工作&lt;/li&gt;
+&lt;li&gt;若需要顶部导航栏，则使用小程序原生的顶部导航栏，页面的宽高需要考虑padding的距离，必要时使用calc设置宽高&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;设计链接：
+&lt;a href="https://www.figma.com/design/xXcKJz1amnqrNGR32JSWoI/Untitled?node-id=30-299&amp;amp;t=g9zYjchPWTYzvXoA-0"&gt;https://www.figma.com/design/xXcKJz1amnqrNGR32JSWoI/Untitled?node-id=30-299&amp;amp;t=g9zYjchPWTYzvXoA-0&lt;/a&gt;&lt;/p&gt;</description></item><item><title>React全家桶技术栈</title><link>https://RUIIIOVO.github.io/blog-site/posts/react%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%8A%80%E6%9C%AF%E6%A0%88/</link><pubDate>Wed, 08 Apr 2026 10:42:53 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/react%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%8A%80%E6%9C%AF%E6%A0%88/</guid><description>&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;层级&lt;/th&gt;
+&lt;th&gt;技术选型&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;语言&lt;/td&gt;
+&lt;td&gt;TypeScript&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;前端（Web）&lt;/td&gt;
+&lt;td&gt;Next.js + Tailwind + shadcn/ui&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;移动端（App）&lt;/td&gt;
+&lt;td&gt;React Native + Expo + NativeWind&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;小程序&lt;/td&gt;
+&lt;td&gt;Taro（React 语法）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;数据库&lt;/td&gt;
+&lt;td&gt;Supabase（数据库 + Auth + Realtime + Edge Functions）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AI 层&lt;/td&gt;
+&lt;td&gt;OpenAI SDK + LangChain + pgvector&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;状态管理&lt;/td&gt;
+&lt;td&gt;Zustand / React Query&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;部署&lt;/td&gt;
+&lt;td&gt;Vercel（Web） + Expo EAS（App） + 微信开发者工具（小程序）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Web：Next.js+Supabase
+App: React Native+Next.js+Supabase
+小程序：Taro+Next.js+Supabase&lt;/p&gt;</description></item><item><title>如何使用 MuMu模拟器和 Android Studio 调试应用</title><link>https://RUIIIOVO.github.io/blog-site/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-mumu%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%92%8C-android-studio-%E8%B0%83%E8%AF%95%E5%BA%94%E7%94%A8/</link><pubDate>Wed, 08 Apr 2026 10:42:50 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-mumu%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%92%8C-android-studio-%E8%B0%83%E8%AF%95%E5%BA%94%E7%94%A8/</guid><description>&lt;p&gt;&lt;a href="https://mumu.163.com/help/20240903/40912_1178625.html"&gt;https://mumu.163.com/help/20240903/40912_1178625.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;D:\App\MuMuPlayer\nx_device\12.0\shell&amp;gt; adb.exe connect 127.0.0.1:7555&lt;/p&gt;
+&lt;p&gt;新版本adb.exe 路径
+&amp;ldquo;D:\App\MuMuPlayer\nx_device\12.0\shell\adb.exe&amp;rdquo;
+&amp;ldquo;D:\App\MuMuPlayer\nx_main\adb.exe&amp;rdquo;&lt;/p&gt;
+&lt;h2 id="uniapp调试运行到mumu模拟器"&gt;uniapp调试运行到mumu模拟器&lt;/h2&gt;
+&lt;p&gt;D:\App\HBuilderX\plugins\launcher-tools\tools\adbs\adb.exe&lt;/p&gt;
+&lt;p&gt;&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020250919141806.png" alt="Pasted image 20250919141806"&gt;
+&lt;/p&gt;</description></item></channel></rss>

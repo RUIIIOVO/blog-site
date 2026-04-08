@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Windows on Rui blog</title><link>https://RUIIIOVO.github.io/blog-site/tags/windows/</link><description>Recent content in Windows on Rui blog</description><generator>Hugo -- 0.160.0</generator><language>zh-cn</language><lastBuildDate>Wed, 08 Apr 2026 10:42:56 +0800</lastBuildDate><atom:link href="https://RUIIIOVO.github.io/blog-site/tags/windows/index.xml" rel="self" type="application/rss+xml"/><item><title>快捷键</title><link>https://RUIIIOVO.github.io/blog-site/posts/%E5%BF%AB%E6%8D%B7%E9%94%AE/</link><pubDate>Wed, 08 Apr 2026 10:42:56 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid><description>&lt;p&gt;webstorm
+代码格式化：
+mac：win+alt+L&lt;br&gt;
+windows: ctrl+alt+L
+展开代码块：
+Ctrl + NumPad +
+折叠代码块：
+Ctrl + NumPad-&lt;/p&gt;
+&lt;p&gt;vscode
+格式化：
+windows: shift + alt +F
+react 快速生成模板：
+rfc (快速创建一个组件fun)
+rcc （快速创建一个组件extends）类组件
+rconst 快速创建一个 constuctor
+rcep 快速创建一个组件（使用extends方式）
+rcredux 快速创建一个 redux格式的类模板&lt;/p&gt;</description></item><item><title>Jenv使用</title><link>https://RUIIIOVO.github.io/blog-site/posts/jenv%E4%BD%BF%E7%94%A8/</link><pubDate>Wed, 08 Apr 2026 10:42:55 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/jenv%E4%BD%BF%E7%94%A8/</guid><description>&lt;p&gt;文档：
+&lt;a href="https://github.com/FelixSelter/JEnv-for-Windows"&gt;https://github.com/FelixSelter/JEnv-for-Windows&lt;/a&gt;
+教程
+&lt;a href="https://blog.csdn.net/xhy18634297976/article/details/127454312"&gt;https://blog.csdn.net/xhy18634297976/article/details/127454312&lt;/a&gt;
+安装：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;下载JEnv.zip到D盘解压
+&lt;a href="https://github.com/FelixSelter/JEnv-for-Windows/releases/tag/v2.2.1"&gt;https://github.com/FelixSelter/JEnv-for-Windows/releases/tag/v2.2.1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修改环境变量，path中添加 D:\App\JEnv，并放在最上方&lt;/li&gt;
+&lt;li&gt;执行C:\JEnv\src\jenv.ps1 使用poweshell执行&lt;/li&gt;
+&lt;li&gt;安装jdk，使用下面的命令进行配置&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;jenv add jdk17 &amp;#34;D:\App\Java\jdk-17&amp;#34;
+jenv add jdk8 &amp;#34;D:\Application\Java\jre1.8&amp;#34;
+jenv add jdk21 &amp;#34;D:\App\Java\jdk-21&amp;#34;
+jenv list
+全局切换：
+jenv change jdk17
+java -version
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;报错：&lt;/p&gt;</description></item><item><title>MinIO 安装</title><link>https://RUIIIOVO.github.io/blog-site/posts/minio-%E5%AE%89%E8%A3%85/</link><pubDate>Wed, 08 Apr 2026 10:42:54 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/minio-%E5%AE%89%E8%A3%85/</guid><description>&lt;p&gt;下载MinIO在Windows下的安装包，下载地址：https://dl.min.io/server/minio/release/windows-amd64/minio.exe&lt;/p&gt;</description></item><item><title>vscode 配置</title><link>https://RUIIIOVO.github.io/blog-site/posts/vscode-%E9%85%8D%E7%BD%AE/</link><pubDate>Wed, 08 Apr 2026 10:42:54 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/vscode-%E9%85%8D%E7%BD%AE/</guid><description>&lt;p&gt;括号颜色 中线标注：
+设置里搜索
+@id:editor.bracketPairColorization.enabled @id:editor.guides.bracketPairs
+&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020250909175213.png" alt="Pasted image 20250909175213"&gt;
+设置单击打开新文件窗口，不覆盖前一个窗口
+打开 &lt;code&gt;文件--&amp;gt;首选项--&amp;gt;设置&lt;/code&gt; 窗口&lt;/p&gt;
+&lt;p&gt;如下图，在 &lt;code&gt;编辑管理&lt;/code&gt; 选项卡下拉找到 &lt;code&gt;Enable Preview&lt;/code&gt; ，&lt;strong&gt;去掉这个选项的勾&lt;/strong&gt;。&lt;br&gt;
+&lt;img loading="lazy" src="https://i-blog.csdnimg.cn/blog_migrate/41b2213c3e404d44ffba1cc38bbda861.png" alt="在这里插入图片描述"&gt;
+&lt;/p&gt;</description></item><item><title>腾讯应用宝空包apk签名</title><link>https://RUIIIOVO.github.io/blog-site/posts/%E8%85%BE%E8%AE%AF%E5%BA%94%E7%94%A8%E5%AE%9D%E7%A9%BA%E5%8C%85apk%E7%AD%BE%E5%90%8D/</link><pubDate>Wed, 08 Apr 2026 10:42:53 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/%E8%85%BE%E8%AE%AF%E5%BA%94%E7%94%A8%E5%AE%9D%E7%A9%BA%E5%8C%85apk%E7%AD%BE%E5%90%8D/</guid><description>&lt;p&gt;腾讯应用宝要求上传空包时，本质上就是一件事：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;用应用正式发布时使用的同一套签名证书，对平台提供的空包 APK 重新签名。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id="使用哪套签名"&gt;使用哪套签名&lt;/h2&gt;
+&lt;p&gt;如果你平时在 Android Studio 里打正式包，就继续使用那套签名。&lt;/p&gt;</description></item><item><title>开启PowerShell执行权限</title><link>https://RUIIIOVO.github.io/blog-site/posts/%E5%BC%80%E5%90%AFpowershell%E6%89%A7%E8%A1%8C%E6%9D%83%E9%99%90/</link><pubDate>Wed, 08 Apr 2026 10:42:52 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/%E5%BC%80%E5%90%AFpowershell%E6%89%A7%E8%A1%8C%E6%9D%83%E9%99%90/</guid><description>&lt;p&gt;管理员模式执行：
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted&lt;/p&gt;</description></item><item><title>React Native运行IOS</title><link>https://RUIIIOVO.github.io/blog-site/posts/react-native%E8%BF%90%E8%A1%8Cios/</link><pubDate>Wed, 08 Apr 2026 10:42:51 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/react-native%E8%BF%90%E8%A1%8Cios/</guid><description>&lt;ol&gt;
+&lt;li&gt;关闭代理&lt;/li&gt;
+&lt;li&gt;yarn install&lt;/li&gt;
+&lt;li&gt;yarn pod&lt;/li&gt;
+&lt;li&gt;检查xcode workspace 三处arm64 twwapp中的三处、以及prods&lt;/li&gt;
+&lt;li&gt;&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020250122100454.png" alt="Pasted image 20250122100454"&gt;
+&lt;/li&gt;
+&lt;li&gt;运行，查看报错，选择wenling&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020250122100554.png" alt="Pasted image 20250122100554"&gt;
+&lt;/li&gt;
+&lt;li&gt;再次运行，fix代码里的语法错误&lt;/li&gt;
+&lt;li&gt;再次运行，xcode执行成功后关闭终端、simulator，在webstorm重新运行&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>windows所需的C++环境下载</title><link>https://RUIIIOVO.github.io/blog-site/posts/windows%E6%89%80%E9%9C%80%E7%9A%84c++%E7%8E%AF%E5%A2%83%E4%B8%8B%E8%BD%BD/</link><pubDate>Wed, 08 Apr 2026 10:42:51 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/windows%E6%89%80%E9%9C%80%E7%9A%84c++%E7%8E%AF%E5%A2%83%E4%B8%8B%E8%BD%BD/</guid><description>&lt;p&gt;在运行Hbuilder的cli报出dll错误，下载并安装后问题解决
+微软官方链接：
+&lt;a href="https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170"&gt;https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170&lt;/a&gt;
+下载链接：
+&lt;a href="https://aka.ms/vs/17/release/vc_redist.x64.exe"&gt;https://aka.ms/vs/17/release/vc_redist.x64.exe&lt;/a&gt;
+&lt;a href="https://aka.ms/vs/17/release/vc_redist.x86.exe"&gt;https://aka.ms/vs/17/release/vc_redist.x86.exe&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;注意：X86 和X64 都需要下载！！！&lt;/p&gt;</description></item><item><title>iOS 原生 IKEv2 配置教程（Ubuntu + strongSwan）</title><link>https://RUIIIOVO.github.io/blog-site/posts/ios-%E5%8E%9F%E7%94%9F-ikev2-%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8Bubuntu-+-strongswan/</link><pubDate>Wed, 08 Apr 2026 10:42:50 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/ios-%E5%8E%9F%E7%94%9F-ikev2-%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8Bubuntu-+-strongswan/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
+&lt;p&gt;这篇文章记录如何在 Ubuntu 服务器上部署一套可供 iPhone 原生使用的 &lt;code&gt;IKEv2/IPsec&lt;/code&gt; 服务。&lt;/p&gt;
+&lt;p&gt;适用场景：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;希望使用 iPhone 系统自带 IKEv2 功能&lt;/li&gt;
+&lt;li&gt;不想安装第三方客户端&lt;/li&gt;
+&lt;li&gt;服务器系统为 Ubuntu 24.04 或相近版本&lt;/li&gt;
+&lt;li&gt;服务端使用 &lt;code&gt;strongSwan&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文使用脱敏示例，发布时请将下列占位符替换为你自己的信息：&lt;/p&gt;</description></item><item><title>OpenClaw 安装教程（windows+Linux）</title><link>https://RUIIIOVO.github.io/blog-site/posts/openclaw-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8Bwindows+linux/</link><pubDate>Wed, 08 Apr 2026 10:42:50 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/openclaw-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8Bwindows+linux/</guid><description>&lt;p&gt;官方文档：&lt;a href="https://docs.openclaw.ai/start/getting-started"&gt;https://docs.openclaw.ai/start/getting-started&lt;/a&gt;
+需要先安装node22 使用nvm安装
+windows使用下面的命令会自动安装node22，linux则需要自行手动安装，并安装git
+安装命令
+windows：&lt;/p&gt;</description></item></channel></rss>

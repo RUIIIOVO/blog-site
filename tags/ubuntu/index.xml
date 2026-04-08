@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ubuntu on Rui blog</title><link>https://RUIIIOVO.github.io/blog-site/tags/ubuntu/</link><description>Recent content in Ubuntu on Rui blog</description><generator>Hugo -- 0.160.0</generator><language>zh-cn</language><lastBuildDate>Wed, 08 Apr 2026 10:42:52 +0800</lastBuildDate><atom:link href="https://RUIIIOVO.github.io/blog-site/tags/ubuntu/index.xml" rel="self" type="application/rss+xml"/><item><title>Ubuntu nvm下载</title><link>https://RUIIIOVO.github.io/blog-site/posts/ubuntu-nvm%E4%B8%8B%E8%BD%BD/</link><pubDate>Wed, 08 Apr 2026 10:42:52 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/ubuntu-nvm%E4%B8%8B%E8%BD%BD/</guid><description>&lt;p&gt;安装：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;# 安装 curl
+sudo apt install curl
+# 安装 git
+sudo apt install git
+# 安装 nvm
+bash -c &amp;#34;$(curl -fsSL https://gitee.com/RubyMetric/nvm-cn/raw/main/install.sh)&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;重开终端，或重新打开 ssh 窗口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令行&lt;/th&gt;
+&lt;th&gt;作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;nvm ls&lt;/td&gt;
+&lt;td&gt;已安装的列表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nvm ls-remote&lt;/td&gt;
+&lt;td&gt;所有可安装版本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nvm install v12.20.1&lt;/td&gt;
+&lt;td&gt;安装某个版本Node&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nvm use 12.20.1&lt;/td&gt;
+&lt;td&gt;切换Node版本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;node -v&lt;/td&gt;
+&lt;td&gt;node.js 版本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nvm-update&lt;/td&gt;
+&lt;td&gt;更新nvm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;卸载：&lt;/p&gt;</description></item><item><title>ubuntu手动导入sql文件</title><link>https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%89%8B%E5%8A%A8%E5%AF%BC%E5%85%A5sql%E6%96%87%E4%BB%B6/</link><pubDate>Wed, 08 Apr 2026 10:42:52 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%89%8B%E5%8A%A8%E5%AF%BC%E5%85%A5sql%E6%96%87%E4%BB%B6/</guid><description>&lt;ol&gt;
+&lt;li&gt;上传sql文件&lt;/li&gt;
+&lt;li&gt;mysql -uroot -p 进入数据库，执行命令：
+CREATE DATABASE IF NOT EXISTS your_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE your_db;
+SOURCE /tmp/dump.sql;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;CREATE DATABASE IF NOT EXISTS xnl DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE xnl;
+SOURCE /home/ubuntu/xnl.sql;
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>ubuntu数据库备份脚本</title><link>https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</link><pubDate>Wed, 08 Apr 2026 10:42:52 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</guid><description>&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;创建备份脚本&lt;/strong&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;创建一个名为&lt;code&gt;mysql_backup.sh&lt;/code&gt;的脚本文件，并添加以下内容：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;#!/bin/bash&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 数据库配置信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nv"&gt;DB_USER&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;root&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nv"&gt;DB_PASS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;your_password&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nv"&gt;DB_NAME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;testdb&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nv"&gt;BACKUP_DIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;/home/backup&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 备份文件名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nv"&gt;BACKUP_FILE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;&lt;span class="nv"&gt;$BACKUP_DIR&lt;/span&gt;&lt;span class="s2"&gt;/&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;DB_NAME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;_&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date +%Y%m%d%H%M%S&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;.sql.gz&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 执行备份命令&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; mysqldump -u &lt;span class="nv"&gt;$DB_USER&lt;/span&gt; -p&lt;span class="nv"&gt;$DB_PASS&lt;/span&gt; &lt;span class="nv"&gt;$DB_NAME&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; gzip &amp;gt; &lt;span class="nv"&gt;$BACKUP_FILE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 删除30天前的备份文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; find &lt;span class="nv"&gt;$BACKUP_DIR&lt;/span&gt; -type f -name &lt;span class="s2"&gt;&amp;#34;*.gz&amp;#34;&lt;/span&gt; -mtime +30 -exec rm &lt;span class="o"&gt;{}&lt;/span&gt; &lt;span class="se"&gt;\;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意：将&lt;code&gt;your_password&lt;/code&gt;替换为实际的数据库密码。&lt;/p&gt;</description></item><item><title>iOS 原生 IKEv2 配置教程（Ubuntu + strongSwan）</title><link>https://RUIIIOVO.github.io/blog-site/posts/ios-%E5%8E%9F%E7%94%9F-ikev2-%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8Bubuntu-+-strongswan/</link><pubDate>Wed, 08 Apr 2026 10:42:50 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/ios-%E5%8E%9F%E7%94%9F-ikev2-%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8Bubuntu-+-strongswan/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
+&lt;p&gt;这篇文章记录如何在 Ubuntu 服务器上部署一套可供 iPhone 原生使用的 &lt;code&gt;IKEv2/IPsec&lt;/code&gt; 服务。&lt;/p&gt;
+&lt;p&gt;适用场景：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;希望使用 iPhone 系统自带 IKEv2 功能&lt;/li&gt;
+&lt;li&gt;不想安装第三方客户端&lt;/li&gt;
+&lt;li&gt;服务器系统为 Ubuntu 24.04 或相近版本&lt;/li&gt;
+&lt;li&gt;服务端使用 &lt;code&gt;strongSwan&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文使用脱敏示例，发布时请将下列占位符替换为你自己的信息：&lt;/p&gt;</description></item><item><title>OpenClaw 安装教程（windows+Linux）</title><link>https://RUIIIOVO.github.io/blog-site/posts/openclaw-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8Bwindows+linux/</link><pubDate>Wed, 08 Apr 2026 10:42:50 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/openclaw-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8Bwindows+linux/</guid><description>&lt;p&gt;官方文档：&lt;a href="https://docs.openclaw.ai/start/getting-started"&gt;https://docs.openclaw.ai/start/getting-started&lt;/a&gt;
+需要先安装node22 使用nvm安装
+windows使用下面的命令会自动安装node22，linux则需要自行手动安装，并安装git
+安装命令
+windows：&lt;/p&gt;</description></item><item><title>ubuntu怎么切换到root用户,切换到root账号方法</title><link>https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%80%8E%E4%B9%88%E5%88%87%E6%8D%A2%E5%88%B0root%E7%94%A8%E6%88%B7%E5%88%87%E6%8D%A2%E5%88%B0root%E8%B4%A6%E5%8F%B7%E6%96%B9%E6%B3%95/</link><pubDate>Wed, 08 Apr 2026 10:42:50 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%80%8E%E4%B9%88%E5%88%87%E6%8D%A2%E5%88%B0root%E7%94%A8%E6%88%B7%E5%88%87%E6%8D%A2%E5%88%B0root%E8%B4%A6%E5%8F%B7%E6%96%B9%E6%B3%95/</guid><description>&lt;p&gt;&lt;a href="https://blog.csdn.net/hwh20095000060/article/details/121439611"&gt;https://blog.csdn.net/hwh20095000060/article/details/121439611&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020260225162240.png" alt="Pasted image 20260225162240"&gt;
+&lt;/p&gt;</description></item><item><title>3X-UI 配置</title><link>https://RUIIIOVO.github.io/blog-site/posts/3x-ui-%E9%85%8D%E7%BD%AE/</link><pubDate>Wed, 08 Apr 2026 10:33:58 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/3x-ui-%E9%85%8D%E7%BD%AE/</guid><description>&lt;p&gt;前提：购买一台境外服务器，最好是美国节点，便于访问ai网站（如Gemini、Claude）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;切换root账户 进行安装&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;su root
+bash &amp;lt;(curl -Ls https://raw.githubusercontent.com/MHSanaei/3x-ui/master/install.sh)
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="2"&gt;
+&lt;li&gt;出现下面的提示时，输入y确定&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Would you like to customize the Panel Port settings? (If not, a random port will be applied) [y/n]: y
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="3"&gt;
+&lt;li&gt;根据提示设置3X-UI的面板端口&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Please set up the panel port: 54321
+Your Panel Port is: 54321
+Port set successfully: 54321
+Username and password updated successfully
+Base URI path set successfully
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="4"&gt;
+&lt;li&gt;选择2模式，然后一路按回车就完事了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Choose SSL certificate setup method:
+1. Let&amp;#39;s Encrypt for Domain (90-day validity, auto-renews)
+2. Let&amp;#39;s Encrypt for IP Address (6-day validity, auto-renews)
+Note: Both options require port 80 open. IP certs use shortlived profile.
+Choose an option (default 2 for IP): 2
+Using Let&amp;#39;s Encrypt for IP certificate (shortlived profile)...
+Do you have an IPv6 address to include? (leave empty to skip): 
+Setting up Let&amp;#39;s Encrypt IP certificate (shortlived profile)...
+Note: IP certificates are valid for ~6 days and will auto-renew.
+Port 80 must be open and accessible from the internet.
+Installing acme.sh for SSL certificate management...
+acme.sh installed successfully
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="5"&gt;
+&lt;li&gt;
+&lt;p&gt;重置管理员账号密码，root账户下，输入 &lt;code&gt;x-ui&lt;/code&gt; 进入控制终端，输入6，如下
+&lt;img loading="lazy" src="https://RUIIIOVO.github.io/blog-site/uploads/Pasted%20image%2020260226100243.png" alt="Pasted image 20260226100243"&gt;
+&lt;/p&gt;</description></item></channel></rss>

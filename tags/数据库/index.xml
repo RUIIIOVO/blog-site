@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>数据库 on Rui blog</title><link>https://RUIIIOVO.github.io/blog-site/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link><description>Recent content in 数据库 on Rui blog</description><generator>Hugo -- 0.160.0</generator><language>zh-cn</language><lastBuildDate>Wed, 08 Apr 2026 10:42:55 +0800</lastBuildDate><atom:link href="https://RUIIIOVO.github.io/blog-site/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml"/><item><title>nacos安装</title><link>https://RUIIIOVO.github.io/blog-site/posts/nacos%E5%AE%89%E8%A3%85/</link><pubDate>Wed, 08 Apr 2026 10:42:55 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/nacos%E5%AE%89%E8%A3%85/</guid><description>&lt;p&gt;官方文档：
+&lt;a href="https://nacos.io/docs/latest/quickstart/quick-start/?spm=5238cd80.72a042d5.0.0.5bc0cd36gYSNAV"&gt;https://nacos.io/docs/latest/quickstart/quick-start/?spm=5238cd80.72a042d5.0.0.5bc0cd36gYSNAV&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;bin目录下 启动命令：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;startup.cmd -m standalone
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;启动报错指南：
+&lt;a href="https://blog.csdn.net/qq_45063782/article/details/119751892"&gt;https://blog.csdn.net/qq_45063782/article/details/119751892&lt;/a&gt;
+&lt;a href="https://blog.csdn.net/weixin_45396074/article/details/135177158"&gt;https://blog.csdn.net/weixin_45396074/article/details/135177158&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;需要在本地mysql手动创建nacos数据库
+修改配置：
+secret.key 不得少于32位，不然会报错，直接把官方的注释解开即可&lt;/p&gt;</description></item><item><title>MinIO 安装</title><link>https://RUIIIOVO.github.io/blog-site/posts/minio-%E5%AE%89%E8%A3%85/</link><pubDate>Wed, 08 Apr 2026 10:42:54 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/minio-%E5%AE%89%E8%A3%85/</guid><description>&lt;p&gt;下载MinIO在Windows下的安装包，下载地址：https://dl.min.io/server/minio/release/windows-amd64/minio.exe&lt;/p&gt;</description></item><item><title>ubuntu手动导入sql文件</title><link>https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%89%8B%E5%8A%A8%E5%AF%BC%E5%85%A5sql%E6%96%87%E4%BB%B6/</link><pubDate>Wed, 08 Apr 2026 10:42:52 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%89%8B%E5%8A%A8%E5%AF%BC%E5%85%A5sql%E6%96%87%E4%BB%B6/</guid><description>&lt;ol&gt;
+&lt;li&gt;上传sql文件&lt;/li&gt;
+&lt;li&gt;mysql -uroot -p 进入数据库，执行命令：
+CREATE DATABASE IF NOT EXISTS your_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE your_db;
+SOURCE /tmp/dump.sql;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;CREATE DATABASE IF NOT EXISTS xnl DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE xnl;
+SOURCE /home/ubuntu/xnl.sql;
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>ubuntu数据库备份脚本</title><link>https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</link><pubDate>Wed, 08 Apr 2026 10:42:52 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/ubuntu%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</guid><description>&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;创建备份脚本&lt;/strong&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;创建一个名为&lt;code&gt;mysql_backup.sh&lt;/code&gt;的脚本文件，并添加以下内容：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;#!/bin/bash&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 数据库配置信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nv"&gt;DB_USER&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;root&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nv"&gt;DB_PASS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;your_password&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nv"&gt;DB_NAME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;testdb&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nv"&gt;BACKUP_DIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;/home/backup&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 备份文件名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nv"&gt;BACKUP_FILE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;&lt;span class="nv"&gt;$BACKUP_DIR&lt;/span&gt;&lt;span class="s2"&gt;/&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;DB_NAME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;_&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date +%Y%m%d%H%M%S&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;.sql.gz&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 执行备份命令&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; mysqldump -u &lt;span class="nv"&gt;$DB_USER&lt;/span&gt; -p&lt;span class="nv"&gt;$DB_PASS&lt;/span&gt; &lt;span class="nv"&gt;$DB_NAME&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; gzip &amp;gt; &lt;span class="nv"&gt;$BACKUP_FILE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 删除30天前的备份文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; find &lt;span class="nv"&gt;$BACKUP_DIR&lt;/span&gt; -type f -name &lt;span class="s2"&gt;&amp;#34;*.gz&amp;#34;&lt;/span&gt; -mtime +30 -exec rm &lt;span class="o"&gt;{}&lt;/span&gt; &lt;span class="se"&gt;\;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意：将&lt;code&gt;your_password&lt;/code&gt;替换为实际的数据库密码。&lt;/p&gt;</description></item><item><title>windows所需的C++环境下载</title><link>https://RUIIIOVO.github.io/blog-site/posts/windows%E6%89%80%E9%9C%80%E7%9A%84c++%E7%8E%AF%E5%A2%83%E4%B8%8B%E8%BD%BD/</link><pubDate>Wed, 08 Apr 2026 10:42:51 +0800</pubDate><guid>https://RUIIIOVO.github.io/blog-site/posts/windows%E6%89%80%E9%9C%80%E7%9A%84c++%E7%8E%AF%E5%A2%83%E4%B8%8B%E8%BD%BD/</guid><description>&lt;p&gt;在运行Hbuilder的cli报出dll错误，下载并安装后问题解决
+微软官方链接：
+&lt;a href="https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170"&gt;https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170&lt;/a&gt;
+下载链接：
+&lt;a href="https://aka.ms/vs/17/release/vc_redist.x64.exe"&gt;https://aka.ms/vs/17/release/vc_redist.x64.exe&lt;/a&gt;
+&lt;a href="https://aka.ms/vs/17/release/vc_redist.x86.exe"&gt;https://aka.ms/vs/17/release/vc_redist.x86.exe&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;注意：X86 和X64 都需要下载！！！&lt;/p&gt;</description></item></channel></rss>
