@@ -1,4 +1,4 @@
-# Nginx Docker 挂载建议
+# Nginx Docker 挂载建议（模板）
 
 建议在现有网关 Nginx 容器中新增只读挂载：
 

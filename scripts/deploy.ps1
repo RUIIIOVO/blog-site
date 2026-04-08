@@ -1,5 +1,5 @@
 param(
-    [string]$DeployHost = "your-server-ip",
+    [string]$DeployHost = "",
     [string]$DeployPort = "22",
     [string]$DeployUser = "ubuntu",
     [string]$DeployTargetBase = "/home/ubuntu/blog-site",
@@ -78,6 +78,18 @@ Apply-EnvFallback -ParameterName "DeployUser" -EnvName "DEPLOY_USER" -Target ([r
 Apply-EnvFallback -ParameterName "DeployTargetBase" -EnvName "DEPLOY_TARGET_BASE" -Target ([ref]$DeployTargetBase)
 Apply-EnvFallback -ParameterName "BaseUrl" -EnvName "SITE_URL" -Target ([ref]$BaseUrl)
 Apply-EnvFallback -ParameterName "KeyPath" -EnvName "DEPLOY_KEY_PATH" -Target ([ref]$KeyPath)
+
+$requiredParameters = @{
+    DeployHost       = $DeployHost
+    DeployUser       = $DeployUser
+    DeployTargetBase = $DeployTargetBase
+    BaseUrl          = $BaseUrl
+}
+foreach ($entry in $requiredParameters.GetEnumerator()) {
+    if ([string]::IsNullOrWhiteSpace($entry.Value)) {
+        throw "Missing required parameter: $($entry.Key). Provide command argument or .env value."
+    }
+}
 
 Require-Command "hugo"
 Require-Command "ssh"

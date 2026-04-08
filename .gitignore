@@ -1,4 +1,5 @@
 /public/
+/.dist/
 /resources/
 /.hugo_build.lock
 /.venv/
@@ -7,7 +8,11 @@
 .env
 .env.*
 !.env.example
-/your-domain.com_nginx/
+/certs_nginx/
+/*_nginx/
+*.pem
+*.crt
+*.key
 /ubuntu@/
 **/__pycache__/
 *.pyc

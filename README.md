@@ -1,4 +1,4 @@
-# blog-site
+﻿# blog-site
 
 基于 `Hugo + PaperMod` 的博客仓库，支持：
 
@@ -9,7 +9,7 @@
 
 ---
 
-## 1. 固定部署路径（按当前线上）
+## 1. 固定部署路径（示例）
 
 - 博客目录：`/home/ubuntu/blog-site`
 - 证书目录：`/home/ubuntu/certs/your-domain.com`
@@ -23,8 +23,9 @@
 - `content/posts/`：同步后的文章 Markdown
 - `static/uploads/`：同步后的图片资源
 - `scripts/sync_webdav.py`：WebDAV 同步脚本
+- `scripts/deploy_github_pages.ps1`：GitHub Pages 一键打包部署脚本
 - `scripts/upload_cert.ps1`：证书上传脚本（Windows PowerShell）
-- `deploy/nginx/your-domain.com.conf`：Nginx 完整配置样例
+- `deploy/nginx/site.conf.example`：Nginx 完整配置样例
 - `.github/workflows/sync-build-deploy.yml`：自动同步 + 构建 + 部署
 
 ---
@@ -115,12 +116,12 @@ ssh -p "22" "ubuntu@your-server-ip" '
 
 ## 5. Nginx 配置修改命令（服务器）
 
-> 当前仓库提供的是完整 Nginx 配置：`deploy/nginx/your-domain.com.conf`。
+> 当前仓库提供的是完整 Nginx 配置：`deploy/nginx/site.conf.example`。
 
 ### 5.1 上传配置到服务器
 
 ```bash
-scp -P "22" "./deploy/nginx/your-domain.com.conf" "ubuntu@your-server-ip:/home/ubuntu/your-domain.com.conf"
+scp -P "22" "./deploy/nginx/site.conf.example" "ubuntu@your-server-ip:/home/ubuntu/site.conf"
 ```
 
 ### 5.2 Docker Nginx（与本仓库配置匹配，推荐）
@@ -129,7 +130,7 @@ scp -P "22" "./deploy/nginx/your-domain.com.conf" "ubuntu@your-server-ip:/home/u
 
 ```yaml
 volumes:
-  - /home/ubuntu/rq-mall-single/mydata/nginx/html:/usr/share/nginx/html:rw
+  - /home/ubuntu/site-root:/usr/share/nginx/html:rw
   - /home/ubuntu/certs/your-domain.com:/etc/nginx/cert:ro
 ```
 
@@ -138,7 +139,7 @@ volumes:
 ```bash
 ssh -p "22" "ubuntu@your-server-ip" '
   set -e
-  sudo docker cp "/home/ubuntu/your-domain.com.conf" "nginx:/etc/nginx/nginx.conf"
+  sudo docker cp "/home/ubuntu/site.conf" "nginx:/etc/nginx/nginx.conf"
   sudo docker exec "nginx" nginx -t
   sudo docker exec "nginx" nginx -s reload
 '
@@ -151,7 +152,7 @@ ssh -p "22" "ubuntu@your-server-ip" '
 ```bash
 ssh -p "22" "ubuntu@your-server-ip" '
   set -e
-  sudo cp "/home/ubuntu/your-domain.com.conf" "/etc/nginx/nginx.conf"
+  sudo cp "/home/ubuntu/site.conf" "/etc/nginx/nginx.conf"
   sudo nginx -t
   sudo systemctl reload nginx
 '
@@ -311,6 +312,11 @@ CI 不读取仓库内 `.env`，只读取 GitHub Secrets。
 | `DEPLOY_USER` | SSH 用户 | 本地脚本环境或 CI Secrets |
 | `DEPLOY_TARGET_BASE` | 服务器发布根目录（建议 `/home/ubuntu/blog-site`） | 本地脚本环境或 CI Secrets |
 | `DEPLOY_KEY_PATH` | 本地部署脚本使用的 SSH 私钥路径 | 本地 `.env`（仅手动部署脚本） |
+| `GITHUB_PAGES_URL` | GitHub Pages 对外访问 URL（用于 `hugo --baseURL`） | 本地 `.env`（GitHub Pages 脚本） |
+| `GITHUB_PAGES_BRANCH` | GitHub Pages 发布分支（默认 `gh-pages`） | 本地 `.env`（GitHub Pages 脚本） |
+| `GITHUB_REPO_URL` | GitHub 仓库地址（如 `https://github.com/owner/repo.git`） | 本地 `.env`（GitHub Pages 脚本） |
+| `GITHUB_PAGES_GIT_NAME` | 发布提交的 Git 用户名 | 本地 `.env`（GitHub Pages 脚本） |
+| `GITHUB_PAGES_GIT_EMAIL` | 发布提交的 Git 邮箱 | 本地 `.env`（GitHub Pages 脚本） |
 | `GISCUS_ENABLED` | 是否开启 Giscus（`true/false`） | 本地 `.env` 或 GitHub Secrets |
 | `GISCUS_REPO` | Giscus 仓库（如 `owner/repo`） | 本地 `.env` 或 GitHub Secrets |
 | `GISCUS_REPO_ID` | Giscus 仓库 ID | 本地 `.env` 或 GitHub Secrets |
@@ -352,3 +358,54 @@ CI 不读取仓库内 `.env`，只读取 GitHub Secrets。
    - 本地预览：仓库根目录 `.env`  
    - 线上自动构建：GitHub Secrets（同名变量）  
 4) 注意：`hugo` 命令只读取“当前进程环境变量”，不会自动加载 `.env` 文件；本地预览评论时请先导出 `GISCUS_*` 变量，或直接写入 `hugo.toml`。  
+
+---
+
+## 9. GitHub Pages 部署（完整流程）
+
+如果你希望博客直接托管在 GitHub Pages（而非服务器），按以下流程：
+
+### 9.1 一次性准备
+
+1) 仓库开启 Pages：  
+`GitHub 仓库 -> Settings -> Pages -> Build and deployment -> Deploy from a branch`
+
+2) 分支设置：  
+- Branch: `gh-pages`  
+- Folder: `/ (root)`
+
+3) 本地准备 `.env`（可复用 `.env.example` 中 GitHub Pages 段）：  
+- `GITHUB_PAGES_URL`（例如 `https://your-user.github.io/your-repo/`）  
+- `GITHUB_PAGES_BRANCH=gh-pages`  
+- `GITHUB_REPO_URL=https://github.com/your-user/your-repo.git`
+
+4) 确保本地 Git 具备 push 权限（PAT 或 SSH）。
+
+### 9.2 一键打包+部署脚本
+
+```powershell
+./scripts/deploy_github_pages.ps1
+```
+
+脚本会自动执行：
+- 读取 `.env`
+- `hugo --minify --baseURL ...`
+- 生成 `.dist/packages/site-时间戳.zip`
+- 将静态站点强制推送到 `gh-pages`
+
+### 9.3 常用参数
+
+```powershell
+  ./scripts/deploy_github_pages.ps1 `
+  -BaseUrl "https://your-user.github.io/your-repo/" `
+  -PagesBranch "gh-pages" `
+  -RepoUrl "https://github.com/your-user/your-repo.git" `
+  -EnvFile ".env"
+```
+
+仅打包不推送：
+
+```powershell
+./scripts/deploy_github_pages.ps1 -PackageOnly
+```
+

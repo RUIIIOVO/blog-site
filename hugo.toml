@@ -1,4 +1,4 @@
-baseURL = "https://your-domain.com/"
+baseURL = "https://example.com/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh"
 title = "Rui blog"
@@ -32,7 +32,7 @@ category = "categories"
 
 [params]
 env = "production"
-description = "your-domain.com 博客"
+description = "个人博客模板"
 defaultTheme = "auto"
 ShowReadingTime = true
 ShowCodeCopyButtons = true

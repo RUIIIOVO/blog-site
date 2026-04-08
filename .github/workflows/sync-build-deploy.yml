@@ -6,7 +6,7 @@ on:
     - cron: "0 16 * * *"
 
 concurrency:
-  group: rqbaby-blog-deploy
+  group: blog-site-deploy
   cancel-in-progress: true
 
 jobs:
