@@ -1,6 +1,8 @@
 ﻿---
 title: "查询项目node版本"
 date: 2026-04-08T10:42:54+08:00
+tags:
+  - JavaScript
 draft: false
 ---
 

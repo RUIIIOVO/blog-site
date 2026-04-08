@@ -1,6 +1,10 @@
 ﻿---
 title: "iOS 原生 IKEv2 配置教程（Ubuntu + strongSwan）"
 date: 2026-04-08T10:42:50+08:00
+tags:
+  - Ubuntu
+  - Windows
+  - 部署
 draft: false
 ---
 

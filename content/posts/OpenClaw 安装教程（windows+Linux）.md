@@ -1,6 +1,10 @@
 ﻿---
 title: "OpenClaw 安装教程（windows+Linux）"
 date: 2026-04-08T10:42:50+08:00
+tags:
+  - Linux
+  - Ubuntu
+  - Windows
 draft: false
 ---
 

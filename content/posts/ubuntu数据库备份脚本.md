@@ -1,6 +1,10 @@
 ﻿---
 title: "ubuntu数据库备份脚本"
 date: 2026-04-08T10:42:52+08:00
+tags:
+  - 数据库
+  - Ubuntu
+  - 运维
 draft: false
 ---
 

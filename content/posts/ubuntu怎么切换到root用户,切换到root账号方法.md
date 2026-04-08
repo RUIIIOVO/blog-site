@@ -1,6 +1,8 @@
 ﻿---
 title: "ubuntu怎么切换到root用户,切换到root账号方法"
 date: 2026-04-08T10:42:50+08:00
+tags:
+  - Ubuntu
 draft: false
 ---
 

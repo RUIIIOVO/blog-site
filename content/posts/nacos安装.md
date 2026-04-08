@@ -1,6 +1,10 @@
 ﻿---
 title: "nacos安装"
 date: 2026-04-08T10:42:55+08:00
+tags:
+  - 数据库
+  - 运维
+  - 前端
 draft: false
 ---
 

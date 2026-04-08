@@ -1,6 +1,8 @@
 ﻿---
 title: "Ollama D盘安装"
 date: 2026-04-08T10:42:53+08:00
+tags:
+  - MCP
 draft: false
 ---
 

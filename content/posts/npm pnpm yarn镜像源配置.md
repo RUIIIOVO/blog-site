@@ -1,6 +1,8 @@
 ﻿---
 title: "npm pnpm yarn镜像源配置"
 date: 2026-04-08T10:42:51+08:00
+tags:
+  - JavaScript
 draft: false
 ---
 

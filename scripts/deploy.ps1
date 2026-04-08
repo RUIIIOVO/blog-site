@@ -4,10 +4,12 @@ param(
     [string]$DeployUser = "ubuntu",
     [string]$DeployTargetBase = "/home/ubuntu/blog-site",
     [string]$BaseUrl = "https://your-domain.com",
-    [string]$KeyPath = "$env:USERPROFILE/.ssh/id_ed25519"
+    [string]$KeyPath = "$env:USERPROFILE/.ssh/id_ed25519",
+    [string]$EnvFile = ".env"
 )
 
 $ErrorActionPreference = "Stop"
+$ScriptBoundParameters = @{} + $PSBoundParameters
 
 function Require-Command {
     param([Parameter(Mandatory = $true)][string]$Name)
@@ -15,6 +17,67 @@ function Require-Command {
         throw "Missing command: $Name"
     }
 }
+
+function Import-DotEnv {
+    param([Parameter(Mandatory = $true)][string]$Path)
+
+    if (-not (Test-Path $Path)) {
+        return 0
+    }
+
+    $loaded = 0
+    foreach ($rawLine in Get-Content $Path) {
+        $line = $rawLine.Trim()
+        if ([string]::IsNullOrWhiteSpace($line) -or $line.StartsWith("#")) {
+            continue
+        }
+
+        $separatorIndex = $line.IndexOf("=")
+        if ($separatorIndex -lt 1) {
+            continue
+        }
+
+        $key = $line.Substring(0, $separatorIndex).Trim()
+        $value = $line.Substring($separatorIndex + 1).Trim().Trim('"').Trim("'")
+        if ([string]::IsNullOrWhiteSpace($key)) {
+            continue
+        }
+
+        [Environment]::SetEnvironmentVariable($key, $value, "Process")
+        $loaded++
+    }
+
+    return $loaded
+}
+
+function Apply-EnvFallback {
+    param(
+        [Parameter(Mandatory = $true)][string]$ParameterName,
+        [Parameter(Mandatory = $true)][string]$EnvName,
+        [Parameter(Mandatory = $true)][ref]$Target
+    )
+
+    if ($ScriptBoundParameters.ContainsKey($ParameterName)) {
+        return
+    }
+
+    $envValue = [Environment]::GetEnvironmentVariable($EnvName, "Process")
+    if (-not [string]::IsNullOrWhiteSpace($envValue)) {
+        $Target.Value = $envValue
+    }
+}
+
+$loadedEnvCount = Import-DotEnv -Path $EnvFile
+if ($loadedEnvCount -gt 0) {
+    Write-Host ("[env] Loaded {0} variables from {1}" -f $loadedEnvCount, $EnvFile)
+}
+
+Apply-EnvFallback -ParameterName "DeployHost" -EnvName "DEPLOY_HOST" -Target ([ref]$DeployHost)
+Apply-EnvFallback -ParameterName "DeployPort" -EnvName "DEPLOY_PORT" -Target ([ref]$DeployPort)
+Apply-EnvFallback -ParameterName "DeployUser" -EnvName "DEPLOY_USER" -Target ([ref]$DeployUser)
+Apply-EnvFallback -ParameterName "DeployTargetBase" -EnvName "DEPLOY_TARGET_BASE" -Target ([ref]$DeployTargetBase)
+Apply-EnvFallback -ParameterName "BaseUrl" -EnvName "SITE_URL" -Target ([ref]$BaseUrl)
+Apply-EnvFallback -ParameterName "KeyPath" -EnvName "DEPLOY_KEY_PATH" -Target ([ref]$KeyPath)
 
 Require-Command "hugo"
 Require-Command "ssh"

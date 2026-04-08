@@ -1,6 +1,8 @@
 ﻿---
 title: "影刀RPA构建淘宝、京东价格捕获工具"
 date: 2026-04-08T10:42:51+08:00
+tags:
+  - Python
 draft: false
 ---
 

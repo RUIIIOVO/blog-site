@@ -1,6 +1,9 @@
 ﻿---
 title: "如何使用 MuMu模拟器和 Android Studio 调试应用"
 date: 2026-04-08T10:42:50+08:00
+tags:
+  - 前端
+  - Java
 draft: false
 ---
 

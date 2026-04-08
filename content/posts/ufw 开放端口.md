@@ -1,6 +1,8 @@
 ﻿---
 title: "ufw 开放端口"
 date: 2026-04-08T10:42:54+08:00
+tags:
+  - 运维
 draft: false
 ---
 

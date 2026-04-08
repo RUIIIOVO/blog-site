@@ -1,6 +1,10 @@
 ﻿---
 title: "React全家桶技术栈"
 date: 2026-04-08T10:42:53+08:00
+tags:
+  - React
+  - 部署
+  - 前端
 draft: false
 ---
 

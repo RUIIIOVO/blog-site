@@ -21,6 +21,26 @@ ASSETS_LOCAL_ROOT = Path("static/uploads")
 DEFAULT_ENV_FILE = Path(".env")
 CHINA_TIMEZONE = timezone(timedelta(hours=8))
 OBSIDIAN_IMAGE_PATTERN = re.compile(r"!\[\[([^\]\n]+)\]\]")
+TAG_RULES: List[tuple[str, List[str]]] = [
+    ("React", ["react native", "react"]),
+    ("SpringBoot", ["spring boot", "springboot"]),
+    ("JavaScript", ["javascript", "node.js", "node", "npm", "yarn", "pnpm", "electron"]),
+    ("Python", ["python"]),
+    ("Java", ["java", "jdk", "jvm", "maven", "mybatis", "jar", "android", "apk"]),
+    ("Docker", ["docker", "container", "3x-ui"]),
+    ("Git", ["git", "github"]),
+    ("MCP", ["mcp", "model context protocol", "deepseek", "ollama"]),
+    ("数据库", ["mysql", "postgres", "mongodb", "mongo", "redis", "sql", "minio", "nacos"]),
+    ("Linux", ["linux"]),
+    ("Ubuntu", ["ubuntu"]),
+    ("Windows", ["windows", "powershell", "webstorm", "vscode"]),
+    ("macOS", ["mac", "macos", "osx"]),
+    ("部署", ["部署", "deploy", "nginx", "nohup", "proxy", "证书"]),
+    ("运维", ["运维", "ufw", "cron", "systemd", "server"]),
+    ("前端", ["css", "html", "frontend", "前端", "figma"]),
+    ("后端", ["spring", "backend", "后端"]),
+]
+FRONT_MATTER_LINE_PATTERN = re.compile(r"^(\s*)([A-Za-z_][\w-]*)\s*:\s*(.*)$")
 
 
 @dataclass
@@ -379,7 +399,166 @@ def convert_obsidian_image_syntax(content: str) -> tuple[str, int]:
     return "".join(output_lines), replaced_count
 
 
-def sync_post_front_matter(local_path: Path, remote_last_modified: str, dry_run: bool) -> bool:
+def strip_yaml_scalar_quotes(value: str) -> str:
+    clean = value.strip()
+    if len(clean) >= 2 and clean[0] == clean[-1] and clean[0] in {'"', "'"}:
+        return clean[1:-1].strip()
+    return clean
+
+
+def parse_inline_tags(value: str) -> List[str]:
+    content = value.strip()
+    if not content.startswith("[") or not content.endswith("]"):
+        return [strip_yaml_scalar_quotes(content)] if content else []
+    inner = content[1:-1].strip()
+    if not inner:
+        return []
+    tags: List[str] = []
+    for part in inner.split(","):
+        tag = strip_yaml_scalar_quotes(part)
+        if tag:
+            tags.append(tag)
+    return tags
+
+
+def dedupe_keep_order(items: List[str]) -> List[str]:
+    seen = set()
+    result: List[str] = []
+    for item in items:
+        clean = item.strip()
+        if not clean or clean in seen:
+            continue
+        seen.add(clean)
+        result.append(clean)
+    return result
+
+
+def parse_title_from_header(header_lines: List[str]) -> str:
+    for line in header_lines[1:-1]:
+        match = FRONT_MATTER_LINE_PATTERN.match(line.strip("\r\n"))
+        if not match:
+            continue
+        key = match.group(2).lower()
+        if key != "title":
+            continue
+        return strip_yaml_scalar_quotes(match.group(3))
+    return ""
+
+
+def parse_tags_from_header(header_lines: List[str]) -> List[str]:
+    body_lines = header_lines[1:-1]
+    tags: List[str] = []
+    index = 0
+    while index < len(body_lines):
+        line = body_lines[index]
+        match = FRONT_MATTER_LINE_PATTERN.match(line.strip("\r\n"))
+        if not match or match.group(2).lower() != "tags":
+            index += 1
+            continue
+
+        indent = len(match.group(1))
+        value = match.group(3).strip()
+        if value:
+            tags.extend(parse_inline_tags(value))
+            break
+
+        index += 1
+        while index < len(body_lines):
+            candidate = body_lines[index]
+            stripped = candidate.strip()
+            if not stripped:
+                break
+            candidate_indent = len(candidate) - len(candidate.lstrip(" "))
+            if candidate_indent <= indent:
+                break
+            list_match = re.match(r"^\s*-\s*(.+?)\s*$", candidate.strip("\r\n"))
+            if list_match:
+                tags.append(strip_yaml_scalar_quotes(list_match.group(1)))
+            index += 1
+        break
+
+    return dedupe_keep_order(tags)
+
+
+def upsert_tags_in_header(header_lines: List[str], tags: List[str]) -> List[str]:
+    if not tags:
+        return header_lines
+
+    body_lines = header_lines[1:-1]
+    new_body: List[str] = []
+    index = 0
+    while index < len(body_lines):
+        line = body_lines[index]
+        match = FRONT_MATTER_LINE_PATTERN.match(line.strip("\r\n"))
+        if not match or match.group(2).lower() != "tags":
+            new_body.append(line)
+            index += 1
+            continue
+
+        indent = len(match.group(1))
+        value = match.group(3).strip()
+        index += 1
+        if not value:
+            while index < len(body_lines):
+                candidate = body_lines[index]
+                stripped = candidate.strip()
+                if not stripped:
+                    break
+                candidate_indent = len(candidate) - len(candidate.lstrip(" "))
+                if candidate_indent <= indent:
+                    break
+                index += 1
+        continue
+
+    eol = "\n"
+    for line in header_lines:
+        if line.endswith("\r\n"):
+            eol = "\r\n"
+            break
+
+    insert_at = len(new_body)
+    for i, line in enumerate(new_body):
+        match = FRONT_MATTER_LINE_PATTERN.match(line.strip("\r\n"))
+        if not match:
+            continue
+        if match.group(2).lower() == "date":
+            insert_at = i + 1
+            break
+
+    tag_lines = [f"tags:{eol}"] + [f"  - {tag}{eol}" for tag in tags]
+    merged_body = new_body[:insert_at] + tag_lines + new_body[insert_at:]
+    return [header_lines[0]] + merged_body + [header_lines[-1]]
+
+
+def detect_auto_tags(title: str, body: str) -> List[str]:
+    text = f"{title}\n{body}".lower()
+    tags: List[str] = []
+    for tag, keywords in TAG_RULES:
+        for keyword in keywords:
+            if keyword in text:
+                tags.append(tag)
+                break
+    deduped = dedupe_keep_order(tags)
+    if deduped:
+        return deduped
+    return ["运维"]
+
+
+def merge_tags(existing_tags: List[str], auto_tags: List[str], max_tags: int = 3) -> List[str]:
+    manual = dedupe_keep_order(existing_tags)
+    if len(manual) >= max_tags:
+        return manual
+    merged = manual[:]
+    for tag in auto_tags:
+        if tag in merged:
+            continue
+        if len(merged) >= max_tags:
+            break
+        merged.append(tag)
+    return merged
+
+
+def sync_post_front_matter(local_path: Path, remote_last_modified: str, dry_run: bool, sync_date: bool = True) -> bool:
     if not local_path.exists() or not local_path.is_file():
         return False
 
@@ -390,15 +569,21 @@ def sync_post_front_matter(local_path: Path, remote_last_modified: str, dry_run:
 
     normalized_content, obsidian_replaced_count = convert_obsidian_image_syntax(content)
     content_changed = obsidian_replaced_count > 0
-    date_value = get_post_date_value(local_path, remote_last_modified)
+    date_value = get_post_date_value(local_path, remote_last_modified) if sync_date else ""
     normalized = normalized_content.lstrip("\ufeff \t\r\n")
 
     if needs_front_matter(normalized_content):
         title = local_path.stem.replace("\\", "\\\\").replace('"', '\\"')
+        auto_tags = detect_auto_tags(local_path.stem, normalized_content)
+        merged_tags = merge_tags([], auto_tags)
+        tags_block = ""
+        if merged_tags:
+            tags_block = "tags:\n" + "".join([f"  - {tag}\n" for tag in merged_tags])
         front_matter = (
             "---\n"
             f'title: "{title}"\n'
-            f"date: {date_value}\n"
+            f"date: {date_value or get_post_date_value(local_path, remote_last_modified)}\n"
+            f"{tags_block}"
             "draft: false\n"
             "---\n\n"
         )
@@ -423,18 +608,27 @@ def sync_post_front_matter(local_path: Path, remote_last_modified: str, dry_run:
         header_lines = lines[: end_idx + 1]
         body_lines = lines[end_idx + 1 :]
         date_updated = False
-        for i in range(1, len(header_lines) - 1):
-            if re.match(r"^\s*date\s*:", header_lines[i]):
-                new_line = f"date: {date_value}\n"
-                if header_lines[i] != new_line:
-                    header_lines[i] = new_line
-                    date_updated = True
-                break
-        else:
-            header_lines.insert(len(header_lines) - 1, f"date: {date_value}\n")
-            date_updated = True
+        if sync_date:
+            for i in range(1, len(header_lines) - 1):
+                if re.match(r"^\s*date\s*:", header_lines[i]):
+                    new_line = f"date: {date_value}\n"
+                    if header_lines[i] != new_line:
+                        header_lines[i] = new_line
+                        date_updated = True
+                    break
+            else:
+                header_lines.insert(len(header_lines) - 1, f"date: {date_value}\n")
+                date_updated = True
 
-        if not date_updated and not content_changed:
+        existing_tags = parse_tags_from_header(header_lines)
+        title = parse_title_from_header(header_lines) or local_path.stem
+        auto_tags = detect_auto_tags(title, "".join(body_lines))
+        merged_tags = merge_tags(existing_tags, auto_tags)
+        tags_updated = merged_tags != existing_tags
+        if tags_updated:
+            header_lines = upsert_tags_in_header(header_lines, merged_tags)
+
+        if not date_updated and not content_changed and not tags_updated:
             return False
         if dry_run:
             return True
@@ -449,6 +643,29 @@ def sync_post_front_matter(local_path: Path, remote_last_modified: str, dry_run:
         return True
 
     return False
+
+
+def run_local_tag_backfill(dry_run: bool) -> int:
+    posts = sorted(POSTS_LOCAL_ROOT.rglob("*.md"))
+    patched_count = 0
+    for post in posts:
+        patched = sync_post_front_matter(post, "", dry_run=dry_run, sync_date=False)
+        if patched:
+            patched_count += 1
+            if dry_run:
+                print(f"[DRY-RUN] backfill tags {post.as_posix()}")
+
+    print(
+        json.dumps(
+            {
+                "local_posts": len(posts),
+                "patched": patched_count,
+                "dry_run": dry_run,
+            },
+            ensure_ascii=False,
+        )
+    )
+    return 0
 
 
 def should_download(previous_entry: dict | None, remote_file: RemoteFile, local_path: Path) -> bool:
@@ -585,10 +802,17 @@ def main() -> int:
         help="Path to .env file for local configuration (default: .env)",
     )
     parser.add_argument("--dry-run", action="store_true", help="Print planned actions without writing files")
+    parser.add_argument(
+        "--backfill-tags-local",
+        action="store_true",
+        help="Only process local posts to auto-fill tags without WebDAV sync",
+    )
     args = parser.parse_args()
 
     try:
         load_env_file(Path(args.env_file))
+        if args.backfill_tags_local:
+            return run_local_tag_backfill(dry_run=args.dry_run)
         return run(dry_run=args.dry_run)
     except WebDAVSyncError as exc:
         print(f"sync error: {exc}", file=sys.stderr)

@@ -62,6 +62,13 @@ python "scripts/sync_webdav.py"
 ```
 
 `scripts/sync_webdav.py` 会自动把 Obsidian 图片语法 `![[xxx.png]]` 转换成 Hugo 可渲染的标准 Markdown 图片链接（默认映射到 `/uploads/`）。
+同步脚本还会自动补齐文章 `tags`（中文标签、最多 3 个，保留你手动写过的标签）。
+
+如果你要先补齐一次历史文章标签（不连接 WebDAV）：
+
+```bash
+python "scripts/sync_webdav.py" --backfill-tags-local
+```
 
 ### 3.4 本地构建
 
@@ -236,6 +243,8 @@ ssh -o "IdentitiesOnly=yes" -i "$KEY" -p "$env:DEPLOY_PORT" "$env:DEPLOY_USER@$e
 ./scripts/deploy.ps1
 ```
 
+脚本会自动读取仓库根目录 `.env`（可通过 `-EnvFile` 指定其他文件），并把其中变量注入当前进程，再执行构建与发布。
+
 可选参数示例：
 
 ```powershell
@@ -245,7 +254,8 @@ ssh -o "IdentitiesOnly=yes" -i "$KEY" -p "$env:DEPLOY_PORT" "$env:DEPLOY_USER@$e
   -DeployUser "ubuntu" `
   -DeployTargetBase "/home/ubuntu/blog-site" `
   -BaseUrl "https://your-domain.com" `
-  -KeyPath "$env:USERPROFILE/.ssh/id_ed25519"
+  -KeyPath "$env:USERPROFILE/.ssh/id_ed25519" `
+  -EnvFile ".env"
 ```
 
 发布后验证：
@@ -256,7 +266,10 @@ curl -I "https://your-domain.com"
 
 ---
 
-## 7. GitHub Actions 自动部署（可选）
+## 7. GitHub Actions 自动同步与部署（每日 00:00）
+
+当前自动任务由 GitHub Actions 定时触发（不是服务器 crontab）：  
+- `schedule: cron: "0 16 * * *"` = 每天北京时间 `00:00`
 
 CI 不读取仓库内 `.env`，只读取 GitHub Secrets。  
 配置位置：`GitHub 仓库 -> Settings -> Secrets and variables -> Actions`
@@ -267,6 +280,16 @@ CI 不读取仓库内 `.env`，只读取 GitHub Secrets。
 - 部署：`DEPLOY_HOST`、`DEPLOY_PORT`、`DEPLOY_USER`、`DEPLOY_SSH_KEY`、`DEPLOY_TARGET_BASE`
 - 站点：`SITE_URL`、`TZ`
 - 可选：`GISCUS_*`、`ANALYTICS_*`
+
+### 7.1 定时任务排障
+
+如果自动任务没有按时运行，按下面顺序检查：
+
+1. GitHub 仓库 `Actions` 是否启用，且 workflow 文件在默认分支。  
+2. Secrets 是否齐全，是否有空值（尤其是 `WEBDAV_*`、`DEPLOY_*`）。  
+3. `DEPLOY_SSH_KEY` 是否可登录服务器。  
+4. Workflow 历史日志里是否在 `Sync from WebDAV`、`Build site`、`Deploy via rsync + symlink switch` 步骤报错。  
+5. 服务器目标目录是否仍为 `DEPLOY_TARGET_BASE` 指定路径。  
 
 ---
 
@@ -287,18 +310,20 @@ CI 不读取仓库内 `.env`，只读取 GitHub Secrets。
 | `DEPLOY_PORT` | SSH 端口，默认 `22` | 本地脚本环境或 CI Secrets |
 | `DEPLOY_USER` | SSH 用户 | 本地脚本环境或 CI Secrets |
 | `DEPLOY_TARGET_BASE` | 服务器发布根目录（建议 `/home/ubuntu/blog-site`） | 本地脚本环境或 CI Secrets |
-| `GISCUS_ENABLED` | 是否开启 Giscus（`true/false`） | `.env` 或 `hugo.toml` |
-| `GISCUS_REPO` | Giscus 仓库（如 `owner/repo`） | `.env` 或 `hugo.toml` |
-| `GISCUS_REPO_ID` | Giscus 仓库 ID | `.env` 或 `hugo.toml` |
-| `GISCUS_CATEGORY` | Giscus 分类名 | `.env` 或 `hugo.toml` |
-| `GISCUS_CATEGORY_ID` | Giscus 分类 ID | `.env` 或 `hugo.toml` |
-| `GISCUS_MAPPING` | 映射方式（如 `pathname`） | `.env` 或 `hugo.toml` |
-| `GISCUS_STRICT` | 严格匹配（`0/1`） | `.env` 或 `hugo.toml` |
-| `GISCUS_REACTIONS_ENABLED` | 是否启用表情反馈（`0/1`） | `.env` 或 `hugo.toml` |
-| `GISCUS_EMIT_METADATA` | 是否发送元数据（`0/1`） | `.env` 或 `hugo.toml` |
-| `GISCUS_INPUT_POSITION` | 输入框位置（`top/bottom`） | `.env` 或 `hugo.toml` |
-| `GISCUS_LANG` | Giscus 语言（如 `zh-CN`） | `.env` 或 `hugo.toml` |
-| `GISCUS_LOADING` | 加载策略（如 `lazy`） | `.env` 或 `hugo.toml` |
+| `DEPLOY_KEY_PATH` | 本地部署脚本使用的 SSH 私钥路径 | 本地 `.env`（仅手动部署脚本） |
+| `GISCUS_ENABLED` | 是否开启 Giscus（`true/false`） | 本地 `.env` 或 GitHub Secrets |
+| `GISCUS_REPO` | Giscus 仓库（如 `owner/repo`） | 本地 `.env` 或 GitHub Secrets |
+| `GISCUS_REPO_ID` | Giscus 仓库 ID | 本地 `.env` 或 GitHub Secrets |
+| `GISCUS_CATEGORY` | Giscus 分类名 | 本地 `.env` 或 GitHub Secrets |
+| `GISCUS_CATEGORY_ID` | Giscus 分类 ID | 本地 `.env` 或 GitHub Secrets |
+| `GISCUS_MAPPING` | 映射方式（如 `pathname`） | 本地 `.env` 或 GitHub Secrets |
+| `GISCUS_STRICT` | 严格匹配（`0/1`） | 本地 `.env` 或 GitHub Secrets |
+| `GISCUS_REACTIONS_ENABLED` | 是否启用表情反馈（`0/1`） | 本地 `.env` 或 GitHub Secrets |
+| `GISCUS_EMIT_METADATA` | 是否发送元数据（`0/1`） | 本地 `.env` 或 GitHub Secrets |
+| `GISCUS_INPUT_POSITION` | 输入框位置（`top/bottom`） | 本地 `.env` 或 GitHub Secrets |
+| `GISCUS_THEME` | Giscus 主题（如 `preferred_color_scheme`） | 本地 `.env` 或 GitHub Secrets |
+| `GISCUS_LANG` | Giscus 语言（如 `zh-CN`） | 本地 `.env` 或 GitHub Secrets |
+| `GISCUS_LOADING` | 加载策略（如 `lazy`） | 本地 `.env` 或 GitHub Secrets |
 | `ANALYTICS_ENABLED` | 是否开启统计（`true/false`） | `.env` 或 `hugo.toml` |
 | `ANALYTICS_PROVIDER` | 统计服务（`umami/plausible`） | `.env` 或 `hugo.toml` |
 | `ANALYTICS_SCRIPT_URL` | 统计脚本 URL | `.env` 或 `hugo.toml` |
@@ -311,3 +336,19 @@ CI 不读取仓库内 `.env`，只读取 GitHub Secrets。
 优先读 `hugo.toml` 的 `params.*`，为空时才回退到环境变量。
 
 所以如果你希望主要用 `.env`/Secrets 控制，建议在 `hugo.toml` 中把对应字段留空或关闭。
+
+### 8.2 评论功能（Giscus）需要在哪里配置
+
+推荐方案：博客主仓库保持私有，单独建一个公开评论仓库（仅用于 Discussions）。
+
+1) 在公开评论仓库开启 `Discussions`，创建分类（如 `Announcements`）。  
+2) 在 `https://giscus.app/zh-CN` 填写仓库与分类，拿到：  
+   - `repo` -> 对应 `GISCUS_REPO`  
+   - `repoId` -> 对应 `GISCUS_REPO_ID`  
+   - `category` -> 对应 `GISCUS_CATEGORY`  
+   - `categoryId` -> 对应 `GISCUS_CATEGORY_ID`  
+   - `theme` -> 对应 `GISCUS_THEME`（推荐 `preferred_color_scheme`）  
+3) 配置位置：  
+   - 本地预览：仓库根目录 `.env`  
+   - 线上自动构建：GitHub Secrets（同名变量）  
+4) 注意：`hugo` 命令只读取“当前进程环境变量”，不会自动加载 `.env` 文件；本地预览评论时请先导出 `GISCUS_*` 变量，或直接写入 `hugo.toml`。  

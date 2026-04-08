@@ -1,6 +1,9 @@
 ﻿---
 title: "springboot打包"
 date: 2026-04-08T10:42:52+08:00
+tags:
+  - SpringBoot
+  - 后端
 draft: false
 ---
 

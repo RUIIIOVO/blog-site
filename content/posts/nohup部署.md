@@ -1,6 +1,9 @@
 ﻿---
 title: "nohup部署"
 date: 2026-04-08T10:42:55+08:00
+tags:
+  - Java
+  - 部署
 draft: false
 ---
 

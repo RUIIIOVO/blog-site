@@ -1,6 +1,8 @@
 ﻿---
 title: "welcome"
 date: 2026-04-07T17:25:21+08:00
+tags:
+  - 运维
 draft: false
 ---
 

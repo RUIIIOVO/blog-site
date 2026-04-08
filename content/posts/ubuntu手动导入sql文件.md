@@ -1,6 +1,9 @@
 ﻿---
 title: "ubuntu手动导入sql文件"
 date: 2026-04-08T10:42:52+08:00
+tags:
+  - 数据库
+  - Ubuntu
 draft: false
 ---
 

@@ -1,6 +1,10 @@
 ﻿---
 title: "FigmaMCP提示词"
 date: 2026-04-08T10:42:53+08:00
+tags:
+  - JavaScript
+  - 前端
+  - 后端
 draft: false
 ---
 

@@ -1,6 +1,9 @@
 ﻿---
 title: "windows所需的C++环境下载"
 date: 2026-04-08T10:42:51+08:00
+tags:
+  - Windows
+  - 数据库
 draft: false
 ---
 

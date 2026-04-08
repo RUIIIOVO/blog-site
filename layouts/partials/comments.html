@@ -7,6 +7,7 @@
 {{- $reactionsEnabled := or .Site.Params.giscus.reactionsEnabled (getenv "GISCUS_REACTIONS_ENABLED") -}}
 {{- $emitMetadata := or .Site.Params.giscus.emitMetadata (getenv "GISCUS_EMIT_METADATA") -}}
 {{- $inputPosition := or .Site.Params.giscus.inputPosition (getenv "GISCUS_INPUT_POSITION") -}}
+{{- $theme := or .Site.Params.giscus.theme (getenv "GISCUS_THEME") -}}
 {{- $lang := or .Site.Params.giscus.lang (getenv "GISCUS_LANG") -}}
 {{- $loading := or .Site.Params.giscus.loading (getenv "GISCUS_LOADING") -}}
 {{- $enabledByParam := .Site.Params.giscus.enabled -}}
@@ -25,6 +26,7 @@
     data-reactions-enabled="{{ default "1" $reactionsEnabled }}"
     data-emit-metadata="{{ default "0" $emitMetadata }}"
     data-input-position="{{ default "top" $inputPosition }}"
+    data-theme="{{ default "preferred_color_scheme" $theme }}"
     data-lang="{{ default "zh-CN" $lang }}"
     data-loading="{{ default "lazy" $loading }}"
     crossorigin="anonymous"

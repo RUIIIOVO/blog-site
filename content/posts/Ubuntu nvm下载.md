@@ -1,6 +1,10 @@
 ﻿---
 title: "Ubuntu nvm下载"
 date: 2026-04-08T10:42:52+08:00
+tags:
+  - JavaScript
+  - Git
+  - Ubuntu
 draft: false
 ---
 

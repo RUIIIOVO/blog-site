@@ -1,6 +1,10 @@
 ﻿---
 title: "MinIO 安装"
 date: 2026-04-08T10:42:54+08:00
+tags:
+  - 数据库
+  - Windows
+  - 运维
 draft: false
 ---
 

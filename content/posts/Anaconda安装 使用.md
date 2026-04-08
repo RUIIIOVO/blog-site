@@ -1,6 +1,8 @@
 ﻿---
 title: "Anaconda安装 使用"
 date: 2026-04-08T10:42:52+08:00
+tags:
+  - Python
 draft: false
 ---
 

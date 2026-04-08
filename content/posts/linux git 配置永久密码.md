@@ -1,6 +1,9 @@
 ﻿---
 title: "linux git 配置永久密码"
 date: 2026-04-08T10:42:51+08:00
+tags:
+  - Git
+  - Linux
 draft: false
 ---
 

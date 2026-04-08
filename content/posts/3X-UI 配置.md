@@ -1,6 +1,10 @@
 ﻿---
 title: "3X-UI 配置"
 date: 2026-04-08T10:33:58+08:00
+tags:
+  - Docker
+  - Git
+  - Ubuntu
 draft: false
 ---
 

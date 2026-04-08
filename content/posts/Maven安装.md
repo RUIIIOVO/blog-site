@@ -1,6 +1,8 @@
 ﻿---
 title: "Maven安装"
 date: 2026-04-08T10:42:55+08:00
+tags:
+  - Java
 draft: false
 ---
 
