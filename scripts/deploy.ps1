@@ -109,7 +109,7 @@ function Repair-WindowsSshKeyAcl {
     try {
         $account = (& whoami).Trim()
         & icacls $Path /inheritance:r | Out-Null
-        & icacls $Path /grant:r "$account:(R)" | Out-Null
+        & icacls $Path /grant:r "${account}:(R)" | Out-Null
         & icacls $Path /remove:g "BUILTIN\Users" "NT AUTHORITY\Authenticated Users" "Everyone" 2>$null | Out-Null
     }
     catch {

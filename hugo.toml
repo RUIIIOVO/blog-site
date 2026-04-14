@@ -1,7 +1,7 @@
 baseURL = "https://example.com/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh"
-title = "Rui blog"
+title = "廖孔瑞的小站"
 theme = "PaperMod"
 timezone = "Asia/Shanghai"
 hasCJKLanguage = true
@@ -43,7 +43,7 @@ ShowPostNavLinks = true
 ShowBreadCrumbs = true
 ShowToc = true
 TocOpen = true
-comments = true
+comments = false
 disableSpecial1stPost = true
 mainSections = ["posts"]
 
@@ -55,7 +55,7 @@ mainSections = ["posts"]
   disableHLJS = true
 
   [params.giscus]
-  enabled = true
+  enabled = false
   repo = ""
   repoID = ""
   category = ""
